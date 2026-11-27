@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VI Translator</string>
+    <string name="ui_language">Lugha ya programu</string>
+    <string name="phone_language">Ya simu</string>
+
+    <string name="step_console">1. Koni yako</string>
+    <string name="playstation">PlayStation 5</string>
+    <string name="xbox">Xbox</string>
+    <string name="ps_setup_hint">Simu inatiririsha PS5 kwa Kucheza kwa Mbali ili kusoma mchezo; TV inaendelea kuonyesha koni kama kawaida. Iweke mara moja: kwenye PS5, Settings › System › Remote Play › Link Device huonyesha PIN.</string>
+    <string name="ps_find">Tafuta PS5</string>
+    <string name="ps_address">Anwani ya PS5 (192.168.1.20)</string>
+    <string name="psn_secondary_hint">Ingia kwa akaunti ya pili ya PSN, si ile unayochezea: Kucheza kwa Mbali huiingiza kwenye PS5. Kitambulisho chake cha akaunti pekee ndicho huhifadhiwa.</string>
+    <string name="psn_sign_in">Ingia kwenye PSN</string>
+    <string name="psn_failed">Kuingia kwenye PSN hakukufaulu: %1$s</string>
+    <string name="psn_account_id">Kitambulisho cha akaunti ya PSN</string>
+    <string name="ps_pin">PIN ya tarakimu 8 inayoonyeshwa na PS5</string>
+    <string name="ps_register">Oanisha</string>
+    <string name="ps_wake">Amsha PS5</string>
+    <string name="ps_registering">Inaoanisha…</string>
+    <string name="ps_register_missing">Jaza anwani ya PS5, kitambulisho cha akaunti na PIN ya tarakimu 8.</string>
+    <string name="ps_register_failed">PS5 imekataa: angalia PIN (hubadilika kila baada ya dakika chache) na kwamba Kucheza kwa Mbali kumewashwa.</string>
+    <string name="ps_registered">Imeoanishwa na %1$s (%2$s)</string>
+    <string name="ps_not_registered">Bado haijaoanishwa na PS5.</string>
+    <string name="ps_not_in_build">PS Remote Play haimo katika toleo hili la programu.</string>
+    <string name="ps_ready">imewashwa</string>
+    <string name="ps_standby">hali ya kupumzika</string>
+    <string name="ps_login_pin">PS5 inaomba nambari ya siri ya akaunti</string>
+    <string name="ps_login_pin_wrong">Nambari ya siri si sahihi: jaribu tena</string>
+    <string name="xbox_hint">Anza kutafsiri hufungua kicheza cha Kucheza kwa Mbali cha Microsoft hapa. Ingia hapo kwa akaunti yako ya Microsoft na uunganishe na Xbox yako; TV inaendelea kuonyesha koni kama kawaida. Acha skrini ikiwa imewashwa unapocheza.</string>
+    <string name="xbox_capture_screen">Video haiwezi kusomwa: nasa skrini</string>
+    <string name="xbox_setup_status">Ingia, kisha uchague Xbox yako. Rudi ukimaliza.</string>
+    <string name="xbox_status">Imesoma fremu %1$d (%2$s)</string>
+
+    <string name="step_tv">2. Unganisha TV</string>
+    <string name="tv_hint">Fungua VI Translator kwenye TV (Android TV, LG au Samsung): itaonyesha msimbo wa tarakimu 6.</string>
+    <string name="tv_none">Bado hakuna TV iliyounganishwa.</string>
+    <string name="tv_find">Tafuta TV</string>
+    <string name="tv_found_none">Hakuna TV iliyopatikana: je, programu ya TV imefunguliwa na iko kwenye mtandao uleule? Unaweza kuandika anwani yake.</string>
+    <string name="tv_address">Anwani ya TV</string>
+    <string name="tv_code">Msimbo unaoonyeshwa na TV</string>
+    <string name="tv_connect">Unganisha</string>
+    <string name="tv_connecting">Inaunganisha…</string>
+    <string name="tv_connected">Imeunganishwa.</string>
+    <string name="tv_wrong_code">Huo si msimbo unaoonyeshwa na TV.</string>
+    <string name="tv_new_code">Misimbo mingi mno isiyo sahihi: TV inaonyesha msimbo mpya.</string>
+    <string name="tv_unreachable">TV haikujibu: je, programu ya TV imefunguliwa?</string>
+    <string name="tv_missing">Chagua TV (au andika anwani yake) na msimbo wa tarakimu 6.</string>
+    <string name="tv_forget">Tenganisha</string>
+    <string name="searching">Inatafuta…</string>
+
+    <string name="step_game">3. Mchezo na lugha</string>
+    <string name="translate_into">Tafsiri kwa</string>
+
+    <string name="step_start">4. Tafsiri</string>
+    <string name="keep_open_hint">Acha VI Translator wazi unapocheza (ukitumia PS5 skrini inaweza kuzimwa).</string>
+    <string name="start">Anza kutafsiri</string>
+    <string name="stop">Simamisha</string>
+    <string name="choose_console">Chagua koni yako kwanza.</string>
+    <string name="state_starting">Inaanza…</string>
+    <string name="state_connecting">Inaunganisha na PS5…</string>
+    <string name="state_reading">Inatafsiri.</string>
+    <string name="state_ended">Imesimamishwa.</string>
+    <string name="state_failed">Imesimamishwa: %1$s</string>
+    <string name="stats">Imesoma fremu %1$d kati ya %2$d · %3$d ms · %4$s</string>
+
+    <string name="step_lines">5. Iliyosomwa na kutafsiriwa</string>
+    <string name="lines_none">Mistari iliyosomwa huonekana hapa.</string>
+    <string name="about">Kiini cha tafsiri: %1$s</string>
+
+    <string name="notify_channel">Inatafsiri</string>
+    <string name="notify_text">Inatafsiri mchezo kwa ajili ya TV yako</string>
+
+    <string name="update_available">Sasisha</string>
+    <string name="update_to">Sasisha hadi %1$s</string>
+    <string name="update_downloading">Inapakua sasisho…</string>
+    <string name="update_installing">Inasakinisha…</string>
+    <string name="update_failed">Sasisho limeshindwa: jaribu tena</string>
+    <string name="service">Huduma ya tafsiri</string>
+    <string name="service_key">Ufunguo wa huduma</string>
+    <string name="service_hint">Mistari inayojulikana na kumbukumbu ya tafsiri (tafsiri zilizokaguliwa, zilizopakuliwa kutoka vitranslator.app) ni bure; mistari mingine inahitaji huduma ya tafsiri yenye ufunguo wako mwenyewe.</string>
+    <string name="service_save">Hifadhi</string>
+    <string name="service_saved">Imehifadhiwa.</string>
+    <string name="tv_not_sharing">Simu hii haiko kwenye mtandao wa nyumbani: iunganishe na Wi-Fi ileile ya TV.</string>
+    <string-array name="services">
+        <item>Kumbukumbu ya tafsiri pekee (bure)</item>
+        <item>DeepL</item>
+        <item>Google</item>
+        <item>Claude</item>
+        <item>OpenAI</item>
+    </string-array>
+</resources>

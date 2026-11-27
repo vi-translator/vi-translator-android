@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VI Translator</string>
+    <string name="ui_language">界面语言</string>
+    <string name="phone_language">跟随手机</string>
+
+    <string name="step_console">1. 你的主机</string>
+    <string name="playstation">PlayStation 5</string>
+    <string name="xbox">Xbox</string>
+    <string name="ps_setup_hint">手机通过遥控游玩串流 PS5 来读取游戏；电视照常显示主机画面。只需设置一次：在 PS5 上，设置 › 系统 › 遥控游玩 › 链接设备 会显示 PIN。</string>
+    <string name="ps_find">查找 PS5</string>
+    <string name="ps_address">PS5 地址（192.168.1.20）</string>
+    <string name="psn_secondary_hint">请用第二个 PSN 账号登录，而不是你玩游戏用的账号：遥控游玩会用它在 PS5 上登录。只保存它的账号 ID。</string>
+    <string name="psn_sign_in">登录 PSN</string>
+    <string name="psn_failed">PSN 登录失败：%1$s</string>
+    <string name="psn_account_id">PSN 账号 ID</string>
+    <string name="ps_pin">PS5 上显示的 8 位数 PIN</string>
+    <string name="ps_register">链接</string>
+    <string name="ps_wake">唤醒 PS5</string>
+    <string name="ps_registering">正在链接…</string>
+    <string name="ps_register_missing">请填写 PS5 的地址、账号 ID 和 8 位数 PIN。</string>
+    <string name="ps_register_failed">PS5 拒绝了连接：请检查 PIN（每隔几分钟会变化），并确认已开启遥控游玩。</string>
+    <string name="ps_registered">已链接到 %1$s（%2$s）</string>
+    <string name="ps_not_registered">尚未链接 PS5。</string>
+    <string name="ps_not_in_build">此版本的应用不包含 PS Remote Play。</string>
+    <string name="ps_ready">已开机</string>
+    <string name="ps_standby">待机模式</string>
+    <string name="ps_login_pin">PS5 要求输入该账号的密码</string>
+    <string name="ps_login_pin_wrong">密码错误：请重试</string>
+    <string name="xbox_hint">“开始翻译”会在这里打开 Microsoft 的远程游玩播放器。请在其中用你的 Microsoft 账户登录并连接到你的 Xbox；电视照常显示主机画面。游戏时请保持屏幕常亮。</string>
+    <string name="xbox_capture_screen">无法读取视频：截取屏幕</string>
+    <string name="xbox_setup_status">登录后选择你的 Xbox。完成后按返回。</string>
+    <string name="xbox_status">已读取 %1$d 帧（%2$s）</string>
+
+    <string name="step_tv">2. 连接电视</string>
+    <string name="tv_hint">在电视（Android TV、LG 或 Samsung）上打开 VI Translator：它会显示一个 6 位数代码。</string>
+    <string name="tv_none">尚未连接电视。</string>
+    <string name="tv_find">查找电视</string>
+    <string name="tv_found_none">未找到电视：电视应用是否已打开并在同一网络中？你可以输入它的地址。</string>
+    <string name="tv_address">电视地址</string>
+    <string name="tv_code">电视上显示的代码</string>
+    <string name="tv_connect">连接</string>
+    <string name="tv_connecting">正在连接…</string>
+    <string name="tv_connected">已连接。</string>
+    <string name="tv_wrong_code">这不是电视上显示的代码。</string>
+    <string name="tv_new_code">错误代码次数过多：电视已显示新代码。</string>
+    <string name="tv_unreachable">电视没有响应：电视应用是否已打开？</string>
+    <string name="tv_missing">请选择电视（或输入它的地址）并输入 6 位数代码。</string>
+    <string name="tv_forget">断开连接</string>
+    <string name="searching">正在搜索…</string>
+
+    <string name="step_game">3. 游戏和语言</string>
+    <string name="translate_into">翻译为</string>
+
+    <string name="step_start">4. 翻译</string>
+    <string name="keep_open_hint">游戏时请保持 VI Translator 打开（使用 PS5 时可以熄屏）。</string>
+    <string name="start">开始翻译</string>
+    <string name="stop">停止</string>
+    <string name="choose_console">请先选择你的主机。</string>
+    <string name="state_starting">正在启动…</string>
+    <string name="state_connecting">正在连接 PS5…</string>
+    <string name="state_reading">正在翻译。</string>
+    <string name="state_ended">已停止。</string>
+    <string name="state_failed">已停止：%1$s</string>
+    <string name="stats">已读取 %1$d/%2$d 帧 · %3$d ms · %4$s</string>
+
+    <string name="step_lines">5. 读取和翻译的内容</string>
+    <string name="lines_none">读取到的文字行会显示在这里。</string>
+    <string name="about">翻译核心：%1$s</string>
+
+    <string name="notify_channel">正在翻译</string>
+    <string name="notify_text">正在为你的电视翻译游戏</string>
+
+    <string name="update_available">更新</string>
+    <string name="update_to">更新到 %1$s</string>
+    <string name="update_downloading">正在下载更新…</string>
+    <string name="update_installing">正在安装…</string>
+    <string name="update_failed">更新失败：请重试</string>
+    <string name="service">翻译服务</string>
+    <string name="service_key">服务密钥</string>
+    <string name="service_hint">翻译记忆中已有的文字行（从 vitranslator.app 下载的审核过的翻译）免费；其他文字行需要使用你自己密钥的翻译服务。</string>
+    <string name="service_save">保存</string>
+    <string name="service_saved">已保存。</string>
+    <string name="tv_not_sharing">这部手机未连接家庭网络：请连接到与电视相同的 Wi-Fi。</string>
+    <string-array name="services">
+        <item>仅翻译记忆（免费）</item>
+        <item>DeepL</item>
+        <item>Google</item>
+        <item>Claude</item>
+        <item>OpenAI</item>
+    </string-array>
+</resources>

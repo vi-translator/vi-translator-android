@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VI Translator</string>
+    <string name="ui_language">Limba aplicației</string>
+    <string name="phone_language">Cea a telefonului</string>
+
+    <string name="step_console">1. Consola dvs.</string>
+    <string name="playstation">PlayStation 5</string>
+    <string name="xbox">Xbox</string>
+    <string name="ps_setup_hint">Telefonul primește în flux imaginea de pe PS5 prin Joc la distanță pentru a citi jocul; televizorul continuă să arate consola ca de obicei. Configurați o singură dată: pe PS5, Setări › Sistem › Joc la distanță › Asociere dispozitiv afișează un PIN.</string>
+    <string name="ps_find">Găsește PS5-ul</string>
+    <string name="ps_address">Adresa PS5 (192.168.1.20)</string>
+    <string name="psn_secondary_hint">Conectați-vă cu un al doilea cont PSN, nu cu cel cu care jucați: Joc la distanță îl conectează pe PS5. Se păstrează doar ID-ul contului.</string>
+    <string name="psn_sign_in">Conectare la PSN</string>
+    <string name="psn_failed">Conectarea la PSN nu a reușit: %1$s</string>
+    <string name="psn_account_id">ID-ul contului PSN</string>
+    <string name="ps_pin">PIN-ul din 8 cifre afișat de PS5</string>
+    <string name="ps_register">Asociază</string>
+    <string name="ps_wake">Trezește PS5-ul</string>
+    <string name="ps_registering">Se asociază…</string>
+    <string name="ps_register_missing">Completați adresa PS5, ID-ul contului și PIN-ul din 8 cifre.</string>
+    <string name="ps_register_failed">PS5-ul a refuzat: verificați PIN-ul (se schimbă la câteva minute) și dacă Joc la distanță este activat.</string>
+    <string name="ps_registered">Asociat cu %1$s (%2$s)</string>
+    <string name="ps_not_registered">Încă nu este asociat niciun PS5.</string>
+    <string name="ps_not_in_build">PS Remote Play nu este inclus în această versiune a aplicației.</string>
+    <string name="ps_ready">pornit</string>
+    <string name="ps_standby">mod de repaus</string>
+    <string name="ps_login_pin">PS5-ul cere codul de acces al contului</string>
+    <string name="ps_login_pin_wrong">Cod de acces greșit: încercați din nou</string>
+    <string name="xbox_hint">Începe traducerea deschide aici playerul Joc la distanță de la Microsoft. Conectați-vă acolo cu contul Microsoft și conectați-vă la Xbox; televizorul continuă să arate consola ca de obicei. Țineți ecranul aprins cât jucați.</string>
+    <string name="xbox_capture_screen">Videoclipul nu poate fi citit: capturează ecranul</string>
+    <string name="xbox_setup_status">Conectați-vă, apoi alegeți Xbox-ul. Înapoi când ați terminat.</string>
+    <string name="xbox_status">%1$d cadre citite (%2$s)</string>
+
+    <string name="step_tv">2. Conectează un televizor</string>
+    <string name="tv_hint">Deschideți VI Translator pe televizor (Android TV, LG sau Samsung): afișează un cod din 6 cifre.</string>
+    <string name="tv_none">Niciun televizor conectat încă.</string>
+    <string name="tv_find">Caută televizoare</string>
+    <string name="tv_found_none">Niciun televizor găsit: este aplicația deschisă pe televizor și în aceeași rețea? Puteți scrie adresa lui.</string>
+    <string name="tv_address">Adresa televizorului</string>
+    <string name="tv_code">Codul afișat pe televizor</string>
+    <string name="tv_connect">Conectează</string>
+    <string name="tv_connecting">Se conectează…</string>
+    <string name="tv_connected">Conectat.</string>
+    <string name="tv_wrong_code">Acesta nu este codul afișat pe televizor.</string>
+    <string name="tv_new_code">Prea multe coduri greșite: televizorul arată unul nou.</string>
+    <string name="tv_unreachable">Televizorul nu a răspuns: este aplicația deschisă pe televizor?</string>
+    <string name="tv_missing">Alegeți un televizor (sau scrieți adresa lui) și codul din 6 cifre.</string>
+    <string name="tv_forget">Deconectează</string>
+    <string name="searching">Se caută…</string>
+
+    <string name="step_game">3. Jocul și limba</string>
+    <string name="translate_into">Tradu în</string>
+
+    <string name="step_start">4. Traducere</string>
+    <string name="keep_open_hint">Țineți VI Translator deschis cât jucați (cu un PS5, ecranul poate fi stins).</string>
+    <string name="start">Începe traducerea</string>
+    <string name="stop">Oprește</string>
+    <string name="choose_console">Alegeți mai întâi consola.</string>
+    <string name="state_starting">Se pornește…</string>
+    <string name="state_connecting">Se conectează la PS5…</string>
+    <string name="state_reading">Se traduce.</string>
+    <string name="state_ended">Oprit.</string>
+    <string name="state_failed">Oprit: %1$s</string>
+    <string name="stats">%1$d din %2$d cadre citite · %3$d ms · %4$s</string>
+
+    <string name="step_lines">5. Citite și traduse</string>
+    <string name="lines_none">Rândurile citite apar aici.</string>
+    <string name="about">Motor de traducere: %1$s</string>
+
+    <string name="notify_channel">Se traduce</string>
+    <string name="notify_text">Se traduce jocul pentru televizor</string>
+
+    <string name="update_available">Actualizare</string>
+    <string name="update_to">Actualizează la %1$s</string>
+    <string name="update_downloading">Se descarcă actualizarea…</string>
+    <string name="update_installing">Se instalează…</string>
+    <string name="update_failed">Actualizarea a eșuat: încercați din nou</string>
+    <string name="service">Serviciu de traducere</string>
+    <string name="service_key">Cheia serviciului</string>
+    <string name="service_hint">Rândurile cunoscute de memoria de traduceri (traduceri verificate, descărcate de pe vitranslator.app) sunt gratuite; celelalte rânduri necesită un serviciu de traducere cu propria cheie.</string>
+    <string name="service_save">Salvează</string>
+    <string name="service_saved">Salvat.</string>
+    <string name="tv_not_sharing">Acest telefon nu este într-o rețea de acasă: conectați-l la aceeași rețea Wi-Fi ca televizorul.</string>
+    <string-array name="services">
+        <item>Doar memoria de traduceri (gratuit)</item>
+        <item>DeepL</item>
+        <item>Google</item>
+        <item>Claude</item>
+        <item>OpenAI</item>
+    </string-array>
+</resources>

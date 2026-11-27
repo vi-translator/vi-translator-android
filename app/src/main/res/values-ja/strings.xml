@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VI Translator</string>
+    <string name="ui_language">アプリの言語</string>
+    <string name="phone_language">スマホと同じ</string>
+
+    <string name="step_console">1. ゲーム機</string>
+    <string name="playstation">PlayStation 5</string>
+    <string name="xbox">Xbox</string>
+    <string name="ps_setup_hint">スマホはリモートプレイで PS5 をストリーミングしてゲームを読み取ります。テレビにはいつもどおりゲーム機の画面が表示されます。最初に一度だけ設定します：PS5 の 設定 › システム › リモートプレイ › 機器を登録する で PIN が表示されます。</string>
+    <string name="ps_find">PS5 を探す</string>
+    <string name="ps_address">PS5 のアドレス（192.168.1.20）</string>
+    <string name="psn_secondary_hint">プレイに使うアカウントではなく、2つ目の PSN アカウントでサインインしてください。リモートプレイがそのアカウントで PS5 にサインインします。保存されるのはアカウント ID だけです。</string>
+    <string name="psn_sign_in">PSN にサインイン</string>
+    <string name="psn_failed">PSN にサインインできませんでした：%1$s</string>
+    <string name="psn_account_id">PSN アカウント ID</string>
+    <string name="ps_pin">PS5 に表示された8桁の PIN</string>
+    <string name="ps_register">登録</string>
+    <string name="ps_wake">PS5 を起動</string>
+    <string name="ps_registering">登録中…</string>
+    <string name="ps_register_missing">PS5 のアドレス、アカウント ID、8桁の PIN を入力してください。</string>
+    <string name="ps_register_failed">PS5 に拒否されました。PIN（数分ごとに変わります）と、リモートプレイが有効になっているかを確認してください。</string>
+    <string name="ps_registered">%1$s（%2$s）に登録済み</string>
+    <string name="ps_not_registered">まだ PS5 に登録されていません。</string>
+    <string name="ps_not_in_build">このビルドのアプリには PS Remote Play が含まれていません。</string>
+    <string name="ps_ready">オン</string>
+    <string name="ps_standby">レストモード</string>
+    <string name="ps_login_pin">PS5 がアカウントのパスコードを求めています</string>
+    <string name="ps_login_pin_wrong">パスコードが違います。もう一度お試しください</string>
+    <string name="xbox_hint">「翻訳を開始」で、ここに Microsoft のリモートプレイ プレーヤーが開きます。Microsoft アカウントでサインインして Xbox に接続してください。テレビにはいつもどおりゲーム機の画面が表示されます。プレイ中は画面をオンのままにしてください。</string>
+    <string name="xbox_capture_screen">映像を読み取れません：画面をキャプチャ</string>
+    <string name="xbox_setup_status">サインインしてから Xbox を選んでください。終わったら「戻る」を押します。</string>
+    <string name="xbox_status">%1$d フレームを読み取り（%2$s）</string>
+
+    <string name="step_tv">2. テレビを接続</string>
+    <string name="tv_hint">テレビ（Android TV、LG、Samsung）で VI Translator を開くと、6桁のコードが表示されます。</string>
+    <string name="tv_none">まだテレビが接続されていません。</string>
+    <string name="tv_find">テレビを探す</string>
+    <string name="tv_found_none">テレビが見つかりません。テレビのアプリが開いていて、同じネットワーク上にありますか？アドレスを入力することもできます。</string>
+    <string name="tv_address">テレビのアドレス</string>
+    <string name="tv_code">テレビに表示されたコード</string>
+    <string name="tv_connect">接続</string>
+    <string name="tv_connecting">接続中…</string>
+    <string name="tv_connected">接続しました。</string>
+    <string name="tv_wrong_code">テレビに表示されたコードと違います。</string>
+    <string name="tv_new_code">間違ったコードが多すぎます。テレビに新しいコードが表示されます。</string>
+    <string name="tv_unreachable">テレビが応答しません。テレビのアプリは開いていますか？</string>
+    <string name="tv_missing">テレビを選ぶ（またはアドレスを入力する）と、6桁のコードを入力してください。</string>
+    <string name="tv_forget">接続を解除</string>
+    <string name="searching">検索中…</string>
+
+    <string name="step_game">3. ゲームと言語</string>
+    <string name="translate_into">翻訳先の言語</string>
+
+    <string name="step_start">4. 翻訳</string>
+    <string name="keep_open_hint">プレイ中は VI Translator を開いたままにしてください（PS5 なら画面はオフでもかまいません）。</string>
+    <string name="start">翻訳を開始</string>
+    <string name="stop">停止</string>
+    <string name="choose_console">先にゲーム機を選んでください。</string>
+    <string name="state_starting">起動中…</string>
+    <string name="state_connecting">PS5 に接続中…</string>
+    <string name="state_reading">翻訳中。</string>
+    <string name="state_ended">停止しました。</string>
+    <string name="state_failed">停止しました：%1$s</string>
+    <string name="stats">%2$d フレーム中 %1$d を読み取り · %3$d ms · %4$s</string>
+
+    <string name="step_lines">5. 読み取りと翻訳</string>
+    <string name="lines_none">読み取った行がここに表示されます。</string>
+    <string name="about">翻訳エンジン：%1$s</string>
+
+    <string name="notify_channel">翻訳中</string>
+    <string name="notify_text">テレビ用にゲームを翻訳しています</string>
+
+    <string name="update_available">更新</string>
+    <string name="update_to">%1$s に更新</string>
+    <string name="update_downloading">更新をダウンロードしています…</string>
+    <string name="update_installing">インストール中…</string>
+    <string name="update_failed">更新に失敗しました。もう一度お試しください</string>
+    <string name="service">翻訳サービス</string>
+    <string name="service_key">サービスのキー</string>
+    <string name="service_hint">翻訳メモリにある行（vitranslator.app からダウンロードした確認済みの翻訳）は無料です。それ以外の行には、ご自身のキーで使う翻訳サービスが必要です。</string>
+    <string name="service_save">保存</string>
+    <string name="service_saved">保存しました。</string>
+    <string name="tv_not_sharing">このスマホはホームネットワークに接続されていません。テレビと同じ Wi-Fi に接続してください。</string>
+    <string-array name="services">
+        <item>翻訳メモリのみ（無料）</item>
+        <item>DeepL</item>
+        <item>Google</item>
+        <item>Claude</item>
+        <item>OpenAI</item>
+    </string-array>
+</resources>

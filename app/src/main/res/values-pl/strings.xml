@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VI Translator</string>
+    <string name="ui_language">Język aplikacji</string>
+    <string name="phone_language">Jak w telefonie</string>
+
+    <string name="step_console">1. Twoja konsola</string>
+    <string name="playstation">PlayStation 5</string>
+    <string name="xbox">Xbox</string>
+    <string name="ps_setup_hint">Telefon przesyła obraz z PS5 przez grę zdalną, aby odczytać grę; telewizor nadal pokazuje konsolę jak zwykle. Skonfiguruj to raz: na PS5 Ustawienia › System › Gra zdalna › Połącz urządzenie wyświetla PIN.</string>
+    <string name="ps_find">Znajdź PS5</string>
+    <string name="ps_address">Adres PS5 (192.168.1.20)</string>
+    <string name="psn_secondary_hint">Zaloguj się drugim kontem PSN, nie tym, na którym grasz: gra zdalna zaloguje je na PS5. Zachowywane jest tylko jego ID konta.</string>
+    <string name="psn_sign_in">Zaloguj się do PSN</string>
+    <string name="psn_failed">Logowanie do PSN nie powiodło się: %1$s</string>
+    <string name="psn_account_id">ID konta PSN</string>
+    <string name="ps_pin">8-cyfrowy PIN wyświetlany przez PS5</string>
+    <string name="ps_register">Połącz</string>
+    <string name="ps_wake">Wybudź PS5</string>
+    <string name="ps_registering">Łączenie…</string>
+    <string name="ps_register_missing">Wpisz adres PS5, ID konta i 8-cyfrowy PIN.</string>
+    <string name="ps_register_failed">PS5 odmówiła: sprawdź PIN (zmienia się co kilka minut) i czy gra zdalna jest włączona.</string>
+    <string name="ps_registered">Połączono z %1$s (%2$s)</string>
+    <string name="ps_not_registered">Jeszcze nie połączono z PS5.</string>
+    <string name="ps_not_in_build">PS Remote Play nie ma w tej wersji aplikacji.</string>
+    <string name="ps_ready">włączona</string>
+    <string name="ps_standby">tryb odpoczynku</string>
+    <string name="ps_login_pin">PS5 prosi o kod dostępu konta</string>
+    <string name="ps_login_pin_wrong">Błędny kod dostępu: spróbuj ponownie</string>
+    <string name="xbox_hint">Rozpocznij tłumaczenie otwiera tutaj odtwarzacz gry zdalnej Microsoftu. Zaloguj się w nim kontem Microsoft i połącz się ze swoim Xboxem; telewizor nadal pokazuje konsolę jak zwykle. Podczas gry nie wyłączaj ekranu.</string>
+    <string name="xbox_capture_screen">Nie można odczytać wideo: nagrywaj ekran</string>
+    <string name="xbox_setup_status">Zaloguj się, a potem wybierz swojego Xboxa. Na koniec Wstecz.</string>
+    <string name="xbox_status">Odczytane klatki: %1$d (%2$s)</string>
+
+    <string name="step_tv">2. Połącz telewizor</string>
+    <string name="tv_hint">Otwórz VI Translator na telewizorze (Android TV, LG lub Samsung): wyświetli 6-cyfrowy kod.</string>
+    <string name="tv_none">Jeszcze nie połączono telewizora.</string>
+    <string name="tv_find">Znajdź telewizory</string>
+    <string name="tv_found_none">Nie znaleziono telewizora: czy aplikacja na telewizorze jest otwarta i w tej samej sieci? Możesz wpisać jego adres.</string>
+    <string name="tv_address">Adres telewizora</string>
+    <string name="tv_code">Kod wyświetlany przez telewizor</string>
+    <string name="tv_connect">Połącz</string>
+    <string name="tv_connecting">Łączenie…</string>
+    <string name="tv_connected">Połączono.</string>
+    <string name="tv_wrong_code">To nie jest kod wyświetlany przez telewizor.</string>
+    <string name="tv_new_code">Zbyt wiele błędnych kodów: telewizor wyświetla nowy.</string>
+    <string name="tv_unreachable">Telewizor nie odpowiedział: czy aplikacja na telewizorze jest otwarta?</string>
+    <string name="tv_missing">Wybierz telewizor (lub wpisz jego adres) i 6-cyfrowy kod.</string>
+    <string name="tv_forget">Rozłącz</string>
+    <string name="searching">Wyszukiwanie…</string>
+
+    <string name="step_game">3. Gra i język</string>
+    <string name="translate_into">Tłumacz na</string>
+
+    <string name="step_start">4. Tłumaczenie</string>
+    <string name="keep_open_hint">Podczas gry nie zamykaj VI Translator (przy PS5 ekran może być wyłączony).</string>
+    <string name="start">Rozpocznij tłumaczenie</string>
+    <string name="stop">Zatrzymaj</string>
+    <string name="choose_console">Najpierw wybierz konsolę.</string>
+    <string name="state_starting">Uruchamianie…</string>
+    <string name="state_connecting">Łączenie z PS5…</string>
+    <string name="state_reading">Trwa tłumaczenie.</string>
+    <string name="state_ended">Zatrzymano.</string>
+    <string name="state_failed">Zatrzymano: %1$s</string>
+    <string name="stats">Odczytano %1$d z %2$d klatek · %3$d ms · %4$s</string>
+
+    <string name="step_lines">5. Odczytane i przetłumaczone</string>
+    <string name="lines_none">Tutaj pojawią się odczytane wiersze.</string>
+    <string name="about">Rdzeń tłumaczenia: %1$s</string>
+
+    <string name="notify_channel">Trwa tłumaczenie</string>
+    <string name="notify_text">Tłumaczenie gry na twój telewizor</string>
+
+    <string name="update_available">Aktualizuj</string>
+    <string name="update_to">Aktualizuj do %1$s</string>
+    <string name="update_downloading">Pobieranie aktualizacji…</string>
+    <string name="update_installing">Instalowanie…</string>
+    <string name="update_failed">Aktualizacja nie powiodła się: spróbuj ponownie</string>
+    <string name="service">Usługa tłumaczenia</string>
+    <string name="service_key">Klucz usługi</string>
+    <string name="service_hint">Wiersze znane pamięci tłumaczeń (sprawdzone tłumaczenia pobrane z vitranslator.app) są darmowe; inne wiersze wymagają usługi tłumaczenia z twoim własnym kluczem.</string>
+    <string name="service_save">Zapisz</string>
+    <string name="service_saved">Zapisano.</string>
+    <string name="tv_not_sharing">Ten telefon nie jest w sieci domowej: połącz go z tą samą siecią Wi-Fi co telewizor.</string>
+    <string-array name="services">
+        <item>Tylko pamięć tłumaczeń (darmowe)</item>
+        <item>DeepL</item>
+        <item>Google</item>
+        <item>Claude</item>
+        <item>OpenAI</item>
+    </string-array>
+</resources>

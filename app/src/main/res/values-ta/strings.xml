@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VI Translator</string>
+    <string name="ui_language">செயலியின் மொழி</string>
+    <string name="phone_language">போனின் மொழி</string>
+
+    <string name="step_console">1. உங்கள் கன்சோல்</string>
+    <string name="playstation">PlayStation 5</string>
+    <string name="xbox">Xbox</string>
+    <string name="ps_setup_hint">விளையாட்டைப் படிக்கப் போன் ரிமோட் பிளே மூலம் PS5-ஐ ஸ்ட்ரீம் செய்கிறது; டிவி வழக்கம்போல் கன்சோலைக் காட்டும். ஒருமுறை அமைக்கவும்: PS5-இல், அமைப்புகள் › சிஸ்டம் › ரிமோட் பிளே › சாதனத்தை இணை ஒரு PIN-ஐக் காட்டும்.</string>
+    <string name="ps_find">PS5-ஐக் கண்டுபிடி</string>
+    <string name="ps_address">PS5 முகவரி (192.168.1.20)</string>
+    <string name="psn_secondary_hint">நீங்கள் விளையாடும் கணக்கு அல்லாமல், இரண்டாவது PSN கணக்கில் உள்நுழையவும்: ரிமோட் பிளே அதை PS5-இல் உள்நுழைக்கும். அதன் கணக்கு ID மட்டுமே வைக்கப்படும்.</string>
+    <string name="psn_sign_in">PSN-இல் உள்நுழை</string>
+    <string name="psn_failed">PSN உள்நுழைவு வேலை செய்யவில்லை: %1$s</string>
+    <string name="psn_account_id">PSN கணக்கு ID</string>
+    <string name="ps_pin">PS5 காட்டும் 8 இலக்க PIN</string>
+    <string name="ps_register">இணை</string>
+    <string name="ps_wake">PS5-ஐ எழுப்பு</string>
+    <string name="ps_registering">இணைக்கிறது…</string>
+    <string name="ps_register_missing">PS5-இன் முகவரி, கணக்கு ID, 8 இலக்க PIN ஆகியவற்றை நிரப்பவும்.</string>
+    <string name="ps_register_failed">PS5 மறுத்தது: PIN-ஐச் சரிபார்க்கவும் (அது சில நிமிடங்களுக்கு ஒருமுறை மாறும்), ரிமோட் பிளே இயக்கத்தில் உள்ளதா என்றும் பார்க்கவும்.</string>
+    <string name="ps_registered">%1$s (%2$s) உடன் இணைக்கப்பட்டது</string>
+    <string name="ps_not_registered">இன்னும் எந்த PS5-உடனும் இணைக்கப்படவில்லை.</string>
+    <string name="ps_not_in_build">இந்தச் செயலிப் பதிப்பில் PS Remote Play இல்லை.</string>
+    <string name="ps_ready">இயக்கத்தில்</string>
+    <string name="ps_standby">ஓய்வு நிலை</string>
+    <string name="ps_login_pin">PS5 கணக்கின் கடவுக்குறியீட்டைக் கேட்கிறது</string>
+    <string name="ps_login_pin_wrong">தவறான கடவுக்குறியீடு: மீண்டும் முயலவும்</string>
+    <string name="xbox_hint">மொழிபெயர்க்கத் தொடங்கு, Microsoft-இன் ரிமோட் பிளே பிளேயரை இங்கே திறக்கும். அங்கே உங்கள் Microsoft கணக்கில் உள்நுழைந்து உங்கள் Xbox-உடன் இணைக்கவும்; டிவி வழக்கம்போல் கன்சோலைக் காட்டும். விளையாடும்போது திரையை இயக்கத்தில் வைத்திருக்கவும்.</string>
+    <string name="xbox_capture_screen">வீடியோவைப் படிக்க முடியவில்லை: திரையைப் பிடி</string>
+    <string name="xbox_setup_status">உள்நுழைந்து, உங்கள் Xbox-ஐத் தேர்ந்தெடுக்கவும். முடிந்ததும் பின்செல்லவும்.</string>
+    <string name="xbox_status">%1$d ஃப்ரேம்கள் படிக்கப்பட்டன (%2$s)</string>
+
+    <string name="step_tv">2. டிவியை இணை</string>
+    <string name="tv_hint">டிவியில் VI Translator-ஐத் திறக்கவும் (Android TV, LG அல்லது Samsung): அது 6 இலக்கக் குறியீட்டைக் காட்டும்.</string>
+    <string name="tv_none">இன்னும் எந்த டிவியும் இணைக்கப்படவில்லை.</string>
+    <string name="tv_find">டிவிகளைக் கண்டுபிடி</string>
+    <string name="tv_found_none">டிவி கிடைக்கவில்லை: டிவி செயலி திறந்து, அதே நெட்வொர்க்கில் உள்ளதா? அதன் முகவரியைத் தட்டச்சு செய்யலாம்.</string>
+    <string name="tv_address">டிவி முகவரி</string>
+    <string name="tv_code">டிவி காட்டும் குறியீடு</string>
+    <string name="tv_connect">இணைக்கவும்</string>
+    <string name="tv_connecting">இணைக்கிறது…</string>
+    <string name="tv_connected">இணைக்கப்பட்டது.</string>
+    <string name="tv_wrong_code">அது டிவி காட்டும் குறியீடு அல்ல.</string>
+    <string name="tv_new_code">அதிகமான தவறான குறியீடுகள்: டிவி புதிய குறியீட்டைக் காட்டுகிறது.</string>
+    <string name="tv_unreachable">டிவி பதிலளிக்கவில்லை: டிவி செயலி திறந்துள்ளதா?</string>
+    <string name="tv_missing">ஒரு டிவியைத் தேர்ந்தெடுத்து (அல்லது அதன் முகவரியைத் தட்டச்சு செய்து) 6 இலக்கக் குறியீட்டை உள்ளிடவும்.</string>
+    <string name="tv_forget">துண்டி</string>
+    <string name="searching">தேடுகிறது…</string>
+
+    <string name="step_game">3. விளையாட்டும் மொழியும்</string>
+    <string name="translate_into">மொழிபெயர்க்கும் மொழி</string>
+
+    <string name="step_start">4. மொழிபெயர்</string>
+    <string name="keep_open_hint">விளையாடும்போது VI Translator-ஐத் திறந்தே வைத்திருக்கவும் (PS5 என்றால் திரை அணைந்திருக்கலாம்).</string>
+    <string name="start">மொழிபெயர்க்கத் தொடங்கு</string>
+    <string name="stop">நிறுத்து</string>
+    <string name="choose_console">முதலில் உங்கள் கன்சோலைத் தேர்ந்தெடுக்கவும்.</string>
+    <string name="state_starting">தொடங்குகிறது…</string>
+    <string name="state_connecting">PS5-உடன் இணைக்கிறது…</string>
+    <string name="state_reading">மொழிபெயர்க்கிறது.</string>
+    <string name="state_ended">நிறுத்தப்பட்டது.</string>
+    <string name="state_failed">நிறுத்தப்பட்டது: %1$s</string>
+    <string name="stats">%2$d ஃப்ரேம்களில் %1$d படிக்கப்பட்டன · %3$d ms · %4$s</string>
+
+    <string name="step_lines">5. படித்தவை, மொழிபெயர்த்தவை</string>
+    <string name="lines_none">படிக்கப்பட்ட வரிகள் இங்கே தெரியும்.</string>
+    <string name="about">மொழிபெயர்ப்பு மையம்: %1$s</string>
+
+    <string name="notify_channel">மொழிபெயர்க்கிறது</string>
+    <string name="notify_text">உங்கள் டிவிக்காக விளையாட்டை மொழிபெயர்க்கிறது</string>
+
+    <string name="update_available">புதுப்பி</string>
+    <string name="update_to">%1$s-க்குப் புதுப்பி</string>
+    <string name="update_downloading">புதுப்பிப்பு பதிவிறக்கப்படுகிறது…</string>
+    <string name="update_installing">நிறுவுகிறது…</string>
+    <string name="update_failed">புதுப்பிப்பு தோல்வியடைந்தது: மீண்டும் முயலவும்</string>
+    <string name="service">மொழிபெயர்ப்புச் சேவை</string>
+    <string name="service_key">சேவையின் விசை</string>
+    <string name="service_hint">மொழிபெயர்ப்பு நினைவகம் அறிந்த வரிகள் (vitranslator.app-இலிருந்து பதிவிறக்கப்பட்ட சரிபார்க்கப்பட்ட மொழிபெயர்ப்புகள்) இலவசம்; மற்ற வரிகளுக்கு உங்கள் சொந்த விசையுடன் ஒரு மொழிபெயர்ப்புச் சேவை தேவை.</string>
+    <string name="service_save">சேமி</string>
+    <string name="service_saved">சேமிக்கப்பட்டது.</string>
+    <string name="tv_not_sharing">இந்த போன் வீட்டு நெட்வொர்க்கில் இல்லை: டிவி உள்ள அதே Wi-Fi-உடன் இணைக்கவும்.</string>
+    <string-array name="services">
+        <item>மொழிபெயர்ப்பு நினைவகம் மட்டும் (இலவசம்)</item>
+        <item>DeepL</item>
+        <item>Google</item>
+        <item>Claude</item>
+        <item>OpenAI</item>
+    </string-array>
+</resources>

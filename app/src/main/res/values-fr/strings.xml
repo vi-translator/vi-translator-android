@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VI Translator</string>
+    <string name="ui_language">Langue de l\'app</string>
+    <string name="phone_language">Celle du téléphone</string>
+
+    <string name="step_console">1. Votre console</string>
+    <string name="playstation">PlayStation 5</string>
+    <string name="xbox">Xbox</string>
+    <string name="ps_setup_hint">Le téléphone reçoit la PS5 en Lecture à distance pour lire le jeu ; la TV continue d\'afficher la console comme d\'habitude. À configurer une seule fois : sur la PS5, Paramètres › Système › Lecture à distance › Associer un appareil affiche un code PIN.</string>
+    <string name="ps_find">Trouver la PS5</string>
+    <string name="ps_address">Adresse de la PS5 (192.168.1.20)</string>
+    <string name="psn_secondary_hint">Connectez-vous avec un second compte PSN, pas celui avec lequel vous jouez : la Lecture à distance le connecte sur la PS5. Seul son identifiant de compte est conservé.</string>
+    <string name="psn_sign_in">Se connecter au PSN</string>
+    <string name="psn_failed">La connexion au PSN a échoué : %1$s</string>
+    <string name="psn_account_id">Identifiant du compte PSN</string>
+    <string name="ps_pin">Le code PIN à 8 chiffres affiché par la PS5</string>
+    <string name="ps_register">Associer</string>
+    <string name="ps_wake">Réveiller la PS5</string>
+    <string name="ps_registering">Association…</string>
+    <string name="ps_register_missing">Renseignez l\'adresse de la PS5, l\'identifiant du compte et le code PIN à 8 chiffres.</string>
+    <string name="ps_register_failed">La PS5 a refusé : vérifiez le code PIN (il change toutes les quelques minutes) et que la Lecture à distance est activée.</string>
+    <string name="ps_registered">Associée à %1$s (%2$s)</string>
+    <string name="ps_not_registered">Aucune PS5 associée pour l\'instant.</string>
+    <string name="ps_not_in_build">PS Remote Play n\'est pas inclus dans cette version de l\'app.</string>
+    <string name="ps_ready">allumée</string>
+    <string name="ps_standby">mode repos</string>
+    <string name="ps_login_pin">La PS5 demande le code d\'accès du compte</string>
+    <string name="ps_login_pin_wrong">Code d\'accès incorrect : réessayez</string>
+    <string name="xbox_hint">Lancer la traduction ouvre ici le lecteur de jeu à distance de Microsoft. Connectez-vous-y avec votre compte Microsoft et connectez-vous à votre Xbox ; la TV continue d\'afficher la console comme d\'habitude. Gardez l\'écran allumé pendant que vous jouez.</string>
+    <string name="xbox_capture_screen">La vidéo ne peut pas être lue : capturer l\'écran</string>
+    <string name="xbox_setup_status">Connectez-vous, puis choisissez votre Xbox. Retour une fois terminé.</string>
+    <string name="xbox_status">%1$d images lues (%2$s)</string>
+
+    <string name="step_tv">2. Connecter une TV</string>
+    <string name="tv_hint">Ouvrez VI Translator sur la TV (Android TV, LG ou Samsung) : un code à 6 chiffres s\'affiche.</string>
+    <string name="tv_none">Aucune TV connectée pour l\'instant.</string>
+    <string name="tv_find">Trouver des TV</string>
+    <string name="tv_found_none">Aucune TV trouvée : l\'app de la TV est-elle ouverte et sur le même réseau ? Vous pouvez saisir son adresse.</string>
+    <string name="tv_address">Adresse de la TV</string>
+    <string name="tv_code">Le code affiché par la TV</string>
+    <string name="tv_connect">Connecter</string>
+    <string name="tv_connecting">Connexion…</string>
+    <string name="tv_connected">Connectée.</string>
+    <string name="tv_wrong_code">Ce n\'est pas le code affiché par la TV.</string>
+    <string name="tv_new_code">Trop de codes erronés : la TV en affiche un nouveau.</string>
+    <string name="tv_unreachable">La TV n\'a pas répondu : l\'app de la TV est-elle ouverte ?</string>
+    <string name="tv_missing">Choisissez une TV (ou saisissez son adresse) et le code à 6 chiffres.</string>
+    <string name="tv_forget">Déconnecter</string>
+    <string name="searching">Recherche…</string>
+
+    <string name="step_game">3. Le jeu et la langue</string>
+    <string name="translate_into">Traduire en</string>
+
+    <string name="step_start">4. Traduire</string>
+    <string name="keep_open_hint">Gardez VI Translator ouvert pendant que vous jouez (avec une PS5, l\'écran peut être éteint).</string>
+    <string name="start">Lancer la traduction</string>
+    <string name="stop">Arrêter</string>
+    <string name="choose_console">Choisissez d\'abord votre console.</string>
+    <string name="state_starting">Démarrage…</string>
+    <string name="state_connecting">Connexion à la PS5…</string>
+    <string name="state_reading">Traduction en cours.</string>
+    <string name="state_ended">Arrêté.</string>
+    <string name="state_failed">Arrêté : %1$s</string>
+    <string name="stats">%1$d images lues sur %2$d · %3$d ms · %4$s</string>
+
+    <string name="step_lines">5. Lu et traduit</string>
+    <string name="lines_none">Les lignes lues s\'affichent ici.</string>
+    <string name="about">Moteur de traduction : %1$s</string>
+
+    <string name="notify_channel">Traduction en cours</string>
+    <string name="notify_text">Traduction du jeu pour votre TV</string>
+
+    <string name="update_available">Mise à jour</string>
+    <string name="update_to">Mettre à jour vers %1$s</string>
+    <string name="update_downloading">Téléchargement de la mise à jour…</string>
+    <string name="update_installing">Installation…</string>
+    <string name="update_failed">La mise à jour a échoué : réessayez</string>
+    <string name="service">Service de traduction</string>
+    <string name="service_key">La clé du service</string>
+    <string name="service_hint">Les lignes que connaît la mémoire de traduction (traductions vérifiées, téléchargées depuis vitranslator.app) sont gratuites ; les autres lignes nécessitent un service de traduction avec votre propre clé.</string>
+    <string name="service_save">Enregistrer</string>
+    <string name="service_saved">Enregistré.</string>
+    <string name="tv_not_sharing">Ce téléphone n\'est pas sur un réseau domestique : connectez-le au même Wi-Fi que la TV.</string>
+    <string-array name="services">
+        <item>Mémoire de traduction seule (gratuit)</item>
+        <item>DeepL</item>
+        <item>Google</item>
+        <item>Claude</item>
+        <item>OpenAI</item>
+    </string-array>
+</resources>

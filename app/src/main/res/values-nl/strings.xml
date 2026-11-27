@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VI Translator</string>
+    <string name="ui_language">App-taal</string>
+    <string name="phone_language">Die van de telefoon</string>
+
+    <string name="step_console">1. Je console</string>
+    <string name="playstation">PlayStation 5</string>
+    <string name="xbox">Xbox</string>
+    <string name="ps_setup_hint">De telefoon streamt de PS5 met Remote Play om de game te lezen; de tv blijft de console gewoon tonen. Stel het één keer in: op de PS5 toont Instellingen › Systeem › Remote Play › Apparaat koppelen een pincode.</string>
+    <string name="ps_find">De PS5 zoeken</string>
+    <string name="ps_address">PS5-adres (192.168.1.20)</string>
+    <string name="psn_secondary_hint">Meld je aan met een tweede PSN-account, niet het account waarmee je speelt: Remote Play meldt het aan op de PS5. Alleen de account-ID wordt bewaard.</string>
+    <string name="psn_sign_in">Aanmelden bij PSN</string>
+    <string name="psn_failed">Aanmelden bij PSN is mislukt: %1$s</string>
+    <string name="psn_account_id">PSN-account-ID</string>
+    <string name="ps_pin">De 8-cijferige pincode die de PS5 toont</string>
+    <string name="ps_register">Koppelen</string>
+    <string name="ps_wake">PS5 wekken</string>
+    <string name="ps_registering">Koppelen…</string>
+    <string name="ps_register_missing">Vul het adres van de PS5, de account-ID en de 8-cijferige pincode in.</string>
+    <string name="ps_register_failed">De PS5 weigerde: controleer de pincode (die verandert om de paar minuten) en of Remote Play aan staat.</string>
+    <string name="ps_registered">Gekoppeld aan %1$s (%2$s)</string>
+    <string name="ps_not_registered">Nog niet gekoppeld aan een PS5.</string>
+    <string name="ps_not_in_build">PS Remote Play zit niet in deze build van de app.</string>
+    <string name="ps_ready">aan</string>
+    <string name="ps_standby">rustmodus</string>
+    <string name="ps_login_pin">De PS5 vraagt om de toegangscode van het account</string>
+    <string name="ps_login_pin_wrong">Verkeerde toegangscode: probeer het opnieuw</string>
+    <string name="xbox_hint">Vertalen starten opent hier de Remote Play-speler van Microsoft. Meld je daar aan met je Microsoft-account en maak verbinding met je Xbox; de tv blijft de console gewoon tonen. Houd het scherm aan tijdens het spelen.</string>
+    <string name="xbox_capture_screen">De video kan niet worden gelezen: neem het scherm op</string>
+    <string name="xbox_setup_status">Meld je aan en kies dan je Xbox. Terug als je klaar bent.</string>
+    <string name="xbox_status">%1$d frames gelezen (%2$s)</string>
+
+    <string name="step_tv">2. Tv koppelen</string>
+    <string name="tv_hint">Open VI Translator op de tv (Android TV, LG of Samsung): die toont een 6-cijferige code.</string>
+    <string name="tv_none">Nog geen tv verbonden.</string>
+    <string name="tv_find">Tv\'s zoeken</string>
+    <string name="tv_found_none">Geen tv gevonden: is de tv-app open en op hetzelfde netwerk? Je kunt het adres typen.</string>
+    <string name="tv_address">Tv-adres</string>
+    <string name="tv_code">De code die de tv toont</string>
+    <string name="tv_connect">Verbinden</string>
+    <string name="tv_connecting">Verbinden…</string>
+    <string name="tv_connected">Verbonden.</string>
+    <string name="tv_wrong_code">Dat is niet de code die de tv toont.</string>
+    <string name="tv_new_code">Te veel foute codes: de tv toont een nieuwe.</string>
+    <string name="tv_unreachable">De tv antwoordde niet: is de tv-app open?</string>
+    <string name="tv_missing">Kies een tv (of typ het adres) en de 6-cijferige code.</string>
+    <string name="tv_forget">Loskoppelen</string>
+    <string name="searching">Zoeken…</string>
+
+    <string name="step_game">3. De game en de taal</string>
+    <string name="translate_into">Vertalen naar</string>
+
+    <string name="step_start">4. Vertalen</string>
+    <string name="keep_open_hint">Houd VI Translator open tijdens het spelen (met een PS5 mag het scherm uit).</string>
+    <string name="start">Vertalen starten</string>
+    <string name="stop">Stoppen</string>
+    <string name="choose_console">Kies eerst je console.</string>
+    <string name="state_starting">Opstarten…</string>
+    <string name="state_connecting">Verbinden met de PS5…</string>
+    <string name="state_reading">Bezig met vertalen.</string>
+    <string name="state_ended">Gestopt.</string>
+    <string name="state_failed">Gestopt: %1$s</string>
+    <string name="stats">%1$d van %2$d frames gelezen · %3$d ms · %4$s</string>
+
+    <string name="step_lines">5. Gelezen en vertaald</string>
+    <string name="lines_none">De gelezen regels verschijnen hier.</string>
+    <string name="about">Vertaalkern: %1$s</string>
+
+    <string name="notify_channel">Bezig met vertalen</string>
+    <string name="notify_text">De game wordt vertaald voor je tv</string>
+
+    <string name="update_available">Bijwerken</string>
+    <string name="update_to">Bijwerken naar %1$s</string>
+    <string name="update_downloading">Update downloaden…</string>
+    <string name="update_installing">Installeren…</string>
+    <string name="update_failed">De update is mislukt: probeer het opnieuw</string>
+    <string name="service">Vertaaldienst</string>
+    <string name="service_key">De sleutel van de dienst</string>
+    <string name="service_hint">Regels die het vertaalgeheugen kent (gecontroleerde vertalingen, gedownload van vitranslator.app) zijn gratis; voor andere regels is een vertaaldienst met je eigen sleutel nodig.</string>
+    <string name="service_save">Opslaan</string>
+    <string name="service_saved">Opgeslagen.</string>
+    <string name="tv_not_sharing">Deze telefoon zit niet op een thuisnetwerk: verbind hem met dezelfde wifi als de tv.</string>
+    <string-array name="services">
+        <item>Alleen vertaalgeheugen (gratis)</item>
+        <item>DeepL</item>
+        <item>Google</item>
+        <item>Claude</item>
+        <item>OpenAI</item>
+    </string-array>
+</resources>

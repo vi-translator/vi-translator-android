@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VI Translator</string>
+    <string name="ui_language">Wika ng app</string>
+    <string name="phone_language">Gaya ng telepono</string>
+
+    <string name="step_console">1. Ang console mo</string>
+    <string name="playstation">PlayStation 5</string>
+    <string name="xbox">Xbox</string>
+    <string name="ps_setup_hint">Ini-stream ng telepono ang PS5 gamit ang Remote Play para basahin ang laro; patuloy na ipinapakita ng TV ang console gaya ng dati. I-set up ito nang isang beses: sa PS5, magpapakita ng PIN ang Settings › System › Remote Play › Link Device.</string>
+    <string name="ps_find">Hanapin ang PS5</string>
+    <string name="ps_address">Address ng PS5 (192.168.1.20)</string>
+    <string name="psn_secondary_hint">Mag-sign in gamit ang pangalawang PSN account, hindi ang ginagamit mo sa paglalaro: isa-sign in ito ng Remote Play sa PS5. Ang account ID lang nito ang itinatago.</string>
+    <string name="psn_sign_in">Mag-sign in sa PSN</string>
+    <string name="psn_failed">Hindi gumana ang pag-sign in sa PSN: %1$s</string>
+    <string name="psn_account_id">PSN account ID</string>
+    <string name="ps_pin">Ang 8-digit na PIN na ipinapakita ng PS5</string>
+    <string name="ps_register">I-link</string>
+    <string name="ps_wake">Gisingin ang PS5</string>
+    <string name="ps_registering">Nili-link…</string>
+    <string name="ps_register_missing">Ilagay ang address ng PS5, ang account ID at ang 8-digit na PIN.</string>
+    <string name="ps_register_failed">Tumanggi ang PS5: suriin ang PIN (nagbabago ito bawat ilang minuto) at kung naka-on ang Remote Play.</string>
+    <string name="ps_registered">Naka-link sa %1$s (%2$s)</string>
+    <string name="ps_not_registered">Hindi pa naka-link sa PS5.</string>
+    <string name="ps_not_in_build">Wala ang PS Remote Play sa build na ito ng app.</string>
+    <string name="ps_ready">naka-on</string>
+    <string name="ps_standby">rest mode</string>
+    <string name="ps_login_pin">Hinihingi ng PS5 ang passcode ng account</string>
+    <string name="ps_login_pin_wrong">Maling passcode: subukan ulit</string>
+    <string name="xbox_hint">Binubuksan ng Simulan ang pagsasalin ang Remote Play player ng Microsoft dito. Mag-sign in doon gamit ang Microsoft account mo at kumonekta sa Xbox mo; patuloy na ipinapakita ng TV ang console gaya ng dati. Panatilihing naka-on ang screen habang naglalaro.</string>
+    <string name="xbox_capture_screen">Hindi mabasa ang video: i-capture ang screen</string>
+    <string name="xbox_setup_status">Mag-sign in, saka piliin ang Xbox mo. Bumalik kapag tapos na.</string>
+    <string name="xbox_status">Nabasa ang %1$d frame (%2$s)</string>
+
+    <string name="step_tv">2. Magkonekta ng TV</string>
+    <string name="tv_hint">Buksan ang VI Translator sa TV (Android TV, LG o Samsung): magpapakita ito ng 6-digit na code.</string>
+    <string name="tv_none">Wala pang nakakonektang TV.</string>
+    <string name="tv_find">Maghanap ng mga TV</string>
+    <string name="tv_found_none">Walang nakitang TV: bukas ba ang TV app at nasa parehong network? Puwede mong i-type ang address nito.</string>
+    <string name="tv_address">Address ng TV</string>
+    <string name="tv_code">Ang code na ipinapakita ng TV</string>
+    <string name="tv_connect">Kumonekta</string>
+    <string name="tv_connecting">Kumokonekta…</string>
+    <string name="tv_connected">Nakakonekta.</string>
+    <string name="tv_wrong_code">Hindi iyan ang code na ipinapakita ng TV.</string>
+    <string name="tv_new_code">Masyadong maraming maling code: bagong code ang ipinapakita ng TV.</string>
+    <string name="tv_unreachable">Hindi sumagot ang TV: bukas ba ang TV app?</string>
+    <string name="tv_missing">Pumili ng TV (o i-type ang address nito) at ang 6-digit na code.</string>
+    <string name="tv_forget">Idiskonekta</string>
+    <string name="searching">Naghahanap…</string>
+
+    <string name="step_game">3. Ang laro at ang wika</string>
+    <string name="translate_into">Isalin sa</string>
+
+    <string name="step_start">4. Magsalin</string>
+    <string name="keep_open_hint">Panatilihing bukas ang VI Translator habang naglalaro (sa PS5, puwedeng naka-off ang screen).</string>
+    <string name="start">Simulan ang pagsasalin</string>
+    <string name="stop">Ihinto</string>
+    <string name="choose_console">Piliin muna ang console mo.</string>
+    <string name="state_starting">Sinisimulan…</string>
+    <string name="state_connecting">Kumokonekta sa PS5…</string>
+    <string name="state_reading">Nagsasalin.</string>
+    <string name="state_ended">Huminto.</string>
+    <string name="state_failed">Huminto: %1$s</string>
+    <string name="stats">Nabasa ang %1$d sa %2$d frame · %3$d ms · %4$s</string>
+
+    <string name="step_lines">5. Nabasa at naisalin</string>
+    <string name="lines_none">Dito lalabas ang mga nabasang linya.</string>
+    <string name="about">Core ng pagsasalin: %1$s</string>
+
+    <string name="notify_channel">Nagsasalin</string>
+    <string name="notify_text">Isinasalin ang laro para sa TV mo</string>
+
+    <string name="update_available">Update</string>
+    <string name="update_to">Mag-update sa %1$s</string>
+    <string name="update_downloading">Dina-download ang update…</string>
+    <string name="update_installing">Ini-install…</string>
+    <string name="update_failed">Nabigo ang update: subukan ulit</string>
+    <string name="service">Serbisyo sa pagsasalin</string>
+    <string name="service_key">Key ng serbisyo</string>
+    <string name="service_hint">Libre ang mga linyang alam ng memorya ng salin (mga na-review na salin, na-download mula sa vitranslator.app); kailangan ng ibang linya ang serbisyo sa pagsasalin na may sarili mong key.</string>
+    <string name="service_save">I-save</string>
+    <string name="service_saved">Na-save.</string>
+    <string name="tv_not_sharing">Wala sa home network ang teleponong ito: ikonekta ito sa parehong Wi-Fi ng TV.</string>
+    <string-array name="services">
+        <item>Memorya ng salin lang (libre)</item>
+        <item>DeepL</item>
+        <item>Google</item>
+        <item>Claude</item>
+        <item>OpenAI</item>
+    </string-array>
+</resources>

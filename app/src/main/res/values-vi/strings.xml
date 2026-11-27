@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VI Translator</string>
+    <string name="ui_language">Ngôn ngữ ứng dụng</string>
+    <string name="phone_language">Theo điện thoại</string>
+
+    <string name="step_console">1. Máy chơi game của bạn</string>
+    <string name="playstation">PlayStation 5</string>
+    <string name="xbox">Xbox</string>
+    <string name="ps_setup_hint">Điện thoại nhận luồng hình của PS5 qua Chơi từ xa để đọc trò chơi; TV vẫn hiển thị máy chơi game như thường. Chỉ cần thiết lập một lần: trên PS5, Cài đặt › Hệ thống › Chơi từ xa › Liên kết thiết bị sẽ hiển thị mã PIN.</string>
+    <string name="ps_find">Tìm PS5</string>
+    <string name="ps_address">Địa chỉ PS5 (192.168.1.20)</string>
+    <string name="psn_secondary_hint">Đăng nhập bằng tài khoản PSN thứ hai, không phải tài khoản bạn dùng để chơi: Chơi từ xa sẽ đăng nhập tài khoản đó trên PS5. Chỉ ID tài khoản được lưu lại.</string>
+    <string name="psn_sign_in">Đăng nhập PSN</string>
+    <string name="psn_failed">Đăng nhập PSN không thành công: %1$s</string>
+    <string name="psn_account_id">ID tài khoản PSN</string>
+    <string name="ps_pin">Mã PIN 8 chữ số PS5 hiển thị</string>
+    <string name="ps_register">Liên kết</string>
+    <string name="ps_wake">Đánh thức PS5</string>
+    <string name="ps_registering">Đang liên kết…</string>
+    <string name="ps_register_missing">Hãy điền địa chỉ PS5, ID tài khoản và mã PIN 8 chữ số.</string>
+    <string name="ps_register_failed">PS5 từ chối: hãy kiểm tra mã PIN (mã đổi sau vài phút) và Chơi từ xa đã bật chưa.</string>
+    <string name="ps_registered">Đã liên kết với %1$s (%2$s)</string>
+    <string name="ps_not_registered">Chưa liên kết với PS5 nào.</string>
+    <string name="ps_not_in_build">Bản dựng này của ứng dụng không có PS Remote Play.</string>
+    <string name="ps_ready">đang bật</string>
+    <string name="ps_standby">chế độ nghỉ</string>
+    <string name="ps_login_pin">PS5 yêu cầu mật mã của tài khoản</string>
+    <string name="ps_login_pin_wrong">Sai mật mã: hãy thử lại</string>
+    <string name="xbox_hint">Bắt đầu dịch sẽ mở trình phát Chơi từ xa của Microsoft tại đây. Đăng nhập vào đó bằng tài khoản Microsoft và kết nối với Xbox của bạn; TV vẫn hiển thị máy chơi game như thường. Hãy giữ màn hình bật khi chơi.</string>
+    <string name="xbox_capture_screen">Không đọc được video: hãy chụp màn hình</string>
+    <string name="xbox_setup_status">Đăng nhập, rồi chọn Xbox của bạn. Xong thì nhấn Quay lại.</string>
+    <string name="xbox_status">Đã đọc %1$d khung hình (%2$s)</string>
+
+    <string name="step_tv">2. Kết nối TV</string>
+    <string name="tv_hint">Mở VI Translator trên TV (Android TV, LG hoặc Samsung): TV sẽ hiển thị mã 6 chữ số.</string>
+    <string name="tv_none">Chưa kết nối TV nào.</string>
+    <string name="tv_find">Tìm TV</string>
+    <string name="tv_found_none">Không tìm thấy TV: ứng dụng trên TV đã mở và cùng mạng chưa? Bạn có thể nhập địa chỉ của TV.</string>
+    <string name="tv_address">Địa chỉ TV</string>
+    <string name="tv_code">Mã hiển thị trên TV</string>
+    <string name="tv_connect">Kết nối</string>
+    <string name="tv_connecting">Đang kết nối…</string>
+    <string name="tv_connected">Đã kết nối.</string>
+    <string name="tv_wrong_code">Đó không phải mã TV đang hiển thị.</string>
+    <string name="tv_new_code">Sai mã quá nhiều lần: TV hiển thị mã mới.</string>
+    <string name="tv_unreachable">TV không phản hồi: ứng dụng trên TV đã mở chưa?</string>
+    <string name="tv_missing">Chọn một TV (hoặc nhập địa chỉ) và mã 6 chữ số.</string>
+    <string name="tv_forget">Ngắt kết nối</string>
+    <string name="searching">Đang tìm…</string>
+
+    <string name="step_game">3. Trò chơi và ngôn ngữ</string>
+    <string name="translate_into">Dịch sang</string>
+
+    <string name="step_start">4. Dịch</string>
+    <string name="keep_open_hint">Hãy để VI Translator mở khi chơi (với PS5 có thể tắt màn hình).</string>
+    <string name="start">Bắt đầu dịch</string>
+    <string name="stop">Dừng</string>
+    <string name="choose_console">Hãy chọn máy chơi game trước.</string>
+    <string name="state_starting">Đang khởi động…</string>
+    <string name="state_connecting">Đang kết nối với PS5…</string>
+    <string name="state_reading">Đang dịch.</string>
+    <string name="state_ended">Đã dừng.</string>
+    <string name="state_failed">Đã dừng: %1$s</string>
+    <string name="stats">Đã đọc %1$d/%2$d khung hình · %3$d ms · %4$s</string>
+
+    <string name="step_lines">5. Đã đọc và đã dịch</string>
+    <string name="lines_none">Các dòng đã đọc sẽ hiện ở đây.</string>
+    <string name="about">Lõi dịch: %1$s</string>
+
+    <string name="notify_channel">Đang dịch</string>
+    <string name="notify_text">Đang dịch trò chơi cho TV của bạn</string>
+
+    <string name="update_available">Cập nhật</string>
+    <string name="update_to">Cập nhật lên %1$s</string>
+    <string name="update_downloading">Đang tải bản cập nhật…</string>
+    <string name="update_installing">Đang cài đặt…</string>
+    <string name="update_failed">Cập nhật không thành công: hãy thử lại</string>
+    <string name="service">Dịch vụ dịch</string>
+    <string name="service_key">Khóa của dịch vụ</string>
+    <string name="service_hint">Những dòng bộ nhớ dịch đã biết (bản dịch đã duyệt, tải về từ vitranslator.app) là miễn phí; các dòng khác cần một dịch vụ dịch với khóa riêng của bạn.</string>
+    <string name="service_save">Lưu</string>
+    <string name="service_saved">Đã lưu.</string>
+    <string name="tv_not_sharing">Điện thoại này không ở trong mạng gia đình: hãy kết nối nó với cùng Wi-Fi với TV.</string>
+    <string-array name="services">
+        <item>Chỉ bộ nhớ dịch (miễn phí)</item>
+        <item>DeepL</item>
+        <item>Google</item>
+        <item>Claude</item>
+        <item>OpenAI</item>
+    </string-array>
+</resources>

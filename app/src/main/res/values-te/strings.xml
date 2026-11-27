@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VI Translator</string>
+    <string name="ui_language">యాప్ భాష</string>
+    <string name="phone_language">ఫోన్ భాష</string>
+
+    <string name="step_console">1. మీ కన్సోల్</string>
+    <string name="playstation">PlayStation 5</string>
+    <string name="xbox">Xbox</string>
+    <string name="ps_setup_hint">గేమ్‌ను చదవడానికి ఫోన్ రిమోట్ ప్లేతో PS5ను స్ట్రీమ్ చేస్తుంది; టీవీ ఎప్పటిలాగే కన్సోల్‌ను చూపిస్తుంది. ఒక్కసారి సెటప్ చేయండి: PS5లో, సెట్టింగ్‌లు › సిస్టమ్ › రిమోట్ ప్లే › పరికరాన్ని లింక్ చేయండి ఒక PINను చూపుతుంది.</string>
+    <string name="ps_find">PS5ను కనుగొనండి</string>
+    <string name="ps_address">PS5 చిరునామా (192.168.1.20)</string>
+    <string name="psn_secondary_hint">మీరు ఆడే ఖాతా కాకుండా, రెండో PSN ఖాతాతో సైన్ ఇన్ చేయండి: రిమోట్ ప్లే దాన్ని PS5లో సైన్ ఇన్ చేస్తుంది. దాని ఖాతా ID మాత్రమే ఉంచబడుతుంది.</string>
+    <string name="psn_sign_in">PSNకు సైన్ ఇన్ చేయండి</string>
+    <string name="psn_failed">PSN సైన్-ఇన్ పని చేయలేదు: %1$s</string>
+    <string name="psn_account_id">PSN ఖాతా ID</string>
+    <string name="ps_pin">PS5 చూపే 8 అంకెల PIN</string>
+    <string name="ps_register">లింక్ చేయి</string>
+    <string name="ps_wake">PS5ను మేల్కొలుపు</string>
+    <string name="ps_registering">లింక్ చేస్తోంది…</string>
+    <string name="ps_register_missing">PS5 చిరునామా, ఖాతా ID, 8 అంకెల PINను నింపండి.</string>
+    <string name="ps_register_failed">PS5 తిరస్కరించింది: PINను తనిఖీ చేయండి (ఇది కొన్ని నిమిషాలకు ఒకసారి మారుతుంది), రిమోట్ ప్లే ఆన్‌లో ఉందో లేదో చూడండి.</string>
+    <string name="ps_registered">%1$s (%2$s)కు లింక్ అయింది</string>
+    <string name="ps_not_registered">ఇంకా ఏ PS5కూ లింక్ కాలేదు.</string>
+    <string name="ps_not_in_build">యాప్ యొక్క ఈ బిల్డ్‌లో PS Remote Play లేదు.</string>
+    <string name="ps_ready">ఆన్</string>
+    <string name="ps_standby">రెస్ట్ మోడ్</string>
+    <string name="ps_login_pin">PS5 ఖాతా పాస్‌కోడ్ అడుగుతోంది</string>
+    <string name="ps_login_pin_wrong">తప్పు పాస్‌కోడ్: మళ్లీ ప్రయత్నించండి</string>
+    <string name="xbox_hint">అనువాదం ప్రారంభించు Microsoft రిమోట్ ప్లే ప్లేయర్‌ను ఇక్కడ తెరుస్తుంది. అక్కడ మీ Microsoft ఖాతాతో సైన్ ఇన్ చేసి మీ Xboxకు కనెక్ట్ అవ్వండి; టీవీ ఎప్పటిలాగే కన్సోల్‌ను చూపిస్తుంది. ఆడుతున్నప్పుడు స్క్రీన్‌ను ఆన్‌లో ఉంచండి.</string>
+    <string name="xbox_capture_screen">వీడియోను చదవలేకపోతోంది: స్క్రీన్‌ను క్యాప్చర్ చేయండి</string>
+    <string name="xbox_setup_status">సైన్ ఇన్ చేసి, మీ Xboxను ఎంచుకోండి. పూర్తయ్యాక వెనుకకు వెళ్లండి.</string>
+    <string name="xbox_status">%1$d ఫ్రేమ్‌లు చదివింది (%2$s)</string>
+
+    <string name="step_tv">2. టీవీని కనెక్ట్ చేయండి</string>
+    <string name="tv_hint">టీవీలో VI Translator తెరవండి (Android TV, LG లేదా Samsung): అది 6 అంకెల కోడ్‌ను చూపుతుంది.</string>
+    <string name="tv_none">ఇంకా ఏ టీవీ కనెక్ట్ కాలేదు.</string>
+    <string name="tv_find">టీవీలను కనుగొనండి</string>
+    <string name="tv_found_none">టీవీ కనుగొనబడలేదు: టీవీ యాప్ తెరిచి, అదే నెట్‌వర్క్‌లో ఉందా? దాని చిరునామాను టైప్ చేయవచ్చు.</string>
+    <string name="tv_address">టీవీ చిరునామా</string>
+    <string name="tv_code">టీవీ చూపే కోడ్</string>
+    <string name="tv_connect">కనెక్ట్ చేయండి</string>
+    <string name="tv_connecting">కనెక్ట్ అవుతోంది…</string>
+    <string name="tv_connected">కనెక్ట్ అయింది.</string>
+    <string name="tv_wrong_code">అది టీవీ చూపే కోడ్ కాదు.</string>
+    <string name="tv_new_code">చాలా తప్పు కోడ్‌లు: టీవీ కొత్త కోడ్‌ను చూపుతోంది.</string>
+    <string name="tv_unreachable">టీవీ స్పందించలేదు: టీవీ యాప్ తెరిచి ఉందా?</string>
+    <string name="tv_missing">ఒక టీవీని ఎంచుకోండి (లేదా దాని చిరునామాను టైప్ చేయండి), 6 అంకెల కోడ్ నమోదు చేయండి.</string>
+    <string name="tv_forget">డిస్‌కనెక్ట్ చేయి</string>
+    <string name="searching">వెతుకుతోంది…</string>
+
+    <string name="step_game">3. గేమ్, భాష</string>
+    <string name="translate_into">అనువాద భాష</string>
+
+    <string name="step_start">4. అనువదించండి</string>
+    <string name="keep_open_hint">ఆడుతున్నప్పుడు VI Translatorను తెరిచే ఉంచండి (PS5తో అయితే స్క్రీన్ ఆఫ్‌లో ఉండవచ్చు).</string>
+    <string name="start">అనువాదం ప్రారంభించు</string>
+    <string name="stop">ఆపు</string>
+    <string name="choose_console">ముందుగా మీ కన్సోల్‌ను ఎంచుకోండి.</string>
+    <string name="state_starting">ప్రారంభమవుతోంది…</string>
+    <string name="state_connecting">PS5కు కనెక్ట్ అవుతోంది…</string>
+    <string name="state_reading">అనువదిస్తోంది.</string>
+    <string name="state_ended">ఆగిపోయింది.</string>
+    <string name="state_failed">ఆగిపోయింది: %1$s</string>
+    <string name="stats">%2$d ఫ్రేమ్‌లలో %1$d చదివింది · %3$d ms · %4$s</string>
+
+    <string name="step_lines">5. చదివినవి, అనువదించినవి</string>
+    <string name="lines_none">చదివిన లైన్‌లు ఇక్కడ కనిపిస్తాయి.</string>
+    <string name="about">అనువాద కోర్: %1$s</string>
+
+    <string name="notify_channel">అనువదిస్తోంది</string>
+    <string name="notify_text">మీ టీవీ కోసం గేమ్‌ను అనువదిస్తోంది</string>
+
+    <string name="update_available">అప్‌డేట్</string>
+    <string name="update_to">%1$sకు అప్‌డేట్ చేయి</string>
+    <string name="update_downloading">అప్‌డేట్ డౌన్‌లోడ్ అవుతోంది…</string>
+    <string name="update_installing">ఇన్‌స్టాల్ అవుతోంది…</string>
+    <string name="update_failed">అప్‌డేట్ విఫలమైంది: మళ్లీ ప్రయత్నించండి</string>
+    <string name="service">అనువాద సేవ</string>
+    <string name="service_key">సేవ కీ</string>
+    <string name="service_hint">అనువాద మెమరీకి తెలిసిన లైన్‌లు (vitranslator.app నుండి డౌన్‌లోడ్ చేసిన సమీక్షించిన అనువాదాలు) ఉచితం; మిగతా లైన్‌లకు మీ సొంత కీతో అనువాద సేవ అవసరం.</string>
+    <string name="service_save">సేవ్ చేయండి</string>
+    <string name="service_saved">సేవ్ అయింది.</string>
+    <string name="tv_not_sharing">ఈ ఫోన్ హోమ్ నెట్‌వర్క్‌లో లేదు: టీవీ ఉన్న అదే Wi-Fiకి కనెక్ట్ చేయండి.</string>
+    <string-array name="services">
+        <item>అనువాద మెమరీ మాత్రమే (ఉచితం)</item>
+        <item>DeepL</item>
+        <item>Google</item>
+        <item>Claude</item>
+        <item>OpenAI</item>
+    </string-array>
+</resources>

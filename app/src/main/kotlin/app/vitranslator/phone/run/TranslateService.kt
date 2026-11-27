@@ -34,21 +34,26 @@ import app.vitranslator.phone.ps.PsStream
 import app.vitranslator.phone.ps.chiaki.Chiaki
 import app.vitranslator.phone.ps.chiaki.VideoResolutionPreset
 import app.vitranslator.phone.ui.MainActivity
+import app.vitranslator.phone.ui.T
+import app.vitranslator.phone.xbox.XboxAuth
+import app.vitranslator.phone.xbox.XboxConsole
+import app.vitranslator.phone.xbox.XboxStream
 import java.io.File
 import java.util.concurrent.CopyOnWriteArrayList
 
 /**
- * Translating: keeps the phone at it while its screen is off (PS5) or on another app: the core's
- * TV page served on the home network, the reading of the game, and the PS5 stream. A notification
+ * Translating: keeps the phone at it while its screen is off (PS5, Xbox) or on another app: the core's
+ * TV page served on the home network, the reading of the game, and the PS5 or Xbox stream. A notification
  * says so, with Stop.
  */
-class TranslateService : Service(), PsStream.Listener {
+class TranslateService : Service(), PsStream.Listener, XboxStream.Listener {
     enum class Source { PS5, XBOX, CARD }
 
     private val main = Handler(Looper.getMainLooper())
     private var wake: PowerManager.WakeLock? = null
     private var wifi: WifiManager.WifiLock? = null
     private var stream: PsStream? = null
+    private var xbox: XboxStream? = null
     private var card: app.vitranslator.phone.card.CardStream? = null
     private var source: Source? = null
 
@@ -146,7 +151,8 @@ class TranslateService : Service(), PsStream.Listener {
                 when (s) {
                     Source.PS5 -> startPs(prefs)
                     Source.CARD -> startCard(prefs)
-                    Source.XBOX -> Live.set(Live.State.READING, null)
+                    // (Microsoft's web player gives the frames itself, XboxActivity; else the app's own stream)
+                    Source.XBOX -> if (prefs.xboxWebPlayer) Live.set(Live.State.READING, null) else startXbox(prefs)
                 }
             }
         }.start()
@@ -178,6 +184,30 @@ class TranslateService : Service(), PsStream.Listener {
                 }
             }
         }.also { it.start(prefs.card4k) }
+    }
+
+    private fun startXbox(prefs: Prefs) {
+        val console = XboxConsole.saved(this)
+        val reader = App.reader
+        if (!XboxAuth.signedIn(this) || console == null || reader == null) {
+            Live.set(Live.State.FAILED, T("Sign in to Microsoft and choose your Xbox in Setup first."))
+            stopSelf()
+            return
+        }
+        xbox = XboxStream(this, console, prefs.xboxResolution, reader, this).also { it.start() }
+    }
+
+    override fun onState(state: XboxStream.State, detail: String?) {
+        main.post {
+            when (state) {
+                XboxStream.State.CONNECTING -> Live.set(Live.State.CONNECTING, null)
+                XboxStream.State.STREAMING -> Live.set(Live.State.READING, null)
+                XboxStream.State.ENDED, XboxStream.State.FAILED -> {
+                    Live.set(if (state == XboxStream.State.FAILED) Live.State.FAILED else Live.State.ENDED, detail)
+                    stopSelf()
+                }
+            }
+        }
     }
 
     override fun onState(state: PsStream.State, detail: String?) {
@@ -267,6 +297,8 @@ class TranslateService : Service(), PsStream.Listener {
         stopProjection()
         stream?.stop()
         stream = null
+        xbox?.stop()
+        xbox = null
         card?.stop()
         card = null
         source = null

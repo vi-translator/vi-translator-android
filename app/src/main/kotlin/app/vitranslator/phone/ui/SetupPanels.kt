@@ -22,10 +22,11 @@ import org.json.JSONObject
 /**
  * Source: where the picture comes from. The desktop picks a window, a capture card or OBS; the phone
  * reads the console itself: a PS5 (PS Remote Play, set up once: find it, sign in to PSN for the
- * account ID, the PIN it shows) or an Xbox (Microsoft's web player). Then the desktop's Timing.
+ * account ID, the PIN it shows) or an Xbox (Xbox Remote Play: a Microsoft sign-in by code, the console chosen once). Then the desktop's Timing.
  */
 class SourcePanel(h: Host) : Panel(h) {
     private val ps5 = Ps5Link(h) { refresh() }
+    private val xbox = XboxLink(h) { refresh() }
 
     override fun refresh() {
         view.removeAllViews()
@@ -35,7 +36,7 @@ class SourcePanel(h: Host) : Panel(h) {
         add(k.gap(10))
         add(consoleChoice("ps5", "PlayStation 5", T("PS Remote Play: the phone streams the PS5's picture to read it (no sound). Works with the phone's screen off."), prefs.console == "ps5"))
         add(k.gap(8))
-        add(consoleChoice("xbox", "Xbox", T("Microsoft's Remote Play player, in the app. Keep the phone's screen on while playing."), prefs.console == "xbox"))
+        add(consoleChoice("xbox", "Xbox", if (prefs.xboxWebPlayer) T("Microsoft's Remote Play player, in the app. Keep the phone's screen on while playing.") else T("Xbox Remote Play: the phone streams the Xbox's picture to read it (no sound). Works with the phone's screen off."), prefs.console == "xbox"))
         add(k.gap(8))
         add(consoleChoice("card", T("Capture card"), T("Any console: its HDMI goes into a USB capture card plugged into the phone. Works with the phone's screen off."), prefs.console == "card"))
         if (prefs.console == "ps5") ps5Setup()
@@ -101,39 +102,14 @@ class SourcePanel(h: Host) : Panel(h) {
         ps5.build(view)
     }
 
-    /**
-     * The Xbox: nothing to link in the app. Microsoft's player (in the app) signs in with the
-     * Microsoft account and connects to the console itself; the console only needs its remote
-     * features on. Signing in here first makes Start go straight to the game.
-     */
+    /** The Xbox: a Microsoft sign-in by code and the console, once (XboxLink). */
     private fun xboxSetup() {
-        val signed = app.vitranslator.phone.xbox.XboxActivity.signedIn()
-        add(k.callout(
-            if (signed) T("Signed in to Microsoft in the Xbox player.") else T("Not signed in to the Xbox player yet."),
-            if (signed) k.ok else null,
-        ).apply { layoutParams = lp(12) })
-        add(k.label(T("On the Xbox, once")).apply { setPadding(0, k.dp(14), 0, k.dp(4)) })
-        add(k.muted("1. " + T("Settings › Devices & connections › Remote features: turn on Enable remote features.")))
-        add(k.muted("2. " + T("Settings › General › Power options: choose Sleep, so the player can wake the console.")))
-        add(k.muted("3. " + T("Sign in on the Xbox with the same Microsoft account as in the player.")))
-        add(k.label(T("In the app")).apply { setPadding(0, k.dp(14), 0, k.dp(4)) })
-        add(k.muted(T("Open the player, sign in with your Microsoft account and choose your Xbox under Remote play. The sign-in stays in the app: next time, Start translating goes straight to the game.")))
-        add(k.row(
-            k.grow(k.button(T("Open the Xbox player"), primary = true, icon = R.drawable.ic_tv) { app.vitranslator.phone.xbox.XboxActivity.openForSetup(h.act) }),
-            gap = 8,
-        ).apply { layoutParams = lp(12) })
-        if (signed) add(k.link(T("Sign out of Microsoft")) {
-            k.ask(T("Sign out of Microsoft in the Xbox player?"), T("Sign out")) {
-                app.vitranslator.phone.xbox.XboxActivity.signOut()
-                refresh()
-            }
-        })
-        add(k.callout(T("While translating, the app copies the player's picture to read it. If the copies come out black on your phone, the player offers to capture the screen instead (Android asks you to allow it).")).apply { layoutParams = lp(12) })
+        xbox.build(view)
     }
 
     override fun tick() {
         // (back from the player: show whether the sign-in worked)
-        if (Prefs(h.act).console == "xbox") {
+        if (Prefs(h.act).console == "xbox" && Prefs(h.act).xboxWebPlayer) {
             val now = app.vitranslator.phone.xbox.XboxActivity.signedIn()
             if (now != lastSigned) {
                 lastSigned = now
@@ -188,6 +164,7 @@ class SourcePanel(h: Host) : Panel(h) {
 
     override fun close() {
         ps5.close()
+        xbox.close()
         stopWatchingCard()
     }
 

@@ -411,7 +411,7 @@ class MainActivity : Activity(), Live.Watcher, CoreListener, Host {
             Live.State.IDLE -> (coreStatus ?: T("Ready")) to k.muted
             Live.State.STARTING -> T("Starting…") to k.warn
             Live.State.CONNECTING -> T("Connecting to the PS5…") to k.warn
-            Live.State.READING -> (coreStatus ?: T("Translating")) to k.ok
+            Live.State.READING -> (if (Live.cantDisplay) T("The PS5 is showing something Remote Play can't stream") else coreStatus ?: T("Translating")) to k.ok
             Live.State.ENDED -> (T("Stopped") + (Live.detail?.let { " ($it)" } ?: "")) to k.muted
             Live.State.FAILED -> T("Stopped: {reason}", "reason" to (Live.detail ?: "")) to k.err
         }

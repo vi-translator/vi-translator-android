@@ -134,6 +134,7 @@ typedef struct android_chiaki_session_t
 	jmethodID java_session_event_login_pin_request_meth;
 	jmethodID java_session_event_quit_meth;
 	jmethodID java_session_event_rumble_meth;
+	jmethodID java_session_event_cant_display_meth;
 	jfieldID java_controller_state_buttons;
 	jfieldID java_controller_state_l2_state;
 	jfieldID java_controller_state_r2_state;
@@ -200,6 +201,24 @@ static void android_chiaki_event_cb(ChiakiEvent *event, void *user)
 		default:
 			break;
 	}
+
+	(*global_vm)->DetachCurrentThread(global_vm);
+}
+
+// (chiaki calls the display sink's callback with no NULL check, from ctrl_connect when the PS5
+// answers "RP-Prohibit: 1" and from the ctrl thread when it says it can or can't show the screen:
+// without one set, the app jumped to address 0 and crashed, as the iOS app's TestFlight builds did)
+static void android_chiaki_cantdisplay_cb(void *user, bool cant_display)
+{
+	AndroidChiakiSession *session = user;
+
+	JNIEnv *env = attach_thread_jni();
+	if(!env)
+		return;
+
+	E->CallVoidMethod(env, session->java_session,
+					  session->java_session_event_cant_display_meth,
+					  (jboolean)cant_display);
 
 	(*global_vm)->DetachCurrentThread(global_vm);
 }
@@ -305,6 +324,7 @@ JNIEXPORT void JNICALL JNI_FCN(sessionCreate)(JNIEnv *env, jobject obj, jobject 
 	session->java_session_event_login_pin_request_meth = E->GetMethodID(env, session->java_session_class, "eventLoginPinRequest", "(Z)V");
 	session->java_session_event_quit_meth = E->GetMethodID(env, session->java_session_class, "eventQuit", "(ILjava/lang/String;)V");
 	session->java_session_event_rumble_meth = E->GetMethodID(env, session->java_session_class, "eventRumble", "(II)V");
+	session->java_session_event_cant_display_meth = E->GetMethodID(env, session->java_session_class, "eventCantDisplay", "(Z)V");
 
 	jclass controller_state_class = E->FindClass(env, BASE_PACKAGE"/ControllerState");
 	session->java_controller_state_buttons = E->GetFieldID(env, controller_state_class, "buttons", "I");
@@ -333,6 +353,11 @@ JNIEXPORT void JNICALL JNI_FCN(sessionCreate)(JNIEnv *env, jobject obj, jobject 
 
 	chiaki_session_set_event_cb(&session->session, android_chiaki_event_cb, session);
 	chiaki_session_set_video_sample_cb(&session->session, android_chiaki_video_decoder_video_sample, &session->video_decoder);
+	ChiakiCtrlDisplaySink display_sink;
+	memset(&display_sink, 0, sizeof(display_sink));
+	display_sink.user = session;
+	display_sink.cantdisplay_cb = android_chiaki_cantdisplay_cb;
+	chiaki_session_ctrl_set_display_sink(&session->session, &display_sink);
 
 
 beach:

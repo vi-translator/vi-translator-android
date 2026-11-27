@@ -27,6 +27,8 @@
     <!-- (the camera permission would otherwise hide the app from devices without a camera) -->
     <uses-feature android:name="android.hardware.camera" android:required="false" />
     <uses-feature android:name="android.hardware.camera.external" android:required="false" />
+    <!-- (a capture card is also looked for as a USB device: phones without USB host still get the app) -->
+    <uses-feature android:name="android.hardware.usb.host" android:required="false" />
 
     <!-- usesCleartextTraffic: the TV page and the TV apps are plain HTTP on the home network -->
     <application
@@ -59,6 +61,22 @@
         <activity
             android:name=".ps.PsnLoginActivity"
             android:exported="false" />
+
+        <!-- A capture card plugged in (a USB video device): Android offers to open the app for it, and
+             choosing it lets the app use the card (the USB permission). It only brings the app up. -->
+        <activity
+            android:name=".card.UsbAttachActivity"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/usb_video_devices" />
+        </activity>
 
         <service
             android:name=".run.TranslateService"

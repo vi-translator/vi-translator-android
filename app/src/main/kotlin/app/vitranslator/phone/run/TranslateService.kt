@@ -227,6 +227,10 @@ class TranslateService : Service(), PsStream.Listener, XboxStream.Listener {
         main.post { Live.askPin(incorrect) }
     }
 
+    override fun onCantDisplay(cantDisplay: Boolean) {
+        main.post { Live.setCantDisplay(cantDisplay) }
+    }
+
     /** The passcode the user typed, for the PS5. */
     fun pin(p: String) {
         stream?.setLoginPin(p)
@@ -363,16 +367,26 @@ object Live {
         private set
     var detail: String? = null
         private set
+    /** the PS5 says it can't stream what it shows now (a screen or game that blocks Remote Play) */
+    var cantDisplay = false
+        private set
     private val watchers = CopyOnWriteArrayList<Watcher>()
 
     fun set(s: State, d: String?) {
         state = s
         detail = d
+        // (the PS5 may say so while connecting, before READING: kept until the stream ends)
+        if (s != State.CONNECTING && s != State.READING) cantDisplay = false
         watchers.forEach { it.changed() }
     }
 
     fun askPin(incorrect: Boolean) {
         watchers.forEach { it.askPin(incorrect) }
+    }
+
+    fun setCantDisplay(cant: Boolean) {
+        cantDisplay = cant
+        watchers.forEach { it.changed() }
     }
 
     fun watch(w: Watcher) {

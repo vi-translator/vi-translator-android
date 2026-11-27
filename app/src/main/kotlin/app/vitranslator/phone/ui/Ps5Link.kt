@@ -6,9 +6,7 @@ import android.graphics.Color
 import android.text.InputFilter
 import android.view.Gravity
 import android.view.View
-import android.widget.EditText
 import android.widget.LinearLayout
-import android.widget.TextView
 import app.vitranslator.phone.Prefs
 import app.vitranslator.phone.R
 import app.vitranslator.phone.ps.Ps5
@@ -45,9 +43,15 @@ class Ps5Link(private val h: Host, private val redraw: () -> Unit) {
 
     private var editingAddress = false
     private var editingAccount = false
-    private var linkMsg: TextView? = null
-    private var pinInput: EditText? = null
+    /** what was typed in the PIN and address fields (kept when the panel is drawn again: it is, often) */
+    private var pinTyped = ""
+    private var addressTyped: String? = null
+    private var addressError: String? = null
+    /** the last linking's message, and whether it is an error */
+    private var linkMsg: String? = null
+    private var linkErr = false
     private var linking = false
+    private var closed = false
 
     private fun lp(top: Int) = LinearLayout.LayoutParams(-1, -2).apply { topMargin = k.dp(top) }
 
@@ -146,20 +150,33 @@ class Ps5Link(private val h: Host, private val redraw: () -> Unit) {
         if (!searching && hosts.isEmpty()) c.addView(k.callout(T("No PS5 found yet. Is it on, with Remote Play allowed (Settings › System › Remote Play)? You can also type its address below.")).apply { layoutParams = lp(10) })
         if (!searching) c.addView(k.link(T("Search again")) { search() })
         // or typed
-        val typed = k.input(address, "192.168.1.20", ltr = true) {}
-        c.addView(k.field(T("Or type its address"), typed, T("On the PS5: Settings › Network › Connection Status › View Connection Status, IPv4 address.")))
+        val typed = k.input(addressTyped ?: address, "192.168.1.20", ltr = true) { addressTyped = it }.apply {
+            inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_URI or android.text.InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
+        }
+        c.addView(k.field(T("Or type its address"), typed, T("On the PS5: Settings › Network › Connection Status › View Connection Status, IPv4 address. Not the PIN: that comes in the next step.")))
+        addressError?.let { c.addView(k.text(it, k.base - 0.5f, k.err).apply { setPadding(0, k.dp(6), 0, 0) }) }
         c.addView(k.button(T("Use this address")) {
             val a = typed.text.toString().trim()
-            if (!validAddress(a)) {
-                android.widget.Toast.makeText(h.act, T("That isn't an address like 192.168.1.20."), android.widget.Toast.LENGTH_LONG).show()
+            addressError = addressProblem(a)
+            if (addressError != null) {
+                redraw()
                 return@button
             }
             address = a
+            addressTyped = null
             name = hosts.firstOrNull { it.hostAddr == a }?.hostName ?: ""
             editingAddress = false
             redraw()
         }.apply { layoutParams = lp(10) })
         return c
+    }
+
+    /** What is wrong with a typed address (the PIN or the TV's code typed there, most often), or null. */
+    private fun addressProblem(a: String): String? = when (addressKind(a)) {
+        AddressKind.OK -> null
+        AddressKind.PIN -> T("That's the 8-digit PIN, not the PS5's address. Choose the PS5 found above, or type its IP address (like 192.168.1.20); the PIN goes in the next step.")
+        AddressKind.TV_CODE -> T("That looks like the TV's 6-digit pairing code. Here, type the PS5's IP address (like 192.168.1.20).")
+        AddressKind.BAD -> T("That isn't an address like 192.168.1.20.")
     }
 
     private fun search() {
@@ -294,51 +311,104 @@ class Ps5Link(private val h: Host, private val redraw: () -> Unit) {
     private fun pinStep(): View {
         val c = k.column()
         c.addView(k.muted(T("On the PS5: Settings › System › Remote Play › Link Device. It shows an 8-digit PIN, for about 5 minutes."), small = true))
-        val p = k.input("", "0000 0000", number = true, ltr = true) {}.apply {
+        c.addView(k.muted(T("Only the PIN from that PS5 screen: not the TV's pairing code, not the PS5's address."), small = true).apply { setPadding(0, k.dp(4), 0, 0) })
+        val p = k.input(pinTyped, "0000 0000", ltr = true) { pinTyped = it }.apply {
+            // (digits only, 8 of them: a phone keypad, no decimal point or sign)
+            inputType = android.text.InputType.TYPE_CLASS_NUMBER
             textSize = k.base + 12f
             letterSpacing = 0.3f
             gravity = Gravity.CENTER
             typeface = k.bold
-            filters = arrayOf(InputFilter.LengthFilter(8))
+            filters = arrayOf(InputFilter { src, start, end, _, _, _ ->
+                val digits = src.subSequence(start, end).filter { it in '0'..'9' }
+                if (digits.length == end - start) null else digits
+            }, InputFilter.LengthFilter(8))
+            imeOptions = android.view.inputmethod.EditorInfo.IME_ACTION_DONE
+            setOnEditorActionListener { _, action, _ ->
+                if (action == android.view.inputmethod.EditorInfo.IME_ACTION_DONE) {
+                    link()
+                    true
+                } else false
+            }
+            isEnabled = !linking
         }
-        pinInput = p
         c.addView(p, LinearLayout.LayoutParams(-1, -2).apply { topMargin = k.dp(10) })
-        val msg = k.text("", k.base - 0.5f, k.muted).apply { setPadding(0, k.dp(8), 0, 0) }
-        linkMsg = msg
-        c.addView(msg)
-        c.addView(k.button(T("Link"), primary = true) { link() }.apply { layoutParams = lp(8) })
+        val msg = if (linking) T("Linking…") else linkMsg
+        if (msg != null) c.addView(k.text(msg, k.base - 0.5f, if (linkErr && !linking) k.err else k.muted).apply { setPadding(0, k.dp(8), 0, 0) })
+        c.addView(k.button(T("Link"), primary = true) { link() }.apply {
+            layoutParams = lp(8)
+            alpha = if (linking) 0.5f else 1f
+        })
         return c
+    }
+
+    private fun showLink(message: String?, err: Boolean) {
+        linkMsg = message
+        linkErr = err
+        redraw()
     }
 
     private fun link() {
         if (linking) return
-        val p = pinInput?.text?.toString()?.filter { it.isDigit() } ?: ""
-        val msg = linkMsg ?: return
-        if (p.length != 8) {
-            msg.text = T("The PIN has 8 digits.")
-            msg.setTextColor(k.err)
+        val account = Ps5.accountId(h.act)
+        if (!validAccount(account)) {
+            editingAccount = true
+            showLink(T("The PSN account isn't set: sign in to PSN first (step 1)."), true)
+            return
+        }
+        if (!validAddress(address)) {
+            editingAddress = true
+            showLink(T("The PS5's address isn't set: find your PS5 first (step 2)."), true)
+            return
+        }
+        val digits = pinTyped.filter { it.isDigit() }
+        val pin = Ps5.pinOf(pinTyped)
+        if (pin == null) {
+            showLink(if (digits.length == 6) T("That's 6 digits, like the TV's pairing code. The PS5's PIN has 8 digits: Settings › System › Remote Play › Link Device.") else T("The PIN has 8 digits."), true)
             return
         }
         linking = true
-        msg.text = T("Linking…")
-        msg.setTextColor(k.muted)
-        regist?.dispose()
-        regist = Ps5.register(address, Ps5.accountId(h.act), p.toInt(), { line -> android.util.Log.i("Regist", line) }) { console ->
-            h.ui {
-                linking = false
+        showLink(null, false)
+        // (an earlier try is over: its thread is ended off the UI thread, as dispose waits for it)
+        regist?.let { old -> h.io { old.dispose() } }
+        regist = null
+        regist = Ps5.register(address, account, pin, { line -> android.util.Log.i("Regist", line) }) { result, console ->
+            // (on chiaki's thread, or here at once when linking can't start: the rest on the UI thread)
+            h.ui { linked(result, console) }
+        }
+    }
+
+    /** Linking ended (on the UI thread). */
+    private fun linked(result: Ps5.LinkResult, console: app.vitranslator.phone.ps.PsConsole?) {
+        linking = false
+        if (closed) {
+            // (the screen was left meanwhile: a console linked is still kept)
+            if (console != null) Ps5.save(h.act, console)
+            return
+        }
+        when (result) {
+            Ps5.LinkResult.LINKED -> {
                 if (console != null) {
                     Ps5.save(h.act, console)
-                    redraw()
-                } else {
-                    msg.text = T("The PS5 refused: check the PIN (it changes every few minutes) and that Remote Play is on.")
-                    msg.setTextColor(k.err)
+                    pinTyped = ""
+                    stop()
+                    showLink(null, false)
+                    return
                 }
+                showLink(T("Linking didn't work. Try again."), true)
             }
-        }
-        if (regist == null) {
-            linking = false
-            msg.text = T("The PS5 refused: check the PIN (it changes every few minutes) and that Remote Play is on.")
-            msg.setTextColor(k.err)
+            Ps5.LinkResult.WRONG_PIN -> {
+                pinTyped = ""
+                showLink(T("The PS5 refused this PIN: it's wrong or no longer valid. The PIN changes each time Link Device is opened on the PS5: type the one it shows now."), true)
+            }
+            Ps5.LinkResult.SCREEN_CLOSED -> showLink(T("The PS5 isn't showing the Link Device screen. Open it again (Settings › System › Remote Play › Link Device) and type the new PIN it shows."), true)
+            Ps5.LinkResult.NOT_FOUND -> showLink(T("The PS5 didn't answer at {address}. Is it on (or in rest mode), on the same network as this phone, with Remote Play on? Check its address in step 2.", "address" to address), true)
+            Ps5.LinkResult.ACCOUNT -> {
+                editingAccount = true
+                showLink(T("The PS5 refused the PSN account: sign in to PSN again (step 1)."), true)
+            }
+            Ps5.LinkResult.CANCELED -> showLink(null, false)
+            Ps5.LinkResult.FAILED -> showLink(T("Linking didn't work. Try again."), true)
         }
     }
 
@@ -384,8 +454,15 @@ class Ps5Link(private val h: Host, private val redraw: () -> Unit) {
     }
 
     fun close() {
+        closed = true
         stop()
-        regist?.dispose()
+        // (stop() ends a linking under way at once; dispose() then waits for chiaki's thread, so not
+        // on the UI thread: it would freeze the app until the PS5 answers or times out)
+        regist?.let { r ->
+            r.stop()
+            h.io { r.dispose() }
+        }
+        regist = null
     }
 
     companion object {
@@ -394,6 +471,20 @@ class Ps5Link(private val h: Host, private val redraw: () -> Unit) {
         /** debug builds: the linking steps shown even with a PS5 linked (to look at them) */
         @Volatile
         var showSteps = false
+
+        enum class AddressKind { OK, PIN, TV_CODE, BAD }
+
+        /** A typed address: an IPv4 address, or what was typed there by mistake (the PIN, the TV's code). */
+        fun addressKind(a: String): AddressKind {
+            val t = a.trim()
+            val digits = t.filter { !it.isWhitespace() && it != '-' }
+            return when {
+                validAddress(t) -> AddressKind.OK
+                digits.length == 8 && digits.all { it in '0'..'9' } -> AddressKind.PIN
+                digits.length == 6 && digits.all { it in '0'..'9' } -> AddressKind.TV_CODE
+                else -> AddressKind.BAD
+            }
+        }
 
         fun validAddress(a: String) = Regex("^(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})$").matchEntire(a.trim())?.groupValues?.drop(1)?.all { it.toInt() <= 255 } == true
 

@@ -429,6 +429,16 @@ class AreasPanel(h: Host) : Panel(h) {
 
 // ------------------------------------------------------------------------------------- Game pages
 
+/**
+ * What's translated (Game pages): the name and the note of each switch the core lists for a game (page_options
+ * "groups"; GTA VI's: the phone, the pause menu, the help and notices).
+ */
+private val CONTENT_TEXT = mapOf(
+    "phone" to ("Phone translations" to "The phone's WhatUp chats, translated on a second phone beside it."),
+    "menus" to ("Pause menu and map" to "The pause menu: the map and its index, lists, help pages, settings and buttons."),
+    "notices" to ("Help, instructions and notices" to "The help box at the top left, the instructions under the subtitles, and the game's notices like “Controller disconnected”."),
+)
+
 /** Game pages: the game's own pages that get a hand-made translation, in the game's look. */
 class PagesPanel(h: Host) : Panel(h) {
     override fun refresh() {
@@ -457,9 +467,10 @@ class PagesPanel(h: Host) : Panel(h) {
 
     private fun draw(box: LinearLayout, script: JSONObject?, game: String) {
         box.removeAllViews()
+        val groups = script?.optJSONArray("groups")?.let { a -> (0 until a.length()).map { a.getJSONObject(it) } }?.filter { CONTENT_TEXT.containsKey(it.optString("id")) } ?: emptyList()
         // (GTA VI's phone in the hand — its WhatUp chats translated on a second phone beside it: shown or not, the
-        // player's, whatever the profile)
-        if (game == "gta6") {
+        // player's, whatever the profile; with a core that lists What's translated, it's one of those switches)
+        if (game == "gta6" && groups.isEmpty()) {
             val card = k.card(12, k.switch(T("Phone translations"), cfg.bool("phone_text", true)) { cfg.put("phone_text", it) })
             card.addView(k.muted(T("The phone's WhatUp chats, translated on a second phone beside it."), small = true))
             card.layoutParams = LinearLayout.LayoutParams(-1, -2).apply { topMargin = k.dp(12) }
@@ -477,9 +488,12 @@ class PagesPanel(h: Host) : Panel(h) {
         val o = cfg.profileOpts()
         val more = o.optJSONObject("more") ?: JSONObject().also { o.put("more", it) }
         val options = script.optJSONArray("options") ?: JSONArray()
+        if (groups.isNotEmpty()) contentCard(box, groups, options, more, script, game)
+        val covered = groups.flatMap { g -> g.optJSONArray("pages")?.let { a -> (0 until a.length()).map { a.optString(it) } } ?: emptyList() }.toSet()
         for (i in 0 until options.length()) {
             val opt = options.getJSONObject(i)
             val id = opt.optString("id")
+            if (id in covered) continue // (one of What's translated above)
             val on = if (more.has(id)) more.optBoolean(id) else opt.optBoolean("on")
             val card = k.card(12,
                 k.switch(scriptText(opt.opt("name")).ifEmpty { id }, on) {
@@ -492,6 +506,58 @@ class PagesPanel(h: Host) : Panel(h) {
             box.addView(card)
         }
         fontsCard(box)
+    }
+
+    /**
+     * What's translated: the dialogue always; each of the game's switches (the core's list, page_options "groups")
+     * stands for read areas, pages of the game and the phone, shown on when any of them is on and switching them
+     * all; "Dialogue only" turns them and the game's other page switches off.
+     */
+    private fun contentCard(box: LinearLayout, groups: List<JSONObject>, options: JSONArray, more: JSONObject, script: JSONObject, game: String) {
+        fun strings(g: JSONObject, key: String) = g.optJSONArray(key)?.let { a -> (0 until a.length()).map { a.optString(it) } } ?: emptyList()
+        fun pageOn(id: String): Boolean {
+            if (more.has(id)) return more.optBoolean(id)
+            for (i in 0 until options.length()) if (options.getJSONObject(i).optString("id") == id) return options.getJSONObject(i).optBoolean("on")
+            return false
+        }
+        val areas = cfg.areas()
+        fun areaOn(id: String) = (0 until areas.length()).any { areas.getJSONObject(it).let { a -> a.optString("id") == id && a.optBoolean("enabled", true) } }
+        fun groupOn(g: JSONObject) = (g.optBoolean("phone") && cfg.bool("phone_text", true)) || strings(g, "areas").any(::areaOn) || strings(g, "pages").any(::pageOn)
+        fun setGroup(g: JSONObject, on: Boolean) {
+            if (g.optBoolean("phone")) cfg.put("phone_text", on)
+            val ids = strings(g, "areas")
+            for (i in 0 until areas.length()) areas.getJSONObject(i).takeIf { it.optString("id") in ids }?.let {
+                it.put("enabled", on)
+                cfg.setShown("area", it.optString("id"), on)
+            }
+            for (id in strings(g, "pages")) {
+                more.put(id, on)
+                cfg.setShown("page", id, on)
+            }
+            cfg.touched("areas", "profile_opts")
+        }
+        val card = k.card(12, k.text(T("What's translated"), k.base, k.text, k.bold))
+        val dialogue = k.switch(T("Dialogue and subtitles"), true) {}.apply { isEnabled = false }
+        card.addView(dialogue)
+        card.addView(k.muted(T("Always translated."), small = true))
+        for (g in groups) {
+            val (name, about) = CONTENT_TEXT.getValue(g.optString("id"))
+            card.addView(k.switch(T(name), groupOn(g)) { setGroup(g, it) })
+            card.addView(k.muted(T(about), small = true))
+        }
+        card.addView(k.button(T("Dialogue only")) {
+            for (g in groups) setGroup(g, false)
+            for (i in 0 until options.length()) {
+                val id = options.getJSONObject(i).optString("id")
+                more.put(id, false)
+                cfg.setShown("page", id, false)
+            }
+            cfg.touched("profile_opts")
+            draw(box, script, game)
+        }.apply { layoutParams = LinearLayout.LayoutParams(-2, -2).apply { topMargin = k.dp(12) } })
+        card.addView(k.muted(T("Turns off everything here except the dialogue and subtitles."), small = true).apply { setPadding(0, k.dp(6), 0, 0) })
+        card.layoutParams = LinearLayout.LayoutParams(-1, -2).apply { topMargin = k.dp(12) }
+        box.addView(card)
     }
 
     private fun fontsCard(box: LinearLayout) {

@@ -136,7 +136,8 @@ class ChiakiLog(val levelMask: Int, val callback: (level: Int, text: String) -> 
 
 	private fun log(level: Int, text: String)
 	{
-		callback(level, text)
+		// (called from chiaki's threads through JNI: an exception left here would end the app)
+		nativeCallback("log") { callback(level, text) }
 	}
 
 	fun d(text: String) = log(Level.DEBUG.value, text)
@@ -316,6 +317,8 @@ object ConnectedEvent: Event()
 data class LoginPinRequestEvent(val pinIncorrect: Boolean): Event()
 data class QuitEvent(val reason: QuitReason, val reasonString: String?): Event()
 data class RumbleEvent(val left: UByte, val right: UByte): Event()
+/** The PS5 can't stream what it shows (a screen or game that blocks Remote Play), or can again. */
+data class CantDisplayEvent(val cantDisplay: Boolean): Event()
 
 class CreateError(val errorCode: ErrorCode): Exception("Failed to create a native object: $errorCode")
 
@@ -353,7 +356,7 @@ class Session(connectInfo: ConnectInfo, logFile: String?, logVerbose: Boolean)
 
 	private fun event(event: Event)
 	{
-		eventCallback?.let { it(event) }
+		nativeCallback("session event") { eventCallback?.let { it(event) } }
 	}
 
 	private fun eventConnected()
@@ -374,6 +377,11 @@ class Session(connectInfo: ConnectInfo, logFile: String?, logVerbose: Boolean)
 	private fun eventRumble(left: Int, right: Int)
 	{
 		event(RumbleEvent(left.toUByte(), right.toUByte()))
+	}
+
+	private fun eventCantDisplay(cantDisplay: Boolean)
+	{
+		event(CantDisplayEvent(cantDisplay))
 	}
 
 	fun setSurface(surface: Surface?)
@@ -456,7 +464,7 @@ class DiscoveryService(
 	{
 		val hostsList = hosts.toList()
 		Log.i("Chiaki", "got hosts from native: $hostsList")
-		callback?.let { it(hostsList) }
+		nativeCallback("discovery") { callback?.let { it(hostsList) } }
 	}
 
 }
@@ -500,6 +508,7 @@ class Regist(
 	val callback: (RegistEvent) -> Unit
 )
 {
+	@Volatile
 	private var nativePtr: Long
 
 	init
@@ -514,9 +523,13 @@ class Regist(
 
 	fun stop()
 	{
+		// (not once freed: the native side would use freed memory)
+		if(nativePtr == 0L)
+			return
 		ChiakiNative.registStop(nativePtr)
 	}
 
+	/** Waits for chiaki's thread (stop() first ends it at once): not on the UI thread. */
 	fun dispose()
 	{
 		if(nativePtr == 0L)
@@ -527,7 +540,24 @@ class Regist(
 
 	private fun event(event: RegistEvent)
 	{
-		callback(event)
+		nativeCallback("regist event") { callback(event) }
+	}
+}
+
+/**
+ * Runs Kotlin called back from chiaki's own threads (through JNI). An exception must not get back to
+ * the native code: it would be left pending while chiaki goes on calling JNI (logging, detaching
+ * the thread), and the app would be aborted. It is logged instead.
+ */
+internal inline fun nativeCallback(what: String, block: () -> Unit)
+{
+	try
+	{
+		block()
+	}
+	catch(e: Throwable)
+	{
+		Log.e("Chiaki", "$what callback failed", e)
 	}
 }
 

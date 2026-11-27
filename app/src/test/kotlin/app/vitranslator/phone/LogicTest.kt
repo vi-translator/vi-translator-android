@@ -3,7 +3,11 @@ package app.vitranslator.phone
 import app.vitranslator.phone.core.StubCore
 import app.vitranslator.phone.core.TvLink
 import app.vitranslator.phone.core.Word
+import app.vitranslator.phone.ps.Ps5
+import app.vitranslator.phone.ps.Ps5.LinkResult
 import app.vitranslator.phone.ps.Psn
+import app.vitranslator.phone.ui.Ps5Link
+import app.vitranslator.phone.ui.Ps5Link.Companion.AddressKind
 import app.vitranslator.phone.read.YuvSnapshot
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
@@ -80,5 +84,43 @@ class LogicTest {
         assertEquals(255, grey(235))
         // (and in between it rises steadily)
         assertTrue((16..235).zipWithNext().all { (a, b) -> grey(a) <= grey(b) })
+    }
+
+    @Test
+    fun ps5PinIsEightDigits() {
+        assertEquals(12345678, Ps5.pinOf("12345678"))
+        assertEquals(1234567, Ps5.pinOf("0123 4567"))
+        assertEquals(99999999, Ps5.pinOf("9999-9999"))
+        assertNull(Ps5.pinOf("123456"))
+        assertNull(Ps5.pinOf("123456789"))
+        assertNull(Ps5.pinOf("1234.567"))
+        assertNull(Ps5.pinOf(""))
+    }
+
+    @Test
+    fun aPinOrTvCodeTypedAsThePs5sAddress() {
+        assertEquals(AddressKind.OK, Ps5Link.addressKind(" 192.168.1.20 "))
+        assertEquals(AddressKind.PIN, Ps5Link.addressKind("1234 5678"))
+        assertEquals(AddressKind.PIN, Ps5Link.addressKind("12345678"))
+        assertEquals(AddressKind.TV_CODE, Ps5Link.addressKind("123456"))
+        assertEquals(AddressKind.BAD, Ps5Link.addressKind("192.168.1.300"))
+        assertEquals(AddressKind.BAD, Ps5Link.addressKind("ps5.local"))
+    }
+
+    @Test
+    fun whyLinkingFailedFromChiakisLog() {
+        assertEquals(LinkResult.WRONG_PIN, Ps5.failureOf(listOf(
+            "[I] Regist successfully received response",
+            "[E] Regist received HTTP code 403",
+            "[E] Reported Application Reason: 0x80108b09 (Regist failed, probably invalid PIN)",
+        )))
+        assertEquals(LinkResult.ACCOUNT, Ps5.failureOf(listOf("[E] Reported Application Reason: 0x80108b02 (Invalid PSN ID)")))
+        assertEquals(LinkResult.SCREEN_CLOSED, Ps5.failureOf(listOf(
+            "[E] Regist failed to receive search response: Connection refused",
+            "[E] The console refused the registration search, keep its Link Device (PS5) or Add Device (PS4) screen with the code open while registering",
+        )))
+        assertEquals(LinkResult.NOT_FOUND, Ps5.failureOf(listOf("[E] Regist timed out waiting for search response", "[E] Regist search failed")))
+        assertEquals(LinkResult.NOT_FOUND, Ps5.failureOf(listOf("[E] Regist failed to getaddrinfo on 1.2.3")))
+        assertEquals(LinkResult.FAILED, Ps5.failureOf(emptyList()))
     }
 }

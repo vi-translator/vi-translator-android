@@ -108,6 +108,8 @@ dependencies {
     implementation("com.google.mlkit:text-recognition:16.0.1")
     // the shared core's UniFFI bindings (app.vitranslator.core) call its library through JNA
     implementation("net.java.dev.jna:jna:5.17.0@aar")
+    // Xbox Remote Play: WebRTC (Google's libwebrtc, prebuilt), the stream Microsoft's own player uses
+    implementation("io.getstream:stream-webrtc-android:1.3.10")
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.json:json:20250517")
 }

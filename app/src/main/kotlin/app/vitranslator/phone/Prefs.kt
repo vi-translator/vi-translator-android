@@ -45,6 +45,16 @@ class Prefs(ctx: Context) {
         get() = p.getInt("ps_resolution", 720)
         set(v) = p.edit().putInt("ps_resolution", v).apply()
 
+    /** the Xbox stream's resolution: 720 or 1080 (the default; Microsoft picks it by the client's system) */
+    var xboxResolution: Int
+        get() = p.getInt("xbox_resolution", 1080)
+        set(v) = p.edit().putInt("xbox_resolution", v).apply()
+
+    /** the Xbox through Microsoft's web player in the app (the old way: the screen stays on) instead of the app's own stream */
+    var xboxWebPlayer: Boolean
+        get() = p.getBoolean("xbox_web_player", false)
+        set(v) = p.edit().putBoolean("xbox_web_player", v).apply()
+
     /** the capture card's 4K picture (else 1080p, as the desktop's 4K switch) */
     var card4k: Boolean
         get() = p.getBoolean("card_4k", false)

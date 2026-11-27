@@ -130,7 +130,8 @@ class PlayPanel(h: Host) : Panel(h) {
         start.setCompoundDrawablesRelativeWithIntrinsicBounds(if (running) null else k.tinted(R.drawable.ic_play, Color.WHITE, 16), null, null, null)
         val console = Prefs(h.act).console
         startNote.text = when {
-            console == "xbox" -> T("Xbox: Microsoft's Remote Play player opens; keep the phone's screen on while playing.")
+            console == "xbox" && Prefs(h.act).xboxWebPlayer -> T("Xbox: Microsoft's Remote Play player opens; keep the phone's screen on while playing.")
+            console == "xbox" -> T("Keep VI Translator open while playing (with an Xbox the screen can be off).")
             console == "ps5" -> T("Keep VI Translator open while playing (with a PS5 the screen can be off).")
             console == "card" -> T("Keep the capture card plugged into the phone while playing (the screen can be off).")
             else -> T("Choose your console in Source first.")
@@ -286,7 +287,7 @@ class PlayPanel(h: Host) : Panel(h) {
         }
         when (Prefs(h.act).console) {
             "ps5" -> TranslateService.start(h.act, TranslateService.Source.PS5)
-            "xbox" -> XboxActivity.open(h.act)
+            "xbox" -> if (Prefs(h.act).xboxWebPlayer) XboxActivity.open(h.act) else TranslateService.start(h.act, TranslateService.Source.XBOX)
             // (the card is a camera to Android: its permission first, then MainActivity starts it)
             "card" -> if (h.act.checkSelfPermission(android.Manifest.permission.CAMERA) == android.content.pm.PackageManager.PERMISSION_GRANTED) {
                 TranslateService.start(h.act, TranslateService.Source.CARD)

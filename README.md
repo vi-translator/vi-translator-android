@@ -18,8 +18,10 @@ draws it over the game. The TV keeps showing the console's own HDMI picture at f
 - **PlayStation 5:** PS Remote Play, through [chiaki-ng](https://github.com/streetpea/chiaki-ng).
   The stream is decoded straight into memory, never shown, with no sound; about 4 frames a second
   are read.
-- **Xbox:** Microsoft's own Remote Play web player (`play.xbox.com/remoteplay`) inside the app; its
-  picture is copied about 4 times a second.
+- **Xbox:** Xbox Remote Play over WebRTC ([Google's libwebrtc](https://github.com/GetStream/webrtc-android)),
+  the way xbox.com's player talks to the console (as the open-source XStreaming and Greenlight do):
+  the stream is decoded straight into memory, never shown, with no sound or controller. Signing in is
+  a code typed at microsoft.com/link. Microsoft's own web player inside the app stays as a choice.
 - **Reading:** Google ML Kit text recognition, on the phone (Latin script).
 - **Translating and the TVs:** VI Translator's shared core (the `vi-translator-core` Rust crate),
   which also serves the TV page on the home network, so the TV apps connect to the phone just as
@@ -32,12 +34,12 @@ draws it over the game. The TV keeps showing the console's own HDMI picture at f
      PS5, sign in to PSN **with a second account, not the one you play with** (Remote Play signs it
      in on the PS5; the app keeps only its account ID), and type the 8-digit PIN the PS5 shows under
      *Link Device*.
-   - *Xbox:* turn on remote features on the Xbox. *Start translating* opens Microsoft's player; sign
-     in there with your Microsoft account and connect to your console.
+   - *Xbox:* turn on remote features on the Xbox. In the app, get a sign-in code, enter it at
+     microsoft.com/link with the Xbox's Microsoft account, and choose the console (once).
 2. **TV:** open VI Translator on the TV: it shows a 6-digit code. In the app, *Find TVs*, pick it,
    type the code, *Connect*.
-3. **Game and language**, then **Start translating**. Keep the app open while playing (with a PS5
-   the phone's screen can be off; the Xbox player needs it on).
+3. **Game and language**, then **Start translating**. Keep the app open while playing (the phone's
+   screen can be off; Microsoft's web player, if chosen instead, needs it on).
 
 ## Build
 

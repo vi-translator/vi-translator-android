@@ -145,6 +145,7 @@ class TranslateService : Service(), PsStream.Listener, XboxStream.Listener {
                 return@Thread
             }
             val reader = Reader(core)
+            reader.power = getSystemService(PowerManager::class.java)
             App.reader = reader
             main.post {
                 if (source == null) return@post

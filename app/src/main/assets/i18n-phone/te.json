@@ -184,5 +184,8 @@
  "the capture card could not be opened": "క్యాప్చర్ కార్డ్‌ను తెరవలేకపోయింది",
  "the phone sees {name} over USB, but Android doesn't offer it to apps as a camera (see Setup › Source)": "ఫోన్ USB ద్వారా {name}ను చూస్తోంది, కానీ Android దాన్ని యాప్‌లకు కెమెరాగా అందించడం లేదు (సెటప్ › మూలం చూడండి)",
  "xbox.com's own player in the app: sign in and choose the console there. The phone's screen stays on.": "యాప్‌లోనే xbox.com సొంత ప్లేయర్: అక్కడే సైన్ ఇన్ చేసి కన్సోల్‌ను ఎంచుకోండి. ఫోన్ స్క్రీన్ ఆన్‌లోనే ఉంటుంది.",
- "{n} read · {ms} ms": "{n} చదివింది · {ms} ms"
+ "{n} read · {ms} ms": "{n} చదివింది · {ms} ms",
+ "Overlays on this phone": "ఈ ఫోన్‌లో ఓవర్‌లేలు",
+ "Show the overlays on this phone": "ఈ ఫోన్‌లో ఓవర్‌లేలను చూపండి",
+ "The PS5 is showing something Remote Play can't stream": "Remote Play స్ట్రీమ్ చేయలేనిదాన్ని PS5 చూపుతోంది"
 }

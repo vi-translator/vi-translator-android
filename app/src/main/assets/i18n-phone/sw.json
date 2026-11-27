@@ -184,5 +184,8 @@
  "the capture card could not be opened": "kadi ya kunasa haikuweza kufunguliwa",
  "the phone sees {name} over USB, but Android doesn't offer it to apps as a camera (see Setup › Source)": "simu inaona {name} kupitia USB, lakini Android haikitoi kwa programu kama kamera (angalia Mipangilio › Chanzo)",
  "xbox.com's own player in the app: sign in and choose the console there. The phone's screen stays on.": "Kicheza cha xbox.com chenyewe ndani ya programu: ingia na uchague koni hapo. Skrini ya simu inabaki imewashwa.",
- "{n} read · {ms} ms": "{n} zimesomwa · {ms} ms"
+ "{n} read · {ms} ms": "{n} zimesomwa · {ms} ms",
+ "Overlays on this phone": "Tafsiri juu ya mchezo kwenye simu hii",
+ "Show the overlays on this phone": "Onyesha tafsiri juu ya mchezo kwenye simu hii",
+ "The PS5 is showing something Remote Play can't stream": "PS5 inaonyesha kitu ambacho Remote Play haiwezi kutiririsha"
 }

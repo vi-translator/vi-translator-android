@@ -184,5 +184,8 @@
  "the capture card could not be opened": "کارت کپچر باز نشد",
  "the phone sees {name} over USB, but Android doesn't offer it to apps as a camera (see Setup › Source)": "گوشی {name} را از طریق USB می‌بیند، اما Android آن را به‌عنوان دوربین در اختیار برنامه‌ها نمی‌گذارد (راه‌اندازی › منبع را ببینید)",
  "xbox.com's own player in the app: sign in and choose the console there. The phone's screen stays on.": "پخش‌کنندهٔ خود xbox.com درون برنامه: همان‌جا وارد شوید و کنسول را انتخاب کنید. صفحهٔ گوشی روشن می‌ماند.",
- "{n} read · {ms} ms": "{n} خوانده شد · {ms} ms"
+ "{n} read · {ms} ms": "{n} خوانده شد · {ms} ms",
+ "Overlays on this phone": "اورلی روی این گوشی",
+ "Show the overlays on this phone": "نمایش اورلی روی این گوشی",
+ "The PS5 is showing something Remote Play can't stream": "PS5 چیزی را نشان می‌دهد که Remote Play نمی‌تواند پخش کند"
 }

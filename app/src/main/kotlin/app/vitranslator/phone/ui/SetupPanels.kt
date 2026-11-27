@@ -183,6 +183,9 @@ class ShowPanel(h: Host) : Panel(h) {
 
     override fun refresh() {
         view.removeAllViews()
+        // (the desktop's "Overlays on this PC": here, the translations drawn over the picture in this app)
+        add(k.h3(T("Overlays on this phone")))
+        add(k.check(T("Show the overlays on this phone"), cfg.bool("device_overlays", true)) { cfg.put("device_overlays", it, now = true) })
         add(k.h3(T("Show on a TV")))
         add(k.muted(T("The translations over the game on a Google TV, Android TV, LG or Samsung TV, with the VI Translator app. Open the app on the TV, then connect it here with the code it shows.")))
         add(k.button(T("Connect a TV"), primary = true, icon = R.drawable.ic_tv) { findTvs() }.apply { layoutParams = lp(12) })
@@ -273,6 +276,10 @@ class ShowPanel(h: Host) : Panel(h) {
                                 null -> ""
                             }, small = true),
                         )),
+                        // (its translations on or off at once, while translating: it stays connected)
+                        k.switch("", tv.on, small = true) { on -> h.io { App.core.setTvOn(tv.id, on) } }.apply {
+                            contentDescription = T("Show the translations on this TV")
+                        },
                         k.link(T("Remove")) { forget(tv) },
                         gap = 10,
                     ).apply {

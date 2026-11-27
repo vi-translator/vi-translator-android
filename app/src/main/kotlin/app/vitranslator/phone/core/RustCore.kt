@@ -150,7 +150,9 @@ class RustCore(context: Context, recognizer: Recognizer) : Core {
         PairResult.UNREACHABLE
     }
 
-    override fun pairedTvs(): List<Tv> = engine.listTvs().map { Tv(it.id, it.name, "", it.online) }
+    override fun pairedTvs(): List<Tv> = engine.listTvs().map { Tv(it.id, it.name, "", it.online, it.on) }
+
+    override fun setTvOn(id: String, on: Boolean): Boolean = engine.setTvOn(id, on)
 
     override fun forgetTv(id: String) {
         engine.removeTv(id)

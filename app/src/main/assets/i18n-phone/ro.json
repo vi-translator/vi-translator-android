@@ -184,5 +184,8 @@
  "the capture card could not be opened": "placa de captură nu a putut fi deschisă",
  "the phone sees {name} over USB, but Android doesn't offer it to apps as a camera (see Setup › Source)": "telefonul vede {name} prin USB, dar Android nu îl oferă aplicațiilor drept cameră (vedeți Configurare › Sursă)",
  "xbox.com's own player in the app: sign in and choose the console there. The phone's screen stays on.": "Playerul propriu al xbox.com, în aplicație: conectați-vă și alegeți consola acolo. Ecranul telefonului rămâne aprins.",
- "{n} read · {ms} ms": "{n} citite · {ms} ms"
+ "{n} read · {ms} ms": "{n} citite · {ms} ms",
+ "Overlays on this phone": "Traducere pe acest telefon",
+ "Show the overlays on this phone": "Afișează traducerea pe acest telefon",
+ "The PS5 is showing something Remote Play can't stream": "PS5 afișează ceva ce Remote Play nu poate transmite"
 }

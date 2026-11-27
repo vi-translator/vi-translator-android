@@ -795,6 +795,8 @@ internal object IntegrityCheckingUniffiLib {
     ): Int
     external fun uniffi_vi_translator_ffi_checksum_method_engine_set_target_lang(
     ): Int
+    external fun uniffi_vi_translator_ffi_checksum_method_engine_set_tv_on(
+    ): Int
     external fun uniffi_vi_translator_ffi_checksum_method_engine_start_sync(
     ): Int
     external fun uniffi_vi_translator_ffi_checksum_method_engine_start_tv_server(
@@ -895,6 +897,8 @@ internal object UniffiLib {
     ): RustBuffer.ByValue
     external fun uniffi_vi_translator_ffi_fn_method_engine_set_target_lang(`ptr`: Long,`code`: RustBuffer.ByValue,uniffi_out_err: UniffiRustCallStatus, 
     ): Unit
+    external fun uniffi_vi_translator_ffi_fn_method_engine_set_tv_on(`ptr`: Long,`id`: RustBuffer.ByValue,`on`: Byte,uniffi_out_err: UniffiRustCallStatus, 
+    ): Byte
     external fun uniffi_vi_translator_ffi_fn_method_engine_start_sync(`ptr`: Long,uniffi_out_err: UniffiRustCallStatus, 
     ): Unit
     external fun uniffi_vi_translator_ffi_fn_method_engine_start_tv_server(`ptr`: Long,`port`: Short,uniffi_out_err: UniffiRustCallStatus, 
@@ -1128,6 +1132,9 @@ private fun uniffiCheckApiChecksums(lib: IntegrityCheckingUniffiLib) {
         throw RuntimeException("UniFFI API checksum mismatch: try cleaning and rebuilding your project")
     }
     if ((lib.uniffi_vi_translator_ffi_checksum_method_engine_set_target_lang() and 0xFFFF) != 11847) {
+        throw RuntimeException("UniFFI API checksum mismatch: try cleaning and rebuilding your project")
+    }
+    if ((lib.uniffi_vi_translator_ffi_checksum_method_engine_set_tv_on() and 0xFFFF) != 64024) {
         throw RuntimeException("UniFFI API checksum mismatch: try cleaning and rebuilding your project")
     }
     if ((lib.uniffi_vi_translator_ffi_checksum_method_engine_start_sync() and 0xFFFF) != 60348) {
@@ -1780,6 +1787,12 @@ public interface EngineInterface {
     fun `setTargetLang`(`code`: kotlin.String)
     
     /**
+     * Switch a connected TV's translations on or off at once, while translating (kept with the
+     * TV). False when there's no such TV.
+     */
+    fun `setTvOn`(`id`: kotlin.String, `on`: kotlin.Boolean): kotlin.Boolean
+    
+    /**
      * Keep the reviewed translations and layouts for the game and language in use up to date
      * (from https://vitranslator.app, in the background; what was downloaded before is used at once).
      */
@@ -2340,6 +2353,25 @@ open class Engine: Disposable, AutoCloseable, EngineInterface
 }
     }
     
+    
+
+    
+    /**
+     * Switch a connected TV's translations on or off at once, while translating (kept with the
+     * TV). False when there's no such TV.
+     */override fun `setTvOn`(`id`: kotlin.String, `on`: kotlin.Boolean): kotlin.Boolean {
+            return FfiConverterBoolean.lift(
+    callWithHandle {
+    uniffiRustCall() { _status ->
+    UniffiLib.uniffi_vi_translator_ffi_fn_method_engine_set_tv_on(
+        it,
+        
+        FfiConverterString.lower(`id`),
+        FfiConverterBoolean.lower(`on`),_status)
+}
+    }
+    )
+    }
     
 
     
@@ -3843,6 +3875,11 @@ data class TvInfo (
      * its page asked for the overlays in the last few seconds
      */
     var `online`: kotlin.Boolean
+    , 
+    /**
+     * shows the translations (`set_tv_on`); off, it stays connected and shows nothing
+     */
+    var `on`: kotlin.Boolean
     
 ){
     
@@ -3862,19 +3899,22 @@ public object FfiConverterTypeTvInfo: FfiConverterRustBuffer<TvInfo> {
             FfiConverterString.read(buf),
             FfiConverterString.read(buf),
             FfiConverterBoolean.read(buf),
+            FfiConverterBoolean.read(buf),
         )
     }
 
     override fun allocationSize(value: TvInfo) = (
             FfiConverterString.allocationSize(value.`id`) +
             FfiConverterString.allocationSize(value.`name`) +
-            FfiConverterBoolean.allocationSize(value.`online`)
+            FfiConverterBoolean.allocationSize(value.`online`) +
+            FfiConverterBoolean.allocationSize(value.`on`)
     )
 
     override fun write(value: TvInfo, buf: ByteBuffer) {
             FfiConverterString.write(value.`id`, buf)
             FfiConverterString.write(value.`name`, buf)
             FfiConverterBoolean.write(value.`online`, buf)
+            FfiConverterBoolean.write(value.`on`, buf)
     }
 }
 

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VI Translator</string>
+    <string name="ui_language">Γλώσσα εφαρμογής</string>
+    <string name="phone_language">Του τηλεφώνου</string>
+
+    <string name="step_console">1. Η κονσόλα σας</string>
+    <string name="playstation">PlayStation 5</string>
+    <string name="xbox">Xbox</string>
+    <string name="ps_setup_hint">Το τηλέφωνο λαμβάνει ροή από το PS5 με το Απομακρυσμένο παιχνίδι για να διαβάσει το παιχνίδι· η τηλεόραση συνεχίζει να δείχνει την κονσόλα όπως πάντα. Ρυθμίστε το μία φορά: στο PS5, η επιλογή Ρυθμίσεις › Σύστημα › Απομακρυσμένη αναπαραγωγή › Σύζευξη συσκευής δείχνει ένα PIN.</string>
+    <string name="ps_find">Εύρεση του PS5</string>
+    <string name="ps_address">Διεύθυνση PS5 (192.168.1.20)</string>
+    <string name="psn_secondary_hint">Συνδεθείτε με δεύτερο λογαριασμό PSN, όχι με αυτόν με τον οποίο παίζετε: το Απομακρυσμένο παιχνίδι τον συνδέει στο PS5. Διατηρείται μόνο το αναγνωριστικό λογαριασμού του.</string>
+    <string name="psn_sign_in">Σύνδεση στο PSN</string>
+    <string name="psn_failed">Η σύνδεση στο PSN απέτυχε: %1$s</string>
+    <string name="psn_account_id">Αναγνωριστικό λογαριασμού PSN</string>
+    <string name="ps_pin">Το PIN 8 ψηφίων που δείχνει το PS5</string>
+    <string name="ps_register">Σύζευξη</string>
+    <string name="ps_wake">Αφύπνιση του PS5</string>
+    <string name="ps_registering">Σύζευξη…</string>
+    <string name="ps_register_missing">Συμπληρώστε τη διεύθυνση του PS5, το αναγνωριστικό λογαριασμού και το PIN 8 ψηφίων.</string>
+    <string name="ps_register_failed">Το PS5 αρνήθηκε: ελέγξτε το PIN (αλλάζει κάθε λίγα λεπτά) και ότι το Απομακρυσμένο παιχνίδι είναι ενεργό.</string>
+    <string name="ps_registered">Σε σύζευξη με %1$s (%2$s)</string>
+    <string name="ps_not_registered">Δεν υπάρχει ακόμη σύζευξη με PS5.</string>
+    <string name="ps_not_in_build">Το PS Remote Play δεν περιλαμβάνεται σε αυτή την έκδοση της εφαρμογής.</string>
+    <string name="ps_ready">ενεργό</string>
+    <string name="ps_standby">κατάσταση ανάπαυσης</string>
+    <string name="ps_login_pin">Το PS5 ζητά τον κωδικό πρόσβασης του λογαριασμού</string>
+    <string name="ps_login_pin_wrong">Λάθος κωδικός πρόσβασης: δοκιμάστε ξανά</string>
+    <string name="xbox_hint">Η Έναρξη μετάφρασης ανοίγει εδώ το player Απομακρυσμένου παιχνιδιού της Microsoft. Συνδεθείτε εκεί με τον λογαριασμό σας Microsoft και συνδεθείτε στο Xbox σας· η τηλεόραση συνεχίζει να δείχνει την κονσόλα όπως πάντα. Κρατήστε την οθόνη αναμμένη όσο παίζετε.</string>
+    <string name="xbox_capture_screen">Το βίντεο δεν μπορεί να διαβαστεί: καταγραφή της οθόνης</string>
+    <string name="xbox_setup_status">Συνδεθείτε και μετά επιλέξτε το Xbox σας. Πίσω όταν τελειώσετε.</string>
+    <string name="xbox_status">Διαβάστηκαν %1$d καρέ (%2$s)</string>
+
+    <string name="step_tv">2. Σύνδεση τηλεόρασης</string>
+    <string name="tv_hint">Ανοίξτε το VI Translator στην τηλεόραση (Android TV, LG ή Samsung): δείχνει έναν κωδικό 6 ψηφίων.</string>
+    <string name="tv_none">Δεν έχει συνδεθεί ακόμη τηλεόραση.</string>
+    <string name="tv_find">Εύρεση τηλεοράσεων</string>
+    <string name="tv_found_none">Δεν βρέθηκε τηλεόραση: είναι ανοιχτή η εφαρμογή της τηλεόρασης και στο ίδιο δίκτυο; Μπορείτε να πληκτρολογήσετε τη διεύθυνσή της.</string>
+    <string name="tv_address">Διεύθυνση τηλεόρασης</string>
+    <string name="tv_code">Ο κωδικός που δείχνει η τηλεόραση</string>
+    <string name="tv_connect">Σύνδεση</string>
+    <string name="tv_connecting">Σύνδεση…</string>
+    <string name="tv_connected">Συνδέθηκε.</string>
+    <string name="tv_wrong_code">Αυτός δεν είναι ο κωδικός που δείχνει η τηλεόραση.</string>
+    <string name="tv_new_code">Πάρα πολλοί λάθος κωδικοί: η τηλεόραση δείχνει νέο κωδικό.</string>
+    <string name="tv_unreachable">Η τηλεόραση δεν απάντησε: είναι ανοιχτή η εφαρμογή της τηλεόρασης;</string>
+    <string name="tv_missing">Επιλέξτε τηλεόραση (ή πληκτρολογήστε τη διεύθυνσή της) και τον κωδικό 6 ψηφίων.</string>
+    <string name="tv_forget">Αποσύνδεση</string>
+    <string name="searching">Αναζήτηση…</string>
+
+    <string name="step_game">3. Το παιχνίδι και η γλώσσα</string>
+    <string name="translate_into">Μετάφραση σε</string>
+
+    <string name="step_start">4. Μετάφραση</string>
+    <string name="keep_open_hint">Κρατήστε το VI Translator ανοιχτό όσο παίζετε (με PS5 η οθόνη μπορεί να είναι σβηστή).</string>
+    <string name="start">Έναρξη μετάφρασης</string>
+    <string name="stop">Διακοπή</string>
+    <string name="choose_console">Επιλέξτε πρώτα την κονσόλα σας.</string>
+    <string name="state_starting">Εκκίνηση…</string>
+    <string name="state_connecting">Σύνδεση στο PS5…</string>
+    <string name="state_reading">Μετάφραση σε εξέλιξη.</string>
+    <string name="state_ended">Διακόπηκε.</string>
+    <string name="state_failed">Διακόπηκε: %1$s</string>
+    <string name="stats">Διαβάστηκαν %1$d από %2$d καρέ · %3$d ms · %4$s</string>
+
+    <string name="step_lines">5. Ανάγνωση και μετάφραση</string>
+    <string name="lines_none">Οι γραμμές που διαβάζονται εμφανίζονται εδώ.</string>
+    <string name="about">Πυρήνας μετάφρασης: %1$s</string>
+
+    <string name="notify_channel">Μετάφραση σε εξέλιξη</string>
+    <string name="notify_text">Μετάφραση του παιχνιδιού για την τηλεόρασή σας</string>
+
+    <string name="update_available">Ενημέρωση</string>
+    <string name="update_to">Ενημέρωση σε %1$s</string>
+    <string name="update_downloading">Λήψη της ενημέρωσης…</string>
+    <string name="update_installing">Εγκατάσταση…</string>
+    <string name="update_failed">Η ενημέρωση απέτυχε: δοκιμάστε ξανά</string>
+    <string name="service">Υπηρεσία μετάφρασης</string>
+    <string name="service_key">Το κλειδί της υπηρεσίας</string>
+    <string name="service_hint">Οι γραμμές που γνωρίζει η μνήμη μετάφρασης (ελεγμένες μεταφράσεις, που λαμβάνονται από το vitranslator.app) είναι δωρεάν· οι άλλες γραμμές χρειάζονται υπηρεσία μετάφρασης με δικό σας κλειδί.</string>
+    <string name="service_save">Αποθήκευση</string>
+    <string name="service_saved">Αποθηκεύτηκε.</string>
+    <string name="tv_not_sharing">Αυτό το τηλέφωνο δεν είναι σε οικιακό δίκτυο: συνδέστε το στο ίδιο Wi-Fi με την τηλεόραση.</string>
+    <string-array name="services">
+        <item>Μόνο μνήμη μεταφράσεων (δωρεάν)</item>
+        <item>DeepL</item>
+        <item>Google</item>
+        <item>Claude</item>
+        <item>OpenAI</item>
+    </string-array>
+</resources>

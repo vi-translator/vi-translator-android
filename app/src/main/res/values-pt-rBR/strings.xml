@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VI Translator</string>
+    <string name="ui_language">Idioma do app</string>
+    <string name="phone_language">O do celular</string>
+
+    <string name="step_console">1. Seu console</string>
+    <string name="playstation">PlayStation 5</string>
+    <string name="xbox">Xbox</string>
+    <string name="ps_setup_hint">O celular transmite o PS5 com a Reprodução Remota para ler o jogo; a TV continua mostrando o console normalmente. Configure uma vez: no PS5, Configurações › Sistema › Reprodução Remota › Vincular dispositivo mostra um PIN.</string>
+    <string name="ps_find">Encontrar o PS5</string>
+    <string name="ps_address">Endereço do PS5 (192.168.1.20)</string>
+    <string name="psn_secondary_hint">Entre com uma segunda conta PSN, não com a que você usa para jogar: a Reprodução Remota faz login com ela no PS5. Só o ID da conta é guardado.</string>
+    <string name="psn_sign_in">Entrar na PSN</string>
+    <string name="psn_failed">O login na PSN não funcionou: %1$s</string>
+    <string name="psn_account_id">ID da conta PSN</string>
+    <string name="ps_pin">O PIN de 8 dígitos que o PS5 mostra</string>
+    <string name="ps_register">Vincular</string>
+    <string name="ps_wake">Ligar o PS5</string>
+    <string name="ps_registering">Vinculando…</string>
+    <string name="ps_register_missing">Preencha o endereço do PS5, o ID da conta e o PIN de 8 dígitos.</string>
+    <string name="ps_register_failed">O PS5 recusou: confira o PIN (ele muda a cada poucos minutos) e se a Reprodução Remota está ativada.</string>
+    <string name="ps_registered">Vinculado a %1$s (%2$s)</string>
+    <string name="ps_not_registered">Ainda não vinculado a um PS5.</string>
+    <string name="ps_not_in_build">O PS Remote Play não está nesta versão do app.</string>
+    <string name="ps_ready">ligado</string>
+    <string name="ps_standby">modo de repouso</string>
+    <string name="ps_login_pin">O PS5 pede o código de acesso da conta</string>
+    <string name="ps_login_pin_wrong">Código de acesso errado: tente de novo</string>
+    <string name="xbox_hint">Começar a traduzir abre aqui o player de Jogo remoto da Microsoft. Entre nele com sua conta Microsoft e conecte-se ao seu Xbox; a TV continua mostrando o console normalmente. Mantenha a tela ligada enquanto joga.</string>
+    <string name="xbox_capture_screen">Não dá para ler o vídeo: capturar a tela</string>
+    <string name="xbox_setup_status">Entre e escolha seu Xbox. Volte quando terminar.</string>
+    <string name="xbox_status">%1$d quadros lidos (%2$s)</string>
+
+    <string name="step_tv">2. Conectar uma TV</string>
+    <string name="tv_hint">Abra o VI Translator na TV (Android TV, LG ou Samsung): ele mostra um código de 6 dígitos.</string>
+    <string name="tv_none">Nenhuma TV conectada ainda.</string>
+    <string name="tv_find">Encontrar TVs</string>
+    <string name="tv_found_none">Nenhuma TV encontrada: o app da TV está aberto e na mesma rede? Você pode digitar o endereço dela.</string>
+    <string name="tv_address">Endereço da TV</string>
+    <string name="tv_code">O código que a TV mostra</string>
+    <string name="tv_connect">Conectar</string>
+    <string name="tv_connecting">Conectando…</string>
+    <string name="tv_connected">Conectado.</string>
+    <string name="tv_wrong_code">Esse não é o código que a TV mostra.</string>
+    <string name="tv_new_code">Códigos errados demais: a TV mostra um novo.</string>
+    <string name="tv_unreachable">A TV não respondeu: o app da TV está aberto?</string>
+    <string name="tv_missing">Escolha uma TV (ou digite o endereço dela) e o código de 6 dígitos.</string>
+    <string name="tv_forget">Desconectar</string>
+    <string name="searching">Procurando…</string>
+
+    <string name="step_game">3. O jogo e o idioma</string>
+    <string name="translate_into">Traduzir para</string>
+
+    <string name="step_start">4. Traduzir</string>
+    <string name="keep_open_hint">Mantenha o VI Translator aberto enquanto joga (com um PS5 a tela pode ficar apagada).</string>
+    <string name="start">Começar a traduzir</string>
+    <string name="stop">Parar</string>
+    <string name="choose_console">Escolha seu console primeiro.</string>
+    <string name="state_starting">Iniciando…</string>
+    <string name="state_connecting">Conectando ao PS5…</string>
+    <string name="state_reading">Traduzindo.</string>
+    <string name="state_ended">Parado.</string>
+    <string name="state_failed">Parado: %1$s</string>
+    <string name="stats">%1$d de %2$d quadros lidos · %3$d ms · %4$s</string>
+
+    <string name="step_lines">5. Lido e traduzido</string>
+    <string name="lines_none">As linhas lidas aparecem aqui.</string>
+    <string name="about">Núcleo de tradução: %1$s</string>
+
+    <string name="notify_channel">Traduzindo</string>
+    <string name="notify_text">Traduzindo o jogo para sua TV</string>
+
+    <string name="update_available">Atualizar</string>
+    <string name="update_to">Atualizar para %1$s</string>
+    <string name="update_downloading">Baixando a atualização…</string>
+    <string name="update_installing">Instalando…</string>
+    <string name="update_failed">A atualização falhou: tente de novo</string>
+    <string name="service">Serviço de tradução</string>
+    <string name="service_key">A chave do serviço</string>
+    <string name="service_hint">As linhas que a memória de tradução conhece (traduções revisadas, baixadas do vitranslator.app) são grátis; as outras linhas precisam de um serviço de tradução com sua própria chave.</string>
+    <string name="service_save">Salvar</string>
+    <string name="service_saved">Salvo.</string>
+    <string name="tv_not_sharing">Este celular não está em uma rede de casa: conecte-o ao mesmo Wi-Fi da TV.</string>
+    <string-array name="services">
+        <item>Só memória de tradução (grátis)</item>
+        <item>DeepL</item>
+        <item>Google</item>
+        <item>Claude</item>
+        <item>OpenAI</item>
+    </string-array>
+</resources>

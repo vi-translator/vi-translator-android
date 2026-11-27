@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VI Translator</string>
+    <string name="ui_language">Uygulama dili</string>
+    <string name="phone_language">Telefonunki</string>
+
+    <string name="step_console">1. Konsolun</string>
+    <string name="playstation">PlayStation 5</string>
+    <string name="xbox">Xbox</string>
+    <string name="ps_setup_hint">Telefon, oyunu okumak için PS5\'i Uzaktan Oynatma ile akış olarak alır; televizyon konsolu her zamanki gibi göstermeye devam eder. Bir kez kur: PS5\'te Ayarlar › Sistem › Uzaktan Oynatma › Cihazı Bağla bir PIN gösterir.</string>
+    <string name="ps_find">PS5\'i bul</string>
+    <string name="ps_address">PS5 adresi (192.168.1.20)</string>
+    <string name="psn_secondary_hint">Oynadığın hesapla değil, ikinci bir PSN hesabıyla oturum aç: Uzaktan Oynatma onunla PS5\'te oturum açar. Yalnızca hesap kimliği saklanır.</string>
+    <string name="psn_sign_in">PSN\'de oturum aç</string>
+    <string name="psn_failed">PSN oturumu açılamadı: %1$s</string>
+    <string name="psn_account_id">PSN hesap kimliği</string>
+    <string name="ps_pin">PS5\'in gösterdiği 8 haneli PIN</string>
+    <string name="ps_register">Bağla</string>
+    <string name="ps_wake">PS5\'i uyandır</string>
+    <string name="ps_registering">Bağlanıyor…</string>
+    <string name="ps_register_missing">PS5\'in adresini, hesap kimliğini ve 8 haneli PIN\'i doldur.</string>
+    <string name="ps_register_failed">PS5 reddetti: PIN\'i (birkaç dakikada bir değişir) ve Uzaktan Oynatma\'nın açık olduğunu kontrol et.</string>
+    <string name="ps_registered">%1$s cihazına bağlandı (%2$s)</string>
+    <string name="ps_not_registered">Henüz bir PS5\'e bağlanmadı.</string>
+    <string name="ps_not_in_build">PS Remote Play uygulamanın bu sürümünde yok.</string>
+    <string name="ps_ready">açık</string>
+    <string name="ps_standby">dinlenme modu</string>
+    <string name="ps_login_pin">PS5 hesabın geçiş kodunu istiyor</string>
+    <string name="ps_login_pin_wrong">Yanlış geçiş kodu: tekrar dene</string>
+    <string name="xbox_hint">Çevirmeye başla, Microsoft\'un Uzaktan Oynatma oynatıcısını burada açar. Orada Microsoft hesabınla oturum aç ve Xbox\'ına bağlan; televizyon konsolu her zamanki gibi göstermeye devam eder. Oynarken ekranı açık tut.</string>
+    <string name="xbox_capture_screen">Video okunamıyor: ekranı yakala</string>
+    <string name="xbox_setup_status">Oturum aç, sonra Xbox\'ını seç. Bitince Geri\'ye bas.</string>
+    <string name="xbox_status">%1$d kare okundu (%2$s)</string>
+
+    <string name="step_tv">2. Televizyon bağla</string>
+    <string name="tv_hint">VI Translator\'ı televizyonda aç (Android TV, LG veya Samsung): 6 haneli bir kod gösterir.</string>
+    <string name="tv_none">Henüz bağlı televizyon yok.</string>
+    <string name="tv_find">Televizyonları bul</string>
+    <string name="tv_found_none">Televizyon bulunamadı: TV uygulaması açık ve aynı ağda mı? Adresini yazabilirsin.</string>
+    <string name="tv_address">Televizyon adresi</string>
+    <string name="tv_code">Televizyonda görünen kod</string>
+    <string name="tv_connect">Bağlan</string>
+    <string name="tv_connecting">Bağlanılıyor…</string>
+    <string name="tv_connected">Bağlandı.</string>
+    <string name="tv_wrong_code">Bu, televizyonun gösterdiği kod değil.</string>
+    <string name="tv_new_code">Çok fazla yanlış kod: televizyon yeni bir kod gösteriyor.</string>
+    <string name="tv_unreachable">Televizyon yanıt vermedi: TV uygulaması açık mı?</string>
+    <string name="tv_missing">Bir televizyon seç (ya da adresini yaz) ve 6 haneli kodu gir.</string>
+    <string name="tv_forget">Bağlantıyı kes</string>
+    <string name="searching">Aranıyor…</string>
+
+    <string name="step_game">3. Oyun ve dil</string>
+    <string name="translate_into">Çeviri dili</string>
+
+    <string name="step_start">4. Çevir</string>
+    <string name="keep_open_hint">Oynarken VI Translator\'ı açık tut (PS5 ile ekran kapalı olabilir).</string>
+    <string name="start">Çevirmeye başla</string>
+    <string name="stop">Durdur</string>
+    <string name="choose_console">Önce konsolunu seç.</string>
+    <string name="state_starting">Başlatılıyor…</string>
+    <string name="state_connecting">PS5\'e bağlanılıyor…</string>
+    <string name="state_reading">Çevriliyor.</string>
+    <string name="state_ended">Durduruldu.</string>
+    <string name="state_failed">Durduruldu: %1$s</string>
+    <string name="stats">%2$d karenin %1$d tanesi okundu · %3$d ms · %4$s</string>
+
+    <string name="step_lines">5. Okunan ve çevrilen</string>
+    <string name="lines_none">Okunan satırlar burada görünür.</string>
+    <string name="about">Çeviri çekirdeği: %1$s</string>
+
+    <string name="notify_channel">Çeviri</string>
+    <string name="notify_text">Oyun televizyonun için çevriliyor</string>
+
+    <string name="update_available">Güncelle</string>
+    <string name="update_to">%1$s sürümüne güncelle</string>
+    <string name="update_downloading">Güncelleme indiriliyor…</string>
+    <string name="update_installing">Yükleniyor…</string>
+    <string name="update_failed">Güncelleme başarısız: tekrar dene</string>
+    <string name="service">Çeviri hizmeti</string>
+    <string name="service_key">Hizmetin anahtarı</string>
+    <string name="service_hint">Çeviri belleğinin bildiği satırlar (vitranslator.app\'ten indirilen gözden geçirilmiş çeviriler) ücretsizdir; diğer satırlar için kendi anahtarınla bir çeviri hizmeti gerekir.</string>
+    <string name="service_save">Kaydet</string>
+    <string name="service_saved">Kaydedildi.</string>
+    <string name="tv_not_sharing">Bu telefon bir ev ağında değil: onu televizyonla aynı Wi-Fi\'a bağla.</string>
+    <string-array name="services">
+        <item>Yalnızca çeviri belleği (ücretsiz)</item>
+        <item>DeepL</item>
+        <item>Google</item>
+        <item>Claude</item>
+        <item>OpenAI</item>
+    </string-array>
+</resources>

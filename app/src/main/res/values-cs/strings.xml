@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VI Translator</string>
+    <string name="ui_language">Jazyk aplikace</string>
+    <string name="phone_language">Podle telefonu</string>
+
+    <string name="step_console">1. Vaše konzole</string>
+    <string name="playstation">PlayStation 5</string>
+    <string name="xbox">Xbox</string>
+    <string name="ps_setup_hint">Telefon streamuje PS5 přes vzdálené hraní, aby četl hru; televize dál zobrazuje konzoli jako obvykle. Nastavte to jednou: na PS5 zobrazí Nastavení › Systém › Vzdálené hraní › Propojit zařízení PIN.</string>
+    <string name="ps_find">Najít PS5</string>
+    <string name="ps_address">Adresa PS5 (192.168.1.20)</string>
+    <string name="psn_secondary_hint">Přihlaste se druhým účtem PSN, ne tím, se kterým hrajete: vzdálené hraní ho přihlásí na PS5. Uchová se jen jeho ID účtu.</string>
+    <string name="psn_sign_in">Přihlásit se k PSN</string>
+    <string name="psn_failed">Přihlášení k PSN se nezdařilo: %1$s</string>
+    <string name="psn_account_id">ID účtu PSN</string>
+    <string name="ps_pin">8místný PIN, který zobrazuje PS5</string>
+    <string name="ps_register">Propojit</string>
+    <string name="ps_wake">Probudit PS5</string>
+    <string name="ps_registering">Propojování…</string>
+    <string name="ps_register_missing">Vyplňte adresu PS5, ID účtu a 8místný PIN.</string>
+    <string name="ps_register_failed">PS5 odmítla: zkontrolujte PIN (mění se každých pár minut) a že je vzdálené hraní zapnuté.</string>
+    <string name="ps_registered">Propojeno s %1$s (%2$s)</string>
+    <string name="ps_not_registered">Zatím nepropojeno s žádnou PS5.</string>
+    <string name="ps_not_in_build">PS Remote Play v tomto sestavení aplikace není.</string>
+    <string name="ps_ready">zapnuto</string>
+    <string name="ps_standby">klidový režim</string>
+    <string name="ps_login_pin">PS5 žádá přístupový kód účtu</string>
+    <string name="ps_login_pin_wrong">Nesprávný přístupový kód: zkuste to znovu</string>
+    <string name="xbox_hint">Spustit překlad zde otevře přehrávač vzdáleného hraní od Microsoftu. Přihlaste se v něm svým účtem Microsoft a připojte se ke svému Xboxu; televize dál zobrazuje konzoli jako obvykle. Během hraní nechte obrazovku zapnutou.</string>
+    <string name="xbox_capture_screen">Video nelze přečíst: nahrávat obrazovku</string>
+    <string name="xbox_setup_status">Přihlaste se a pak vyberte svůj Xbox. Až budete hotovi, stiskněte Zpět.</string>
+    <string name="xbox_status">Přečteno snímků: %1$d (%2$s)</string>
+
+    <string name="step_tv">2. Připojit televizi</string>
+    <string name="tv_hint">Otevřete VI Translator na televizi (Android TV, LG nebo Samsung): zobrazí 6místný kód.</string>
+    <string name="tv_none">Zatím není připojena žádná televize.</string>
+    <string name="tv_find">Najít televize</string>
+    <string name="tv_found_none">Nebyla nalezena žádná televize: je aplikace na televizi otevřená a ve stejné síti? Adresu můžete zadat ručně.</string>
+    <string name="tv_address">Adresa televize</string>
+    <string name="tv_code">Kód, který zobrazuje televize</string>
+    <string name="tv_connect">Připojit</string>
+    <string name="tv_connecting">Připojování…</string>
+    <string name="tv_connected">Připojeno.</string>
+    <string name="tv_wrong_code">To není kód, který zobrazuje televize.</string>
+    <string name="tv_new_code">Příliš mnoho špatných kódů: televize zobrazí nový.</string>
+    <string name="tv_unreachable">Televize neodpověděla: je aplikace na televizi otevřená?</string>
+    <string name="tv_missing">Vyberte televizi (nebo zadejte její adresu) a 6místný kód.</string>
+    <string name="tv_forget">Odpojit</string>
+    <string name="searching">Hledání…</string>
+
+    <string name="step_game">3. Hra a jazyk</string>
+    <string name="translate_into">Přeložit do</string>
+
+    <string name="step_start">4. Překlad</string>
+    <string name="keep_open_hint">Během hraní nechte VI Translator otevřený (s PS5 může být obrazovka vypnutá).</string>
+    <string name="start">Spustit překlad</string>
+    <string name="stop">Zastavit</string>
+    <string name="choose_console">Nejprve vyberte konzoli.</string>
+    <string name="state_starting">Spouštění…</string>
+    <string name="state_connecting">Připojování k PS5…</string>
+    <string name="state_reading">Překládání.</string>
+    <string name="state_ended">Zastaveno.</string>
+    <string name="state_failed">Zastaveno: %1$s</string>
+    <string name="stats">Přečteno %1$d z %2$d snímků · %3$d ms · %4$s</string>
+
+    <string name="step_lines">5. Přečteno a přeloženo</string>
+    <string name="lines_none">Přečtené řádky se zobrazí zde.</string>
+    <string name="about">Jádro překladu: %1$s</string>
+
+    <string name="notify_channel">Překládání</string>
+    <string name="notify_text">Překládání hry pro vaši televizi</string>
+
+    <string name="update_available">Aktualizovat</string>
+    <string name="update_to">Aktualizovat na %1$s</string>
+    <string name="update_downloading">Stahování aktualizace…</string>
+    <string name="update_installing">Instalace…</string>
+    <string name="update_failed">Aktualizace se nezdařila: zkuste to znovu</string>
+    <string name="service">Překladová služba</string>
+    <string name="service_key">Klíč služby</string>
+    <string name="service_hint">Řádky, které zná překladová paměť (zkontrolované překlady stažené z vitranslator.app), jsou zdarma; ostatní řádky potřebují překladovou službu s vaším vlastním klíčem.</string>
+    <string name="service_save">Uložit</string>
+    <string name="service_saved">Uloženo.</string>
+    <string name="tv_not_sharing">Tento telefon není v domácí síti: připojte ho ke stejné Wi-Fi jako televizi.</string>
+    <string-array name="services">
+        <item>Pouze paměť překladů (zdarma)</item>
+        <item>DeepL</item>
+        <item>Google</item>
+        <item>Claude</item>
+        <item>OpenAI</item>
+    </string-array>
+</resources>

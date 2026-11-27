@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VI Translator</string>
+    <string name="ui_language">ภาษาของแอป</string>
+    <string name="phone_language">ภาษาของโทรศัพท์</string>
+
+    <string name="step_console">1. คอนโซลของคุณ</string>
+    <string name="playstation">PlayStation 5</string>
+    <string name="xbox">Xbox</string>
+    <string name="ps_setup_hint">โทรศัพท์สตรีม PS5 ผ่านการเล่นระยะไกลเพื่ออ่านเกม ทีวียังแสดงคอนโซลตามปกติ ตั้งค่าครั้งเดียว: บน PS5 การตั้งค่า › ระบบ › เล่นระยะไกล › เชื่อมโยงอุปกรณ์ จะแสดง PIN</string>
+    <string name="ps_find">ค้นหา PS5</string>
+    <string name="ps_address">ที่อยู่ PS5 (192.168.1.20)</string>
+    <string name="psn_secondary_hint">ลงชื่อเข้าใช้ด้วยบัญชี PSN บัญชีที่สอง ไม่ใช่บัญชีที่คุณใช้เล่น: การเล่นระยะไกลจะลงชื่อเข้าใช้บัญชีนั้นบน PS5 เก็บไว้เฉพาะ ID บัญชีเท่านั้น</string>
+    <string name="psn_sign_in">ลงชื่อเข้าใช้ PSN</string>
+    <string name="psn_failed">ลงชื่อเข้าใช้ PSN ไม่สำเร็จ: %1$s</string>
+    <string name="psn_account_id">ID บัญชี PSN</string>
+    <string name="ps_pin">PIN 8 หลักที่ PS5 แสดง</string>
+    <string name="ps_register">เชื่อมโยง</string>
+    <string name="ps_wake">ปลุก PS5</string>
+    <string name="ps_registering">กำลังเชื่อมโยง…</string>
+    <string name="ps_register_missing">กรอกที่อยู่ของ PS5, ID บัญชี และ PIN 8 หลัก</string>
+    <string name="ps_register_failed">PS5 ปฏิเสธ: ตรวจสอบ PIN (เปลี่ยนทุกไม่กี่นาที) และตรวจว่าเปิดการเล่นระยะไกลอยู่</string>
+    <string name="ps_registered">เชื่อมโยงกับ %1$s (%2$s) แล้ว</string>
+    <string name="ps_not_registered">ยังไม่ได้เชื่อมโยงกับ PS5</string>
+    <string name="ps_not_in_build">แอปรุ่นนี้ไม่มี PS Remote Play</string>
+    <string name="ps_ready">เปิดอยู่</string>
+    <string name="ps_standby">โหมดพัก</string>
+    <string name="ps_login_pin">PS5 ขอรหัสผ่านของบัญชี</string>
+    <string name="ps_login_pin_wrong">รหัสผ่านไม่ถูกต้อง: ลองอีกครั้ง</string>
+    <string name="xbox_hint">เริ่มแปลจะเปิดเครื่องเล่นการเล่นระยะไกลของ Microsoft ที่นี่ ลงชื่อเข้าใช้ด้วยบัญชี Microsoft แล้วเชื่อมต่อกับ Xbox ของคุณ ทีวียังแสดงคอนโซลตามปกติ เปิดหน้าจอไว้ขณะเล่น</string>
+    <string name="xbox_capture_screen">อ่านวิดีโอไม่ได้: จับภาพหน้าจอ</string>
+    <string name="xbox_setup_status">ลงชื่อเข้าใช้ แล้วเลือก Xbox ของคุณ กดย้อนกลับเมื่อเสร็จ</string>
+    <string name="xbox_status">อ่านแล้ว %1$d เฟรม (%2$s)</string>
+
+    <string name="step_tv">2. เชื่อมต่อทีวี</string>
+    <string name="tv_hint">เปิด VI Translator บนทีวี (Android TV, LG หรือ Samsung): ทีวีจะแสดงรหัส 6 หลัก</string>
+    <string name="tv_none">ยังไม่ได้เชื่อมต่อทีวี</string>
+    <string name="tv_find">ค้นหาทีวี</string>
+    <string name="tv_found_none">ไม่พบทีวี: แอปบนทีวีเปิดอยู่และอยู่ในเครือข่ายเดียวกันหรือไม่ คุณพิมพ์ที่อยู่ของทีวีได้</string>
+    <string name="tv_address">ที่อยู่ทีวี</string>
+    <string name="tv_code">รหัสที่ทีวีแสดง</string>
+    <string name="tv_connect">เชื่อมต่อ</string>
+    <string name="tv_connecting">กำลังเชื่อมต่อ…</string>
+    <string name="tv_connected">เชื่อมต่อแล้ว</string>
+    <string name="tv_wrong_code">นั่นไม่ใช่รหัสที่ทีวีแสดง</string>
+    <string name="tv_new_code">ใส่รหัสผิดหลายครั้งเกินไป: ทีวีแสดงรหัสใหม่</string>
+    <string name="tv_unreachable">ทีวีไม่ตอบสนอง: แอปบนทีวีเปิดอยู่หรือไม่</string>
+    <string name="tv_missing">เลือกทีวี (หรือพิมพ์ที่อยู่) และป้อนรหัส 6 หลัก</string>
+    <string name="tv_forget">ยกเลิกการเชื่อมต่อ</string>
+    <string name="searching">กำลังค้นหา…</string>
+
+    <string name="step_game">3. เกมและภาษา</string>
+    <string name="translate_into">แปลเป็น</string>
+
+    <string name="step_start">4. แปล</string>
+    <string name="keep_open_hint">เปิด VI Translator ค้างไว้ขณะเล่น (ถ้าใช้ PS5 ปิดหน้าจอได้)</string>
+    <string name="start">เริ่มแปล</string>
+    <string name="stop">หยุด</string>
+    <string name="choose_console">เลือกคอนโซลของคุณก่อน</string>
+    <string name="state_starting">กำลังเริ่มต้น…</string>
+    <string name="state_connecting">กำลังเชื่อมต่อกับ PS5…</string>
+    <string name="state_reading">กำลังแปล</string>
+    <string name="state_ended">หยุดแล้ว</string>
+    <string name="state_failed">หยุดแล้ว: %1$s</string>
+    <string name="stats">อ่านแล้ว %1$d จาก %2$d เฟรม · %3$d ms · %4$s</string>
+
+    <string name="step_lines">5. สิ่งที่อ่านและแปลแล้ว</string>
+    <string name="lines_none">บรรทัดที่อ่านได้จะแสดงที่นี่</string>
+    <string name="about">แกนการแปล: %1$s</string>
+
+    <string name="notify_channel">กำลังแปล</string>
+    <string name="notify_text">กำลังแปลเกมให้ทีวีของคุณ</string>
+
+    <string name="update_available">อัปเดต</string>
+    <string name="update_to">อัปเดตเป็น %1$s</string>
+    <string name="update_downloading">กำลังดาวน์โหลดอัปเดต…</string>
+    <string name="update_installing">กำลังติดตั้ง…</string>
+    <string name="update_failed">อัปเดตไม่สำเร็จ: ลองอีกครั้ง</string>
+    <string name="service">บริการแปล</string>
+    <string name="service_key">คีย์ของบริการ</string>
+    <string name="service_hint">บรรทัดที่หน่วยความจำคำแปลรู้จัก (คำแปลที่ตรวจทานแล้ว ดาวน์โหลดจาก vitranslator.app) ใช้ฟรี บรรทัดอื่นต้องใช้บริการแปลด้วยคีย์ของคุณเอง</string>
+    <string name="service_save">บันทึก</string>
+    <string name="service_saved">บันทึกแล้ว</string>
+    <string name="tv_not_sharing">โทรศัพท์นี้ไม่ได้อยู่ในเครือข่ายในบ้าน: เชื่อมต่อกับ Wi-Fi เดียวกับทีวี</string>
+    <string-array name="services">
+        <item>หน่วยความจำคำแปลเท่านั้น (ฟรี)</item>
+        <item>DeepL</item>
+        <item>Google</item>
+        <item>Claude</item>
+        <item>OpenAI</item>
+    </string-array>
+</resources>

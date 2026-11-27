@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VI Translator</string>
+    <string name="ui_language">App-Sprache</string>
+    <string name="phone_language">Die des Handys</string>
+
+    <string name="step_console">1. Ihre Konsole</string>
+    <string name="playstation">PlayStation 5</string>
+    <string name="xbox">Xbox</string>
+    <string name="ps_setup_hint">Das Handy streamt die PS5 per Remote Play, um das Spiel zu lesen; der Fernseher zeigt die Konsole wie gewohnt. Einmal einrichten: Auf der PS5 zeigt Einstellungen › System › Remote Play › Gerät verknüpfen eine PIN.</string>
+    <string name="ps_find">PS5 suchen</string>
+    <string name="ps_address">PS5-Adresse (192.168.1.20)</string>
+    <string name="psn_secondary_hint">Melden Sie sich mit einem zweiten PSN-Konto an, nicht mit dem, mit dem Sie spielen: Remote Play meldet es auf der PS5 an. Nur seine Konto-ID wird gespeichert.</string>
+    <string name="psn_sign_in">Bei PSN anmelden</string>
+    <string name="psn_failed">PSN-Anmeldung hat nicht funktioniert: %1$s</string>
+    <string name="psn_account_id">PSN-Konto-ID</string>
+    <string name="ps_pin">Die 8-stellige PIN, die die PS5 anzeigt</string>
+    <string name="ps_register">Verknüpfen</string>
+    <string name="ps_wake">PS5 wecken</string>
+    <string name="ps_registering">Wird verknüpft…</string>
+    <string name="ps_register_missing">Geben Sie die Adresse der PS5, die Konto-ID und die 8-stellige PIN ein.</string>
+    <string name="ps_register_failed">Die PS5 hat abgelehnt: Prüfen Sie die PIN (sie ändert sich alle paar Minuten) und ob Remote Play aktiviert ist.</string>
+    <string name="ps_registered">Verknüpft mit %1$s (%2$s)</string>
+    <string name="ps_not_registered">Noch nicht mit einer PS5 verknüpft.</string>
+    <string name="ps_not_in_build">PS Remote Play ist in diesem Build der App nicht enthalten.</string>
+    <string name="ps_ready">an</string>
+    <string name="ps_standby">Ruhemodus</string>
+    <string name="ps_login_pin">Die PS5 fragt nach dem Passcode des Kontos</string>
+    <string name="ps_login_pin_wrong">Falscher Passcode: Versuchen Sie es erneut</string>
+    <string name="xbox_hint">„Übersetzung starten“ öffnet hier den Remote-Play-Player von Microsoft. Melden Sie sich dort mit Ihrem Microsoft-Konto an und verbinden Sie sich mit Ihrer Xbox; der Fernseher zeigt die Konsole wie gewohnt. Lassen Sie den Bildschirm beim Spielen eingeschaltet.</string>
+    <string name="xbox_capture_screen">Das Video kann nicht gelesen werden: Bildschirm aufnehmen</string>
+    <string name="xbox_setup_status">Melden Sie sich an und wählen Sie dann Ihre Xbox. Danach „Zurück“.</string>
+    <string name="xbox_status">%1$d Bilder gelesen (%2$s)</string>
+
+    <string name="step_tv">2. Fernseher verbinden</string>
+    <string name="tv_hint">Öffnen Sie VI Translator auf dem Fernseher (Android TV, LG oder Samsung): Er zeigt einen 6-stelligen Code.</string>
+    <string name="tv_none">Noch kein Fernseher verbunden.</string>
+    <string name="tv_find">Fernseher suchen</string>
+    <string name="tv_found_none">Kein Fernseher gefunden: Ist die TV-App geöffnet und im selben Netzwerk? Sie können seine Adresse eingeben.</string>
+    <string name="tv_address">Adresse des Fernsehers</string>
+    <string name="tv_code">Der Code, den der Fernseher anzeigt</string>
+    <string name="tv_connect">Verbinden</string>
+    <string name="tv_connecting">Verbindung wird hergestellt…</string>
+    <string name="tv_connected">Verbunden.</string>
+    <string name="tv_wrong_code">Das ist nicht der Code, den der Fernseher anzeigt.</string>
+    <string name="tv_new_code">Zu viele falsche Codes: Der Fernseher zeigt einen neuen.</string>
+    <string name="tv_unreachable">Der Fernseher hat nicht geantwortet: Ist die TV-App geöffnet?</string>
+    <string name="tv_missing">Wählen Sie einen Fernseher (oder geben Sie seine Adresse ein) und den 6-stelligen Code.</string>
+    <string name="tv_forget">Trennen</string>
+    <string name="searching">Suche läuft…</string>
+
+    <string name="step_game">3. Das Spiel und die Sprache</string>
+    <string name="translate_into">Übersetzen in</string>
+
+    <string name="step_start">4. Übersetzen</string>
+    <string name="keep_open_hint">Lassen Sie VI Translator beim Spielen geöffnet (mit einer PS5 darf der Bildschirm aus sein).</string>
+    <string name="start">Übersetzung starten</string>
+    <string name="stop">Stopp</string>
+    <string name="choose_console">Wählen Sie zuerst Ihre Konsole.</string>
+    <string name="state_starting">Wird gestartet…</string>
+    <string name="state_connecting">Verbindung mit der PS5 wird hergestellt…</string>
+    <string name="state_reading">Übersetzung läuft.</string>
+    <string name="state_ended">Gestoppt.</string>
+    <string name="state_failed">Gestoppt: %1$s</string>
+    <string name="stats">%1$d von %2$d Bildern gelesen · %3$d ms · %4$s</string>
+
+    <string name="step_lines">5. Gelesen und übersetzt</string>
+    <string name="lines_none">Die gelesenen Zeilen erscheinen hier.</string>
+    <string name="about">Übersetzungskern: %1$s</string>
+
+    <string name="notify_channel">Übersetzung läuft</string>
+    <string name="notify_text">Das Spiel wird für Ihren Fernseher übersetzt</string>
+
+    <string name="update_available">Update</string>
+    <string name="update_to">Update auf %1$s</string>
+    <string name="update_downloading">Update wird heruntergeladen…</string>
+    <string name="update_installing">Wird installiert…</string>
+    <string name="update_failed">Das Update ist fehlgeschlagen: Versuchen Sie es erneut</string>
+    <string name="service">Übersetzungsdienst</string>
+    <string name="service_key">Der Schlüssel des Dienstes</string>
+    <string name="service_hint">Zeilen, die der Übersetzungsspeicher kennt (geprüfte Übersetzungen, von vitranslator.app heruntergeladen), sind kostenlos; andere Zeilen brauchen einen Übersetzungsdienst mit Ihrem eigenen Schlüssel.</string>
+    <string name="service_save">Speichern</string>
+    <string name="service_saved">Gespeichert.</string>
+    <string name="tv_not_sharing">Dieses Handy ist in keinem Heimnetz: Verbinden Sie es mit demselben WLAN wie den Fernseher.</string>
+    <string-array name="services">
+        <item>Nur Übersetzungsspeicher (kostenlos)</item>
+        <item>DeepL</item>
+        <item>Google</item>
+        <item>Claude</item>
+        <item>OpenAI</item>
+    </string-array>
+</resources>

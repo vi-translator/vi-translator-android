@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VI Translator</string>
+    <string name="ui_language">Мова застосунку</string>
+    <string name="phone_language">Як у телефоні</string>
+
+    <string name="step_console">1. Ваша консоль</string>
+    <string name="playstation">PlayStation 5</string>
+    <string name="xbox">Xbox</string>
+    <string name="ps_setup_hint">Телефон отримує зображення PS5 через віддалену гру, щоб читати гру; телевізор, як завжди, показує консоль. Налаштуйте один раз: на PS5 у розділі Налаштування › Система › Віддалена гра › Зв’язати пристрій з’явиться PIN-код.</string>
+    <string name="ps_find">Знайти PS5</string>
+    <string name="ps_address">Адреса PS5 (192.168.1.20)</string>
+    <string name="psn_secondary_hint">Увійдіть із другим обліковим записом PSN, а не з тим, з яким граєте: віддалена гра виконує з ним вхід на PS5. Зберігається лише його ID.</string>
+    <string name="psn_sign_in">Увійти в PSN</string>
+    <string name="psn_failed">Не вдалося увійти в PSN: %1$s</string>
+    <string name="psn_account_id">ID облікового запису PSN</string>
+    <string name="ps_pin">8-значний PIN-код, який показує PS5</string>
+    <string name="ps_register">Зв’язати</string>
+    <string name="ps_wake">Розбудити PS5</string>
+    <string name="ps_registering">Зв’язування…</string>
+    <string name="ps_register_missing">Укажіть адресу PS5, ID облікового запису і 8-значний PIN-код.</string>
+    <string name="ps_register_failed">PS5 відмовила: перевірте PIN-код (він змінюється що кілька хвилин) і чи ввімкнено віддалену гру.</string>
+    <string name="ps_registered">Зв’язано з %1$s (%2$s)</string>
+    <string name="ps_not_registered">Ще не зв’язано з жодною PS5.</string>
+    <string name="ps_not_in_build">PS Remote Play немає в цій збірці застосунку.</string>
+    <string name="ps_ready">увімкнена</string>
+    <string name="ps_standby">режим спокою</string>
+    <string name="ps_login_pin">PS5 запитує код доступу облікового запису</string>
+    <string name="ps_login_pin_wrong">Неправильний код доступу: спробуйте ще раз</string>
+    <string name="xbox_hint">«Почати переклад» відкриває тут програвач віддаленої гри Microsoft. Увійдіть у ньому з обліковим записом Microsoft і під’єднайтеся до свого Xbox; телевізор, як завжди, показує консоль. Не вимикайте екран під час гри.</string>
+    <string name="xbox_capture_screen">Відео не читається: захопіть екран</string>
+    <string name="xbox_setup_status">Увійдіть, потім виберіть свій Xbox. Коли завершите, натисніть «Назад».</string>
+    <string name="xbox_status">Прочитано кадрів: %1$d (%2$s)</string>
+
+    <string name="step_tv">2. Під’єднати телевізор</string>
+    <string name="tv_hint">Відкрийте VI Translator на телевізорі (Android TV, LG або Samsung): він покаже 6-значний код.</string>
+    <string name="tv_none">Телевізор ще не під’єднано.</string>
+    <string name="tv_find">Знайти телевізори</string>
+    <string name="tv_found_none">Телевізор не знайдено: чи відкрито застосунок на телевізорі і чи він у тій самій мережі? Можна ввести його адресу.</string>
+    <string name="tv_address">Адреса телевізора</string>
+    <string name="tv_code">Код на екрані телевізора</string>
+    <string name="tv_connect">Під’єднати</string>
+    <string name="tv_connecting">Під’єднання…</string>
+    <string name="tv_connected">Під’єднано.</string>
+    <string name="tv_wrong_code">Це не той код, який показує телевізор.</string>
+    <string name="tv_new_code">Забагато неправильних кодів: телевізор показує новий.</string>
+    <string name="tv_unreachable">Телевізор не відповів: чи відкрито застосунок на телевізорі?</string>
+    <string name="tv_missing">Виберіть телевізор (або введіть його адресу) і 6-значний код.</string>
+    <string name="tv_forget">Від’єднати</string>
+    <string name="searching">Пошук…</string>
+
+    <string name="step_game">3. Гра і мова</string>
+    <string name="translate_into">Перекладати на</string>
+
+    <string name="step_start">4. Переклад</string>
+    <string name="keep_open_hint">Не закривайте VI Translator під час гри (з PS5 екран можна вимкнути).</string>
+    <string name="start">Почати переклад</string>
+    <string name="stop">Зупинити</string>
+    <string name="choose_console">Спершу виберіть консоль.</string>
+    <string name="state_starting">Запуск…</string>
+    <string name="state_connecting">Під’єднання до PS5…</string>
+    <string name="state_reading">Триває переклад.</string>
+    <string name="state_ended">Зупинено.</string>
+    <string name="state_failed">Зупинено: %1$s</string>
+    <string name="stats">Прочитано кадрів: %1$d з %2$d · %3$d мс · %4$s</string>
+
+    <string name="step_lines">5. Прочитано й перекладено</string>
+    <string name="lines_none">Тут з’являться прочитані рядки.</string>
+    <string name="about">Ядро перекладу: %1$s</string>
+
+    <string name="notify_channel">Переклад</string>
+    <string name="notify_text">Переклад гри для вашого телевізора</string>
+
+    <string name="update_available">Оновити</string>
+    <string name="update_to">Оновити до %1$s</string>
+    <string name="update_downloading">Завантаження оновлення…</string>
+    <string name="update_installing">Встановлення…</string>
+    <string name="update_failed">Оновлення не вдалося: спробуйте ще раз</string>
+    <string name="service">Служба перекладу</string>
+    <string name="service_key">Ключ служби</string>
+    <string name="service_hint">Рядки, відомі пам’яті перекладів (перевірені переклади, завантажені з vitranslator.app), безкоштовні; для інших рядків потрібна служба перекладу з вашим власним ключем.</string>
+    <string name="service_save">Зберегти</string>
+    <string name="service_saved">Збережено.</string>
+    <string name="tv_not_sharing">Цей телефон не в домашній мережі: під’єднайте його до тієї самої мережі Wi-Fi, що й телевізор.</string>
+    <string-array name="services">
+        <item>Лише пам’ять перекладів (безкоштовно)</item>
+        <item>DeepL</item>
+        <item>Google</item>
+        <item>Claude</item>
+        <item>OpenAI</item>
+    </string-array>
+</resources>

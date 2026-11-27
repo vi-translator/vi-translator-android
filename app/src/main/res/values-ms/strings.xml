@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VI Translator</string>
+    <string name="ui_language">Bahasa aplikasi</string>
+    <string name="phone_language">Ikut telefon</string>
+
+    <string name="step_console">1. Konsol anda</string>
+    <string name="playstation">PlayStation 5</string>
+    <string name="xbox">Xbox</string>
+    <string name="ps_setup_hint">Telefon menstrim PS5 dengan Main Jauh untuk membaca permainan; TV terus memaparkan konsol seperti biasa. Sediakan sekali sahaja: pada PS5, Settings › System › Remote Play › Link Device memaparkan PIN.</string>
+    <string name="ps_find">Cari PS5</string>
+    <string name="ps_address">Alamat PS5 (192.168.1.20)</string>
+    <string name="psn_secondary_hint">Log masuk dengan akaun PSN kedua, bukan akaun yang anda gunakan untuk bermain: Main Jauh akan melog masukkannya pada PS5. Hanya ID akaunnya disimpan.</string>
+    <string name="psn_sign_in">Log masuk ke PSN</string>
+    <string name="psn_failed">Log masuk PSN tidak berjaya: %1$s</string>
+    <string name="psn_account_id">ID akaun PSN</string>
+    <string name="ps_pin">PIN 8 digit yang dipaparkan oleh PS5</string>
+    <string name="ps_register">Pautkan</string>
+    <string name="ps_wake">Bangunkan PS5</string>
+    <string name="ps_registering">Memautkan…</string>
+    <string name="ps_register_missing">Isikan alamat PS5, ID akaun dan PIN 8 digit.</string>
+    <string name="ps_register_failed">PS5 menolak: semak PIN (ia berubah setiap beberapa minit) dan pastikan Main Jauh dihidupkan.</string>
+    <string name="ps_registered">Dipautkan ke %1$s (%2$s)</string>
+    <string name="ps_not_registered">Belum dipautkan ke PS5.</string>
+    <string name="ps_not_in_build">PS Remote Play tiada dalam binaan aplikasi ini.</string>
+    <string name="ps_ready">hidup</string>
+    <string name="ps_standby">mod rehat</string>
+    <string name="ps_login_pin">PS5 meminta kod laluan akaun</string>
+    <string name="ps_login_pin_wrong">Kod laluan salah: cuba lagi</string>
+    <string name="xbox_hint">Mula menterjemah membuka pemain Main Jauh Microsoft di sini. Log masuk di sana dengan akaun Microsoft anda dan sambung ke Xbox anda; TV terus memaparkan konsol seperti biasa. Biarkan skrin menyala semasa bermain.</string>
+    <string name="xbox_capture_screen">Video tidak dapat dibaca: rakam skrin</string>
+    <string name="xbox_setup_status">Log masuk, kemudian pilih Xbox anda. Tekan Kembali apabila selesai.</string>
+    <string name="xbox_status">Membaca %1$d bingkai (%2$s)</string>
+
+    <string name="step_tv">2. Sambungkan TV</string>
+    <string name="tv_hint">Buka VI Translator pada TV (Android TV, LG atau Samsung): ia memaparkan kod 6 digit.</string>
+    <string name="tv_none">Belum ada TV disambungkan.</string>
+    <string name="tv_find">Cari TV</string>
+    <string name="tv_found_none">Tiada TV ditemui: adakah aplikasi TV dibuka dan dalam rangkaian yang sama? Anda boleh menaip alamatnya.</string>
+    <string name="tv_address">Alamat TV</string>
+    <string name="tv_code">Kod yang dipaparkan oleh TV</string>
+    <string name="tv_connect">Sambung</string>
+    <string name="tv_connecting">Menyambung…</string>
+    <string name="tv_connected">Disambungkan.</string>
+    <string name="tv_wrong_code">Itu bukan kod yang dipaparkan oleh TV.</string>
+    <string name="tv_new_code">Terlalu banyak kod salah: TV memaparkan kod baharu.</string>
+    <string name="tv_unreachable">TV tidak menjawab: adakah aplikasi TV dibuka?</string>
+    <string name="tv_missing">Pilih TV (atau taip alamatnya) dan kod 6 digit.</string>
+    <string name="tv_forget">Putuskan sambungan</string>
+    <string name="searching">Mencari…</string>
+
+    <string name="step_game">3. Permainan dan bahasa</string>
+    <string name="translate_into">Terjemah ke</string>
+
+    <string name="step_start">4. Terjemah</string>
+    <string name="keep_open_hint">Biarkan VI Translator terbuka semasa bermain (dengan PS5, skrin boleh dimatikan).</string>
+    <string name="start">Mula menterjemah</string>
+    <string name="stop">Henti</string>
+    <string name="choose_console">Pilih konsol anda dahulu.</string>
+    <string name="state_starting">Memulakan…</string>
+    <string name="state_connecting">Menyambung ke PS5…</string>
+    <string name="state_reading">Menterjemah.</string>
+    <string name="state_ended">Dihentikan.</string>
+    <string name="state_failed">Dihentikan: %1$s</string>
+    <string name="stats">Membaca %1$d daripada %2$d bingkai · %3$d ms · %4$s</string>
+
+    <string name="step_lines">5. Dibaca dan diterjemah</string>
+    <string name="lines_none">Baris yang dibaca dipaparkan di sini.</string>
+    <string name="about">Teras terjemahan: %1$s</string>
+
+    <string name="notify_channel">Menterjemah</string>
+    <string name="notify_text">Menterjemah permainan untuk TV anda</string>
+
+    <string name="update_available">Kemas kini</string>
+    <string name="update_to">Kemas kini ke %1$s</string>
+    <string name="update_downloading">Memuat turun kemas kini…</string>
+    <string name="update_installing">Memasang…</string>
+    <string name="update_failed">Kemas kini gagal: cuba lagi</string>
+    <string name="service">Perkhidmatan terjemahan</string>
+    <string name="service_key">Kunci perkhidmatan</string>
+    <string name="service_hint">Baris yang diketahui oleh memori terjemahan (terjemahan yang disemak, dimuat turun daripada vitranslator.app) adalah percuma; baris lain memerlukan perkhidmatan terjemahan dengan kunci anda sendiri.</string>
+    <string name="service_save">Simpan</string>
+    <string name="service_saved">Disimpan.</string>
+    <string name="tv_not_sharing">Telefon ini tiada dalam rangkaian rumah: sambungkannya ke Wi-Fi yang sama dengan TV.</string>
+    <string-array name="services">
+        <item>Memori terjemahan sahaja (percuma)</item>
+        <item>DeepL</item>
+        <item>Google</item>
+        <item>Claude</item>
+        <item>OpenAI</item>
+    </string-array>
+</resources>

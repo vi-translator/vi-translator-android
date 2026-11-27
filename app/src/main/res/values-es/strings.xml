@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VI Translator</string>
+    <string name="ui_language">Idioma de la aplicación</string>
+    <string name="phone_language">El del móvil</string>
+
+    <string name="step_console">1. Tu consola</string>
+    <string name="playstation">PlayStation 5</string>
+    <string name="xbox">Xbox</string>
+    <string name="ps_setup_hint">El móvil transmite la PS5 con Juego remoto para leer el juego; la tele sigue mostrando la consola como siempre. Configúralo una vez: en la PS5, Ajustes › Sistema › Juego remoto › Vincular dispositivo muestra un PIN.</string>
+    <string name="ps_find">Buscar la PS5</string>
+    <string name="ps_address">Dirección de la PS5 (192.168.1.20)</string>
+    <string name="psn_secondary_hint">Inicia sesión con una segunda cuenta de PSN, no con la que juegas: Juego remoto inicia su sesión en la PS5. Solo se guarda su ID de cuenta.</string>
+    <string name="psn_sign_in">Iniciar sesión en PSN</string>
+    <string name="psn_failed">No se ha podido iniciar sesión en PSN: %1$s</string>
+    <string name="psn_account_id">ID de cuenta de PSN</string>
+    <string name="ps_pin">El PIN de 8 dígitos que muestra la PS5</string>
+    <string name="ps_register">Vincular</string>
+    <string name="ps_wake">Encender la PS5</string>
+    <string name="ps_registering">Vinculando…</string>
+    <string name="ps_register_missing">Rellena la dirección de la PS5, el ID de cuenta y el PIN de 8 dígitos.</string>
+    <string name="ps_register_failed">La PS5 lo ha rechazado: comprueba el PIN (cambia cada pocos minutos) y que Juego remoto esté activado.</string>
+    <string name="ps_registered">Vinculado a %1$s (%2$s)</string>
+    <string name="ps_not_registered">Aún no hay ninguna PS5 vinculada.</string>
+    <string name="ps_not_in_build">PS Remote Play no está en esta versión de la aplicación.</string>
+    <string name="ps_ready">encendida</string>
+    <string name="ps_standby">modo de reposo</string>
+    <string name="ps_login_pin">La PS5 pide el código de acceso de la cuenta</string>
+    <string name="ps_login_pin_wrong">Código de acceso incorrecto: inténtalo de nuevo</string>
+    <string name="xbox_hint">Empezar a traducir abre aquí el reproductor de Juego remoto de Microsoft. Inicia sesión allí con tu cuenta de Microsoft y conéctate a tu Xbox; la tele sigue mostrando la consola como siempre. Mantén la pantalla encendida mientras juegas.</string>
+    <string name="xbox_capture_screen">No se puede leer el vídeo: capturar la pantalla</string>
+    <string name="xbox_setup_status">Inicia sesión y elige tu Xbox. Vuelve atrás cuando termines.</string>
+    <string name="xbox_status">%1$d fotogramas leídos (%2$s)</string>
+
+    <string name="step_tv">2. Conectar una tele</string>
+    <string name="tv_hint">Abre VI Translator en la tele (Android TV, LG o Samsung): muestra un código de 6 dígitos.</string>
+    <string name="tv_none">Aún no hay ninguna tele conectada.</string>
+    <string name="tv_find">Buscar teles</string>
+    <string name="tv_found_none">No se ha encontrado ninguna tele: ¿está abierta la aplicación de la tele y en la misma red? Puedes escribir su dirección.</string>
+    <string name="tv_address">Dirección de la tele</string>
+    <string name="tv_code">El código que muestra la tele</string>
+    <string name="tv_connect">Conectar</string>
+    <string name="tv_connecting">Conectando…</string>
+    <string name="tv_connected">Conectada.</string>
+    <string name="tv_wrong_code">Ese no es el código que muestra la tele.</string>
+    <string name="tv_new_code">Demasiados códigos incorrectos: la tele muestra uno nuevo.</string>
+    <string name="tv_unreachable">La tele no ha respondido: ¿está abierta la aplicación de la tele?</string>
+    <string name="tv_missing">Elige una tele (o escribe su dirección) y el código de 6 dígitos.</string>
+    <string name="tv_forget">Desconectar</string>
+    <string name="searching">Buscando…</string>
+
+    <string name="step_game">3. El juego y el idioma</string>
+    <string name="translate_into">Traducir a</string>
+
+    <string name="step_start">4. Traducir</string>
+    <string name="keep_open_hint">Mantén VI Translator abierta mientras juegas (con una PS5 la pantalla puede estar apagada).</string>
+    <string name="start">Empezar a traducir</string>
+    <string name="stop">Detener</string>
+    <string name="choose_console">Primero elige tu consola.</string>
+    <string name="state_starting">Iniciando…</string>
+    <string name="state_connecting">Conectando con la PS5…</string>
+    <string name="state_reading">Traduciendo.</string>
+    <string name="state_ended">Detenido.</string>
+    <string name="state_failed">Detenido: %1$s</string>
+    <string name="stats">%1$d de %2$d fotogramas leídos · %3$d ms · %4$s</string>
+
+    <string name="step_lines">5. Leído y traducido</string>
+    <string name="lines_none">Aquí aparecen las líneas leídas.</string>
+    <string name="about">Núcleo de traducción: %1$s</string>
+
+    <string name="notify_channel">Traduciendo</string>
+    <string name="notify_text">Traduciendo el juego para tu tele</string>
+
+    <string name="update_available">Actualizar</string>
+    <string name="update_to">Actualizar a %1$s</string>
+    <string name="update_downloading">Descargando la actualización…</string>
+    <string name="update_installing">Instalando…</string>
+    <string name="update_failed">No se ha podido actualizar: inténtalo de nuevo</string>
+    <string name="service">Servicio de traducción</string>
+    <string name="service_key">La clave del servicio</string>
+    <string name="service_hint">Las líneas que conoce la memoria de traducción (traducciones revisadas, descargadas de vitranslator.app) son gratis; las demás líneas necesitan un servicio de traducción con tu propia clave.</string>
+    <string name="service_save">Guardar</string>
+    <string name="service_saved">Guardado.</string>
+    <string name="tv_not_sharing">Este móvil no está en una red doméstica: conéctalo a la misma red Wi-Fi que la tele.</string>
+    <string-array name="services">
+        <item>Solo memoria de traducción (gratis)</item>
+        <item>DeepL</item>
+        <item>Google</item>
+        <item>Claude</item>
+        <item>OpenAI</item>
+    </string-array>
+</resources>

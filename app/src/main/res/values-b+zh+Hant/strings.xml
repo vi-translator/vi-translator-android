@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VI Translator</string>
+    <string name="ui_language">介面語言</string>
+    <string name="phone_language">跟隨手機</string>
+
+    <string name="step_console">1. 你的主機</string>
+    <string name="playstation">PlayStation 5</string>
+    <string name="xbox">Xbox</string>
+    <string name="ps_setup_hint">手機透過遙控遊玩串流 PS5 來讀取遊戲；電視照常顯示主機畫面。只需設定一次：在 PS5 上，設定 › 系統 › 遙控遊玩 › 連結裝置 會顯示 PIN。</string>
+    <string name="ps_find">尋找 PS5</string>
+    <string name="ps_address">PS5 位址（192.168.1.20）</string>
+    <string name="psn_secondary_hint">請用第二個 PSN 帳號登入，而不是你遊玩用的帳號：遙控遊玩會用它在 PS5 上登入。只保存它的帳號 ID。</string>
+    <string name="psn_sign_in">登入 PSN</string>
+    <string name="psn_failed">PSN 登入失敗：%1$s</string>
+    <string name="psn_account_id">PSN 帳號 ID</string>
+    <string name="ps_pin">PS5 上顯示的 8 位數 PIN</string>
+    <string name="ps_register">連結</string>
+    <string name="ps_wake">喚醒 PS5</string>
+    <string name="ps_registering">正在連結…</string>
+    <string name="ps_register_missing">請填寫 PS5 的位址、帳號 ID 和 8 位數 PIN。</string>
+    <string name="ps_register_failed">PS5 拒絕了連線：請檢查 PIN（每隔幾分鐘會變更），並確認已開啟遙控遊玩。</string>
+    <string name="ps_registered">已連結到 %1$s（%2$s）</string>
+    <string name="ps_not_registered">尚未連結 PS5。</string>
+    <string name="ps_not_in_build">此版本的應用程式不包含 PS Remote Play。</string>
+    <string name="ps_ready">已開機</string>
+    <string name="ps_standby">待命模式</string>
+    <string name="ps_login_pin">PS5 要求輸入該帳號的密碼</string>
+    <string name="ps_login_pin_wrong">密碼錯誤：請再試一次</string>
+    <string name="xbox_hint">「開始翻譯」會在這裡開啟 Microsoft 的遠端遊玩播放器。請在其中用你的 Microsoft 帳戶登入並連線到你的 Xbox；電視照常顯示主機畫面。遊玩時請保持螢幕開啟。</string>
+    <string name="xbox_capture_screen">無法讀取影片：擷取螢幕</string>
+    <string name="xbox_setup_status">登入後選擇你的 Xbox。完成後按返回。</string>
+    <string name="xbox_status">已讀取 %1$d 個影格（%2$s）</string>
+
+    <string name="step_tv">2. 連線電視</string>
+    <string name="tv_hint">在電視（Android TV、LG 或 Samsung）上開啟 VI Translator：它會顯示一組 6 位數代碼。</string>
+    <string name="tv_none">尚未連線電視。</string>
+    <string name="tv_find">尋找電視</string>
+    <string name="tv_found_none">找不到電視：電視應用程式是否已開啟並在同一網路中？你可以輸入它的位址。</string>
+    <string name="tv_address">電視位址</string>
+    <string name="tv_code">電視上顯示的代碼</string>
+    <string name="tv_connect">連線</string>
+    <string name="tv_connecting">正在連線…</string>
+    <string name="tv_connected">已連線。</string>
+    <string name="tv_wrong_code">這不是電視上顯示的代碼。</string>
+    <string name="tv_new_code">錯誤代碼次數過多：電視已顯示新的代碼。</string>
+    <string name="tv_unreachable">電視沒有回應：電視應用程式是否已開啟？</string>
+    <string name="tv_missing">請選擇電視（或輸入它的位址）並輸入 6 位數代碼。</string>
+    <string name="tv_forget">中斷連線</string>
+    <string name="searching">正在搜尋…</string>
+
+    <string name="step_game">3. 遊戲與語言</string>
+    <string name="translate_into">翻譯為</string>
+
+    <string name="step_start">4. 翻譯</string>
+    <string name="keep_open_hint">遊玩時請保持 VI Translator 開啟（使用 PS5 時可以關閉螢幕）。</string>
+    <string name="start">開始翻譯</string>
+    <string name="stop">停止</string>
+    <string name="choose_console">請先選擇你的主機。</string>
+    <string name="state_starting">正在啟動…</string>
+    <string name="state_connecting">正在連線到 PS5…</string>
+    <string name="state_reading">正在翻譯。</string>
+    <string name="state_ended">已停止。</string>
+    <string name="state_failed">已停止：%1$s</string>
+    <string name="stats">已讀取 %1$d/%2$d 個影格 · %3$d ms · %4$s</string>
+
+    <string name="step_lines">5. 讀取與翻譯的內容</string>
+    <string name="lines_none">讀取到的文字行會顯示在這裡。</string>
+    <string name="about">翻譯核心：%1$s</string>
+
+    <string name="notify_channel">正在翻譯</string>
+    <string name="notify_text">正在為你的電視翻譯遊戲</string>
+
+    <string name="update_available">更新</string>
+    <string name="update_to">更新到 %1$s</string>
+    <string name="update_downloading">正在下載更新…</string>
+    <string name="update_installing">正在安裝…</string>
+    <string name="update_failed">更新失敗：請再試一次</string>
+    <string name="service">翻譯服務</string>
+    <string name="service_key">服務金鑰</string>
+    <string name="service_hint">翻譯記憶中已有的文字行（從 vitranslator.app 下載的審核過的翻譯）免費；其他文字行需要使用你自己金鑰的翻譯服務。</string>
+    <string name="service_save">儲存</string>
+    <string name="service_saved">已儲存。</string>
+    <string name="tv_not_sharing">這支手機未連上家用網路：請連線到與電視相同的 Wi-Fi。</string>
+    <string-array name="services">
+        <item>僅翻譯記憶（免費）</item>
+        <item>DeepL</item>
+        <item>Google</item>
+        <item>Claude</item>
+        <item>OpenAI</item>
+    </string-array>
+</resources>

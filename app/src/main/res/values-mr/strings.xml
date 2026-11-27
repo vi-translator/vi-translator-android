@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VI Translator</string>
+    <string name="ui_language">ॲपची भाषा</string>
+    <string name="phone_language">फोनची भाषा</string>
+
+    <string name="step_console">1. तुमचा कन्सोल</string>
+    <string name="playstation">PlayStation 5</string>
+    <string name="xbox">Xbox</string>
+    <string name="ps_setup_hint">गेम वाचण्यासाठी फोन रिमोट प्लेने PS5 स्ट्रीम करतो; टीव्ही नेहमीप्रमाणे कन्सोल दाखवत राहतो. एकदाच सेट करा: PS5 वर Settings › System › Remote Play › Link Device एक PIN दाखवते.</string>
+    <string name="ps_find">PS5 शोधा</string>
+    <string name="ps_address">PS5 चा पत्ता (192.168.1.20)</string>
+    <string name="psn_secondary_hint">दुसऱ्या PSN खात्याने साइन इन करा, तुम्ही ज्याने खेळता त्याने नाही: रिमोट प्ले त्याला PS5 वर साइन इन करतो. फक्त त्याचा खाते आयडी ठेवला जातो.</string>
+    <string name="psn_sign_in">PSN मध्ये साइन इन करा</string>
+    <string name="psn_failed">PSN साइन-इन झाले नाही: %1$s</string>
+    <string name="psn_account_id">PSN खाते आयडी</string>
+    <string name="ps_pin">PS5 वर दिसणारा 8 अंकी PIN</string>
+    <string name="ps_register">लिंक करा</string>
+    <string name="ps_wake">PS5 जागे करा</string>
+    <string name="ps_registering">लिंक करत आहे…</string>
+    <string name="ps_register_missing">PS5 चा पत्ता, खाते आयडी आणि 8 अंकी PIN भरा.</string>
+    <string name="ps_register_failed">PS5 ने नकार दिला: PIN तपासा (तो दर काही मिनिटांनी बदलतो) आणि रिमोट प्ले चालू आहे का ते पाहा.</string>
+    <string name="ps_registered">%1$s (%2$s) शी लिंक झाले</string>
+    <string name="ps_not_registered">अजून कोणत्याही PS5 शी लिंक नाही.</string>
+    <string name="ps_not_in_build">ॲपच्या या बिल्डमध्ये PS रिमोट प्ले नाही.</string>
+    <string name="ps_ready">चालू</string>
+    <string name="ps_standby">रेस्ट मोड</string>
+    <string name="ps_login_pin">PS5 खात्याचा पासकोड मागत आहे</string>
+    <string name="ps_login_pin_wrong">चुकीचा पासकोड: पुन्हा प्रयत्न करा</string>
+    <string name="xbox_hint">“अनुवाद सुरू करा” इथेच Microsoft चा रिमोट प्ले प्लेअर उघडते. तिथे तुमच्या Microsoft खात्याने साइन इन करा आणि तुमच्या Xbox शी जोडा; टीव्ही नेहमीप्रमाणे कन्सोल दाखवत राहतो. खेळताना स्क्रीन चालू ठेवा.</string>
+    <string name="xbox_capture_screen">व्हिडिओ वाचता येत नाही: स्क्रीन कॅप्चर करा</string>
+    <string name="xbox_setup_status">साइन इन करा, मग तुमचा Xbox निवडा. झाल्यावर मागे जा.</string>
+    <string name="xbox_status">%1$d फ्रेम वाचल्या (%2$s)</string>
+
+    <string name="step_tv">2. टीव्ही जोडा</string>
+    <string name="tv_hint">टीव्हीवर VI Translator उघडा (Android TV, LG किंवा Samsung): तो 6 अंकी कोड दाखवतो.</string>
+    <string name="tv_none">अजून कोणताही टीव्ही जोडलेला नाही.</string>
+    <string name="tv_find">टीव्ही शोधा</string>
+    <string name="tv_found_none">कोणताही टीव्ही सापडला नाही: टीव्ही ॲप उघडे आहे आणि त्याच नेटवर्कवर आहे का? तुम्ही त्याचा पत्ता टाइप करू शकता.</string>
+    <string name="tv_address">टीव्हीचा पत्ता</string>
+    <string name="tv_code">टीव्हीवर दिसणारा कोड</string>
+    <string name="tv_connect">जोडा</string>
+    <string name="tv_connecting">जोडत आहे…</string>
+    <string name="tv_connected">जोडले.</string>
+    <string name="tv_wrong_code">हा टीव्हीवर दिसणारा कोड नाही.</string>
+    <string name="tv_new_code">खूप चुकीचे कोड: टीव्ही नवीन कोड दाखवत आहे.</string>
+    <string name="tv_unreachable">टीव्हीने उत्तर दिले नाही: टीव्ही ॲप उघडे आहे का?</string>
+    <string name="tv_missing">एक टीव्ही निवडा (किंवा त्याचा पत्ता टाइप करा) आणि 6 अंकी कोड टाका.</string>
+    <string name="tv_forget">डिस्कनेक्ट करा</string>
+    <string name="searching">शोधत आहे…</string>
+
+    <string name="step_game">3. गेम आणि भाषा</string>
+    <string name="translate_into">या भाषेत भाषांतर</string>
+
+    <string name="step_start">4. अनुवाद करा</string>
+    <string name="keep_open_hint">खेळताना VI Translator उघडे ठेवा (PS5 सोबत स्क्रीन बंद असू शकते).</string>
+    <string name="start">अनुवाद सुरू करा</string>
+    <string name="stop">थांबवा</string>
+    <string name="choose_console">आधी तुमचा कन्सोल निवडा.</string>
+    <string name="state_starting">सुरू होत आहे…</string>
+    <string name="state_connecting">PS5 शी जोडत आहे…</string>
+    <string name="state_reading">अनुवाद होत आहे.</string>
+    <string name="state_ended">थांबले.</string>
+    <string name="state_failed">थांबले: %1$s</string>
+    <string name="stats">%2$d पैकी %1$d फ्रेम वाचल्या · %3$d ms · %4$s</string>
+
+    <string name="step_lines">5. वाचलेले आणि अनुवादित</string>
+    <string name="lines_none">वाचलेल्या ओळी इथे दिसतात.</string>
+    <string name="about">अनुवाद कोर: %1$s</string>
+
+    <string name="notify_channel">अनुवाद होत आहे</string>
+    <string name="notify_text">तुमच्या टीव्हीसाठी गेमचा अनुवाद होत आहे</string>
+
+    <string name="update_available">अपडेट</string>
+    <string name="update_to">%1$s वर अपडेट करा</string>
+    <string name="update_downloading">अपडेट डाउनलोड होत आहे…</string>
+    <string name="update_installing">इन्स्टॉल होत आहे…</string>
+    <string name="update_failed">अपडेट अयशस्वी: पुन्हा प्रयत्न करा</string>
+    <string name="service">अनुवाद सेवा</string>
+    <string name="service_key">सेवेची की</string>
+    <string name="service_hint">अनुवाद मेमरीला माहीत असलेल्या ओळी (तपासलेली भाषांतरे, vitranslator.app वरून डाउनलोड केलेली) मोफत आहेत; इतर ओळींसाठी तुमच्या स्वतःच्या कीसह अनुवाद सेवा लागते.</string>
+    <string name="service_save">सेव्ह करा</string>
+    <string name="service_saved">सेव्ह केले.</string>
+    <string name="tv_not_sharing">हा फोन होम नेटवर्कवर नाही: तो टीव्हीच्याच Wi-Fi ला जोडा.</string>
+    <string-array name="services">
+        <item>फक्त अनुवाद मेमरी (मोफत)</item>
+        <item>DeepL</item>
+        <item>Google</item>
+        <item>Claude</item>
+        <item>OpenAI</item>
+    </string-array>
+</resources>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VI Translator</string>
+    <string name="ui_language">زبان برنامه</string>
+    <string name="phone_language">زبان گوشی</string>
+
+    <string name="step_console">1. کنسول شما</string>
+    <string name="playstation">PlayStation 5</string>
+    <string name="xbox">Xbox</string>
+    <string name="ps_setup_hint">گوشی برای خواندن بازی، PS5 را با بازی از راه دور پخش می‌کند؛ تلویزیون مثل همیشه کنسول را نشان می‌دهد. یک بار تنظیمش کنید: روی PS5، تنظیمات › سیستم › بازی از راه دور › پیوند دادن دستگاه یک PIN نشان می‌دهد.</string>
+    <string name="ps_find">پیدا کردن PS5</string>
+    <string name="ps_address">نشانی PS5 (192.168.1.20)</string>
+    <string name="psn_secondary_hint">با یک حساب PSN دوم وارد شوید، نه حسابی که با آن بازی می‌کنید: بازی از راه دور آن را روی PS5 وارد می‌کند. فقط شناسهٔ حساب آن نگه داشته می‌شود.</string>
+    <string name="psn_sign_in">ورود به PSN</string>
+    <string name="psn_failed">ورود به PSN انجام نشد: %1$s</string>
+    <string name="psn_account_id">شناسهٔ حساب PSN</string>
+    <string name="ps_pin">PIN هشت‌رقمی که PS5 نشان می‌دهد</string>
+    <string name="ps_register">پیوند دادن</string>
+    <string name="ps_wake">بیدار کردن PS5</string>
+    <string name="ps_registering">در حال پیوند دادن…</string>
+    <string name="ps_register_missing">نشانی PS5، شناسهٔ حساب و PIN هشت‌رقمی را وارد کنید.</string>
+    <string name="ps_register_failed">PS5 نپذیرفت: PIN را بررسی کنید (هر چند دقیقه عوض می‌شود) و اینکه بازی از راه دور روشن باشد.</string>
+    <string name="ps_registered">به %1$s (%2$s) پیوند داده شد</string>
+    <string name="ps_not_registered">هنوز به هیچ PS5 پیوند داده نشده.</string>
+    <string name="ps_not_in_build">PS Remote Play در این نسخهٔ برنامه نیست.</string>
+    <string name="ps_ready">روشن</string>
+    <string name="ps_standby">حالت استراحت</string>
+    <string name="ps_login_pin">PS5 رمز عبور حساب را می‌خواهد</string>
+    <string name="ps_login_pin_wrong">رمز عبور اشتباه است: دوباره تلاش کنید</string>
+    <string name="xbox_hint">شروع ترجمه، پخش‌کنندهٔ بازی از راه دور Microsoft را همین‌جا باز می‌کند. آنجا با حساب Microsoft خود وارد شوید و به Xbox خود وصل شوید؛ تلویزیون مثل همیشه کنسول را نشان می‌دهد. هنگام بازی صفحه را روشن نگه دارید.</string>
+    <string name="xbox_capture_screen">ویدیو خوانده نمی‌شود: از صفحه ضبط کنید</string>
+    <string name="xbox_setup_status">وارد شوید، سپس Xbox خود را انتخاب کنید. وقتی تمام شد برگردید.</string>
+    <string name="xbox_status">%1$d فریم خوانده شد (%2$s)</string>
+
+    <string name="step_tv">2. اتصال یک تلویزیون</string>
+    <string name="tv_hint">VI Translator را روی تلویزیون باز کنید (Android TV، LG یا Samsung): یک کد شش‌رقمی نشان می‌دهد.</string>
+    <string name="tv_none">هنوز تلویزیونی متصل نیست.</string>
+    <string name="tv_find">پیدا کردن تلویزیون‌ها</string>
+    <string name="tv_found_none">تلویزیونی پیدا نشد: آیا برنامهٔ تلویزیون باز و در همان شبکه است؟ می‌توانید نشانی آن را تایپ کنید.</string>
+    <string name="tv_address">نشانی تلویزیون</string>
+    <string name="tv_code">کدی که تلویزیون نشان می‌دهد</string>
+    <string name="tv_connect">اتصال</string>
+    <string name="tv_connecting">در حال اتصال…</string>
+    <string name="tv_connected">متصل شد.</string>
+    <string name="tv_wrong_code">این کدی نیست که تلویزیون نشان می‌دهد.</string>
+    <string name="tv_new_code">کدهای اشتباه زیاد: تلویزیون کد جدیدی نشان می‌دهد.</string>
+    <string name="tv_unreachable">تلویزیون پاسخ نداد: آیا برنامهٔ تلویزیون باز است؟</string>
+    <string name="tv_missing">یک تلویزیون انتخاب کنید (یا نشانی‌اش را تایپ کنید) و کد شش‌رقمی را وارد کنید.</string>
+    <string name="tv_forget">قطع اتصال</string>
+    <string name="searching">در حال جستجو…</string>
+
+    <string name="step_game">3. بازی و زبان</string>
+    <string name="translate_into">ترجمه به</string>
+
+    <string name="step_start">4. ترجمه</string>
+    <string name="keep_open_hint">هنگام بازی VI Translator را باز نگه دارید (با PS5 صفحه می‌تواند خاموش باشد).</string>
+    <string name="start">شروع ترجمه</string>
+    <string name="stop">توقف</string>
+    <string name="choose_console">ابتدا کنسول خود را انتخاب کنید.</string>
+    <string name="state_starting">در حال شروع…</string>
+    <string name="state_connecting">در حال اتصال به PS5…</string>
+    <string name="state_reading">در حال ترجمه.</string>
+    <string name="state_ended">متوقف شد.</string>
+    <string name="state_failed">متوقف شد: %1$s</string>
+    <string name="stats">%1$d از %2$d فریم خوانده شد · %3$d ms · %4$s</string>
+
+    <string name="step_lines">5. خوانده‌شده و ترجمه‌شده</string>
+    <string name="lines_none">خطوط خوانده‌شده اینجا نمایش داده می‌شوند.</string>
+    <string name="about">هستهٔ ترجمه: %1$s</string>
+
+    <string name="notify_channel">در حال ترجمه</string>
+    <string name="notify_text">در حال ترجمهٔ بازی برای تلویزیون شما</string>
+
+    <string name="update_available">به‌روزرسانی</string>
+    <string name="update_to">به‌روزرسانی به %1$s</string>
+    <string name="update_downloading">در حال دانلود به‌روزرسانی…</string>
+    <string name="update_installing">در حال نصب…</string>
+    <string name="update_failed">به‌روزرسانی ناموفق بود: دوباره تلاش کنید</string>
+    <string name="service">سرویس ترجمه</string>
+    <string name="service_key">کلید سرویس</string>
+    <string name="service_hint">خطوطی که حافظهٔ ترجمه می‌شناسد (ترجمه‌های بازبینی‌شده، دانلودشده از vitranslator.app) رایگان‌اند؛ خطوط دیگر به یک سرویس ترجمه با کلید خودتان نیاز دارند.</string>
+    <string name="service_save">ذخیره</string>
+    <string name="service_saved">ذخیره شد.</string>
+    <string name="tv_not_sharing">این گوشی در شبکهٔ خانگی نیست: آن را به همان Wi-Fi تلویزیون وصل کنید.</string>
+    <string-array name="services">
+        <item>فقط حافظهٔ ترجمه (رایگان)</item>
+        <item>DeepL</item>
+        <item>Google</item>
+        <item>Claude</item>
+        <item>OpenAI</item>
+    </string-array>
+</resources>

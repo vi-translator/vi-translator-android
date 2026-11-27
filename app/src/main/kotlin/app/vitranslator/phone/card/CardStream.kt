@@ -20,7 +20,9 @@ import app.vitranslator.phone.read.Reader
  * A USB capture card as the picture source: the console's HDMI goes into the card (most cards pass
  * the picture on to the TV), the card's USB into the phone. Phones that support USB cameras (UVC:
  * many on Android 14 and later) list the card as an external camera, opened here with Android's
- * camera API; the others don't see it at all (they would need their own USB driver for it).
+ * camera API. Others see the card only as a USB device (UsbCards): reading it there would need a
+ * USB video driver of the app's own (as "USB Camera" apps have), which it doesn't have yet; they
+ * are told which step fails (UsbCards.check) instead.
  *
  * The card's picture goes through the GPU (GlFrames, as the PS5's): the camera draws into a
  * texture whatever format the card sends (MJPEG or YUY2, decoded by the phone), and a frame is read
@@ -48,15 +50,48 @@ class CardStream(private val ctx: Context, private val reader: Reader, private v
     var size: String? = null
         private set
 
-    /** Opens the card, at 1080p (or with [big], its largest picture up to 4K). */
-    @SuppressLint("MissingPermission") // (asked for before translating starts: MainActivity)
+    /**
+     * Opens the card, at 1080p (or with [big], its largest picture up to 4K). A card just plugged in
+     * may take a moment to be listed as a camera: waited for a few seconds.
+     */
     fun start(big: Boolean) {
-        val cm = ctx.getSystemService(CameraManager::class.java)
         val id = find(ctx)
-        if (id == null) {
-            listener(State.FAILED, if (supported(ctx)) "no capture card found: is it plugged in?" else "this phone doesn't support USB capture cards")
+        if (id != null) {
+            open(id, big)
             return
         }
+        val cm = ctx.getSystemService(CameraManager::class.java)
+        var done = false
+        val wait = object : CameraManager.AvailabilityCallback() {
+            override fun onCameraAvailable(cameraId: String) {
+                if (done || stopped || !isExternal(cm, cameraId)) return
+                done = true
+                cm.unregisterAvailabilityCallback(this)
+                open(cameraId, big)
+            }
+        }
+        try {
+            cm.registerAvailabilityCallback(wait, handler)
+        } catch (e: Exception) {
+            Log.w(TAG, "cameras", e)
+        }
+        handler.postDelayed({
+            if (done) return@postDelayed
+            done = true
+            try {
+                cm.unregisterAvailabilityCallback(wait)
+            } catch (_: Exception) {
+            }
+            if (stopped) return@postDelayed
+            val st = UsbCards.check(ctx)
+            Log.i(TAG, "no card as a camera: ${st.kind} ${st.name ?: ""} ${st.device?.let { UsbCards.transferOf(it) } ?: ""}")
+            listener(State.FAILED, app.vitranslator.phone.ui.CardText.failure(st))
+        }, WAIT_MS)
+    }
+
+    @SuppressLint("MissingPermission") // (asked for before translating starts: MainActivity)
+    private fun open(id: String, big: Boolean) {
+        val cm = ctx.getSystemService(CameraManager::class.java)
         val map = cm.getCameraCharacteristics(id).get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP)
         val sizes = map?.getOutputSizes(SurfaceTexture::class.java)?.toList().orEmpty()
         val pick = best(sizes, big) { s ->
@@ -150,8 +185,20 @@ class CardStream(private val ctx: Context, private val reader: Reader, private v
     companion object {
         private const val TAG = "CardStream"
 
-        /** The phone can use USB cameras (and so capture cards). */
+        /** how long a card plugged in may take to be listed as a camera */
+        private const val WAIT_MS = 4000L
+
+        /**
+         * The phone says it supports USB cameras. Only a hint: some phones list a card as a camera
+         * without saying so, and many that don't see it over USB (UsbCards), so it never refuses a card.
+         */
         fun supported(ctx: Context) = ctx.packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_EXTERNAL)
+
+        private fun isExternal(cm: CameraManager, id: String) = try {
+            cm.getCameraCharacteristics(id).get(CameraCharacteristics.LENS_FACING) == CameraCharacteristics.LENS_FACING_EXTERNAL
+        } catch (_: Exception) {
+            false
+        }
 
         /**
          * The card plugged in now: the first external camera. (In a debug build with none, the first
@@ -165,13 +212,7 @@ class CardStream(private val ctx: Context, private val reader: Reader, private v
                 Log.w(TAG, "cameras", e)
                 return null
             }
-            return ids.firstOrNull {
-                try {
-                    cm.getCameraCharacteristics(it).get(CameraCharacteristics.LENS_FACING) == CameraCharacteristics.LENS_FACING_EXTERNAL
-                } catch (_: Exception) {
-                    false
-                }
-            } ?: if (BuildConfig.DEBUG) ids.firstOrNull() else null
+            return ids.firstOrNull { isExternal(cm, it) } ?: if (BuildConfig.DEBUG) ids.firstOrNull() else null
         }
 
         /**

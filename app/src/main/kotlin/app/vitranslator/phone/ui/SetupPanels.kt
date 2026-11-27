@@ -40,7 +40,7 @@ class SourcePanel(h: Host) : Panel(h) {
         add(consoleChoice("card", T("Capture card"), T("Any console: its HDMI goes into a USB capture card plugged into the phone. Works with the phone's screen off."), prefs.console == "card"))
         if (prefs.console == "ps5") ps5Setup()
         if (prefs.console == "xbox") xboxSetup()
-        if (prefs.console == "card") cardSetup()
+        if (prefs.console == "card") cardSetup() else stopWatchingCard()
         add(k.h3(T("Timing")))
         timing()
     }
@@ -63,24 +63,35 @@ class SourcePanel(h: Host) : Panel(h) {
         return c
     }
 
+    /** stops watching USB and the cameras (while the card's setup shows) */
+    private var unwatchCard: (() -> Unit)? = null
+
     /**
-     * The capture card: how to plug it in, whether this phone can use one (Android lists USB
-     * cameras on the phones that support them), whether one is plugged in now, and the 4K picture.
+     * The capture card: how to plug it in, then where the phone sees it, step by step (UsbCards):
+     * listed as a camera (it can be read), or only as a USB device (with or without the
+     * permission to use it), or not at all; kept up to date as it is plugged in and out. Then the 4K picture.
      */
     private fun cardSetup() {
+        if (unwatchCard == null) unwatchCard = app.vitranslator.phone.card.UsbCards.watch(h.act) {
+            if (Prefs(h.act).console == "card") refresh() else stopWatchingCard()
+        }
         add(k.h3(T("Capture card")))
         add(k.muted("1. " + T("Plug the console's HDMI into the card's HDMI in, and the card's HDMI out into the TV (if it has one).")))
         add(k.muted("2. " + T("Plug the card's USB into the phone (USB-C, or with a USB-C adapter or hub).")))
         add(k.muted("3. " + T("Press Start translating in Play.")))
-        val supported = app.vitranslator.phone.card.CardStream.supported(h.act)
-        val found = app.vitranslator.phone.card.CardStream.find(h.act) != null
-        val status = when {
-            !supported && !found -> T("This phone doesn't support USB cameras, so it can't use a capture card. Use PS5 or Xbox Remote Play instead.")
-            found -> T("A capture card is plugged in.")
-            else -> T("No capture card found. Plug it in, then check again.")
-        }
-        add(k.row(k.grow(k.text(status, k.base - 1f, if (found) k.text else k.muted, k.bold)),
+        val st = app.vitranslator.phone.card.UsbCards.check(h.act)
+        val found = st.kind == app.vitranslator.phone.card.UsbCards.Kind.CAMERA
+        add(k.row(k.grow(k.text(CardText.status(st), k.base - 1f, if (found) k.text else k.muted, k.bold)),
             k.button(T("Check again")) { refresh() }, gap = 10).apply { layoutParams = lp(10) })
+        val dev = st.device
+        if (st.kind == app.vitranslator.phone.card.UsbCards.Kind.USB_NEEDS_PERMISSION && dev != null) {
+            add(k.button(T("Allow USB access"), primary = true) {
+                app.vitranslator.phone.card.UsbCards.requestPermission(h.act, dev) { granted ->
+                    if (!granted) android.widget.Toast.makeText(h.act, T("USB access wasn't allowed. Plug the card in again to be asked again."), android.widget.Toast.LENGTH_LONG).show()
+                    refresh()
+                }
+            }.apply { layoutParams = lp(8) })
+        }
         add(k.check(T("4K picture"), Prefs(h.act).card4k) { Prefs(h.act).card4k = it })
         add(k.muted(T("Off: 1080p, which is plenty for reading text and what most cards send. On: the card's largest picture, up to 4K (slower to read)."), small = true))
         add(k.gap(14))
@@ -170,8 +181,14 @@ class SourcePanel(h: Host) : Panel(h) {
         }
     }
 
+    private fun stopWatchingCard() {
+        unwatchCard?.invoke()
+        unwatchCard = null
+    }
+
     override fun close() {
         ps5.close()
+        stopWatchingCard()
     }
 
 }

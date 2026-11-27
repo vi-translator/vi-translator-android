@@ -90,11 +90,55 @@ object Ps5 {
         DiscoveryService.wakeup(null, c.host, cred, true)
     }
 
+    /** How linking ended. */
+    enum class LinkResult {
+        LINKED,
+        /** the PS5 answered but refused the PIN (wrong, or an old one: it changes each time Link Device opens) */
+        WRONG_PIN,
+        /** the PS5 isn't on its Link Device screen (closed, or timed out) */
+        SCREEN_CLOSED,
+        /** no PS5 answered at that address (off, another network, a wrong address) */
+        NOT_FOUND,
+        /** no PSN account ID, or the PS5 refused it */
+        ACCOUNT,
+        /** stopped by the app */
+        CANCELED,
+        /** something else (the log has it) */
+        FAILED,
+    }
+
+    /** An 8-digit PIN, as the PS5 shows it ("1234 5678"): its digits, or null. */
+    fun pinOf(typed: String): Int? {
+        val digits = typed.filter { !it.isWhitespace() && it != '-' }
+        if (digits.length != 8 || !digits.all { it in '0'..'9' }) return null
+        return digits.toInt()
+    }
+
+    /** Why linking failed, from chiaki's log of it (its only event for a failure is "failed"). */
+    fun failureOf(log: List<String>): LinkResult {
+        val all = log.joinToString("\n")
+        fun has(vararg s: String) = s.any { all.contains(it, ignoreCase = true) }
+        return when {
+            // RP-Application-Reason 0x80108b09: "Regist failed, probably invalid PIN"
+            has("0x80108b09", "invalid PIN") -> LinkResult.WRONG_PIN
+            // 0x80108b02: "Invalid PSN ID"
+            has("0x80108b02", "Invalid PSN ID") -> LinkResult.ACCOUNT
+            has("refused the registration search") -> LinkResult.SCREEN_CLOSED
+            has("getaddrinfo", "timed out waiting for search response", "failed to connect", "connect failed", "Regist search failed", "failed to send search") -> LinkResult.NOT_FOUND
+            // (any other HTTP refusal once the PS5 answered: most often the PIN)
+            has("Regist received HTTP code") -> LinkResult.WRONG_PIN
+            else -> LinkResult.FAILED
+        }
+    }
+
     /**
      * Register with the PS5 at [host], with the PSN account ID (base64) and the 8-digit PIN the PS5
-     * shows (Settings, System, Remote Play, Link Device). [done] gets the console, or null.
+     * shows (Settings, System, Remote Play, Link Device). [done] runs once, on chiaki's thread (or
+     * at once, when linking can't start), with the console (LINKED) or why it failed; the caller
+     * goes to the UI thread itself. Stop the Regist with stop() then dispose() (not on the UI thread:
+     * dispose waits for chiaki's thread).
      */
-    fun register(host: String, accountIdB64: String, pin: Int, log: (String) -> Unit, done: (PsConsole?) -> Unit): Regist? {
+    fun register(host: String, accountIdB64: String, pin: Int, log: (String) -> Unit, done: (LinkResult, PsConsole?) -> Unit): Regist? {
         val id = try {
             Base64.getDecoder().decode(accountIdB64.trim())
         } catch (e: IllegalArgumentException) {
@@ -102,25 +146,40 @@ object Ps5 {
         }
         if (id == null || id.size != RegistInfo.ACCOUNT_ID_SIZE) {
             log("bad account ID")
-            done(null)
+            done(LinkResult.ACCOUNT, null)
             return null
         }
         val info = RegistInfo(Target.PS5_1, host, false, null, id, pin)
+        val lines = java.util.concurrent.CopyOnWriteArrayList<String>()
         val chiakiLog = ChiakiLog(ChiakiLog.Level.ALL.value and ChiakiLog.Level.VERBOSE.value.inv()) { level, text ->
-            log(ChiakiLog.formatLog(level, text))
+            val line = ChiakiLog.formatLog(level, text)
+            lines.add(line)
+            log(line)
+        }
+        val once = java.util.concurrent.atomic.AtomicBoolean(false)
+        fun finish(r: LinkResult, c: PsConsole?) {
+            if (once.compareAndSet(false, true)) done(r, c)
         }
         return try {
             Regist(info, chiakiLog) { ev ->
                 when (ev) {
-                    is RegistEventSuccess -> done(
-                        PsConsole(host, ev.host.serverNickname, ev.host.serverMac, ev.host.rpRegistKey, ev.host.rpKey),
-                    )
-                    RegistEventFailed, RegistEventCanceled -> done(null)
+                    is RegistEventSuccess -> {
+                        val h = ev.host
+                        val console = try {
+                            PsConsole(host, (h.serverNickname as String?) ?: "", h.serverMac, h.rpRegistKey, h.rpKey)
+                        } catch (e: Exception) {
+                            Log.e(TAG, "linked, but the answer is incomplete", e)
+                            null
+                        }
+                        if (console != null) finish(LinkResult.LINKED, console) else finish(LinkResult.FAILED, null)
+                    }
+                    RegistEventCanceled -> finish(LinkResult.CANCELED, null)
+                    RegistEventFailed -> finish(failureOf(lines), null)
                 }
             }
         } catch (e: CreateError) {
             log("registration failed to start: $e")
-            done(null)
+            finish(LinkResult.FAILED, null)
             null
         }
     }

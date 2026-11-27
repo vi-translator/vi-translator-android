@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- USB video devices (UVC, class 0x0E = 14, on the device or one of its interfaces): capture cards -->
+<resources>
+    <usb-device class="14" />
+</resources>

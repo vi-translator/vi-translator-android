@@ -433,10 +433,32 @@ class AreasPanel(h: Host) : Panel(h) {
  * What's translated (Game pages): the name and the note of each switch the core lists for a game (page_options
  * "groups"; GTA VI's: the phone, the pause menu, the help and notices).
  */
+/** What's translated: the headings the core's switches go under ("group"), in their order (the desktop's CONTENT_GROUPS) */
+private val CONTENT_GROUPS = listOf(
+    "phone" to "Phone translations",
+    "menus" to "Pause menu and map",
+    "notices" to "Help, instructions and notices",
+    "screens" to "Other screens",
+)
+
+/** each switch's name and note (the desktop's CONTENT_TEXT) */
 private val CONTENT_TEXT = mapOf(
-    "phone" to ("Phone translations" to "The phone's WhatUp chats, translated on a second phone beside it."),
-    "menus" to ("Pause menu and map" to "The pause menu: the map and its index, lists, help pages, settings and buttons."),
-    "notices" to ("Help, instructions and notices" to "The help box at the top left, the instructions under the subtitles, and the game's notices like “Controller disconnected”."),
+    "phone_text" to ("WhatUp chats" to "The phone's chats, translated on a second phone beside it."),
+    "phone_bubble" to ("Message bubble" to "A new message's bubble at the bottom right, translated above it."),
+    "pause_home" to ("First page and Game page" to "The menu's first page (Map, Game, Store, Help…), saving and loading, and their questions."),
+    "pause_map" to ("Map" to "The map's buttons and the objective card at the top left."),
+    "pause_brief" to ("Brief" to "The Brief tab: what was said, help texts and objectives so far."),
+    "pause_jason_lucia" to ("Jason & Lucia" to "The Jason & Lucia tab."),
+    "pause_progress" to ("Progress and stats" to "The Progress tab's cards and the stats pages."),
+    "pause_help" to ("Help pages" to "The Help menu's pages: Basics, Inventory, Vehicles and the rest."),
+    "pause_settings" to ("Settings pages" to "The settings: controls, display, audio and the rest."),
+    "pause_tabs" to ("Tab names and buttons" to "The row of tabs at the top and the buttons at the bottom right of every page."),
+    "help" to ("Help box" to "The help box at the top left."),
+    "instructions" to ("Instructions" to "The instructions under the subtitles."),
+    "game_notices" to ("Game notices" to "The game's notices, like “Controller disconnected”."),
+    "wasted" to ("Wasted and Busted" to "The big “wasted” when you die and “busted” when you're arrested."),
+    "mission_failed" to ("Mission failed" to "The “failed” page when a mission is lost: its reason and buttons."),
+    "weapon_wheel" to ("Weapon wheel" to "The weapon and item wheel: its tabs, the selected item and its stats."),
 )
 
 /** Game pages: the game's own pages that get a hand-made translation, in the game's look. */
@@ -467,7 +489,7 @@ class PagesPanel(h: Host) : Panel(h) {
 
     private fun draw(box: LinearLayout, script: JSONObject?, game: String) {
         box.removeAllViews()
-        val groups = script?.optJSONArray("groups")?.let { a -> (0 until a.length()).map { a.getJSONObject(it) } }?.filter { CONTENT_TEXT.containsKey(it.optString("id")) } ?: emptyList()
+        val groups = script?.optJSONArray("groups")?.let { a -> (0 until a.length()).map { a.getJSONObject(it) } }?.filter { CONTENT_TEXT.containsKey(it.optString("id")) && CONTENT_GROUPS.any { h -> h.first == it.optString("group") } } ?: emptyList()
         // (GTA VI's phone in the hand — its WhatUp chats translated on a second phone beside it: shown or not, the
         // player's, whatever the profile; with a core that lists What's translated, it's one of those switches)
         if (game == "gta6" && groups.isEmpty()) {
@@ -494,7 +516,7 @@ class PagesPanel(h: Host) : Panel(h) {
             val opt = options.getJSONObject(i)
             val id = opt.optString("id")
             if (id in covered) continue // (one of What's translated above)
-            val on = if (more.has(id)) more.optBoolean(id) else opt.optBoolean("on")
+            val on = optionOn(options, more, id)
             val card = k.card(12,
                 k.switch(scriptText(opt.opt("name")).ifEmpty { id }, on) {
                     more.put(id, it)
@@ -515,16 +537,20 @@ class PagesPanel(h: Host) : Panel(h) {
      */
     private fun contentCard(box: LinearLayout, groups: List<JSONObject>, options: JSONArray, more: JSONObject, script: JSONObject, game: String) {
         fun strings(g: JSONObject, key: String) = g.optJSONArray(key)?.let { a -> (0 until a.length()).map { a.optString(it) } } ?: emptyList()
-        fun pageOn(id: String): Boolean {
-            if (more.has(id)) return more.optBoolean(id)
-            for (i in 0 until options.length()) if (options.getJSONObject(i).optString("id") == id) return options.getJSONObject(i).optBoolean("on")
-            return false
-        }
         val areas = cfg.areas()
         fun areaOn(id: String) = (0 until areas.length()).any { areas.getJSONObject(it).let { a -> a.optString("id") == id && a.optBoolean("enabled", true) } }
-        fun groupOn(g: JSONObject) = (g.optBoolean("phone") && cfg.bool("phone_text", true)) || strings(g, "areas").any(::areaOn) || strings(g, "pages").any(::pageOn)
+        // each switch is one thing: a setting (the phone's), read areas, or pages of the game
+        fun groupOn(g: JSONObject): Boolean {
+            val setting = g.optString("setting")
+            // (the message bubble: as the phone in settings from before its own switch)
+            if (setting == "phone_bubble") return cfg.bool("phone_bubble", cfg.bool("phone_text", true))
+            if (setting.isNotEmpty()) return cfg.bool(setting, true)
+            val ids = strings(g, "areas")
+            if (ids.isNotEmpty()) return ids.any(::areaOn)
+            return strings(g, "pages").any { optionOn(options, more, it) }
+        }
         fun setGroup(g: JSONObject, on: Boolean) {
-            if (g.optBoolean("phone")) cfg.put("phone_text", on)
+            g.optString("setting").takeIf { it.isNotEmpty() }?.let { cfg.put(it, on) }
             val ids = strings(g, "areas")
             for (i in 0 until areas.length()) areas.getJSONObject(i).takeIf { it.optString("id") in ids }?.let {
                 it.put("enabled", on)
@@ -540,10 +566,16 @@ class PagesPanel(h: Host) : Panel(h) {
         val dialogue = k.switch(T("Dialogue and subtitles"), true) {}.apply { isEnabled = false }
         card.addView(dialogue)
         card.addView(k.muted(T("Always translated."), small = true))
-        for (g in groups) {
-            val (name, about) = CONTENT_TEXT.getValue(g.optString("id"))
-            card.addView(k.switch(T(name), groupOn(g)) { setGroup(g, it) })
-            card.addView(k.muted(T(about), small = true))
+        // the switches under their headings
+        for ((heading, title) in CONTENT_GROUPS) {
+            val under = groups.filter { it.optString("group") == heading }
+            if (under.isEmpty()) continue
+            card.addView(k.text(T(title), k.base, k.text, k.bold).apply { setPadding(0, k.dp(14), 0, 0) })
+            for (g in under) {
+                val (name, about) = CONTENT_TEXT.getValue(g.optString("id"))
+                card.addView(k.switch(T(name), groupOn(g)) { setGroup(g, it) })
+                card.addView(k.muted(T(about), small = true))
+            }
         }
         card.addView(k.button(T("Dialogue only")) {
             for (g in groups) setGroup(g, false)
@@ -558,6 +590,21 @@ class PagesPanel(h: Host) : Panel(h) {
         card.addView(k.muted(T("Turns off everything here except the dialogue and subtitles."), small = true).apply { setPadding(0, k.dp(6), 0, 0) })
         card.layoutParams = LinearLayout.LayoutParams(-1, -2).apply { topMargin = k.dp(12) }
         box.addView(card)
+    }
+
+    /**
+     * A page switch as the profile has it: as set; else, one split from an older switch ("inherits"), as that one
+     * is set; else the script's default (the core's pagescript::option_on).
+     */
+    private fun optionOn(options: JSONArray, more: JSONObject, id: String): Boolean {
+        if (more.has(id)) return more.optBoolean(id)
+        val opt = (0 until options.length()).map { options.getJSONObject(it) }.firstOrNull { it.optString("id") == id } ?: return false
+        val old = opt.optString("inherits")
+        if (old.isNotEmpty() && old != id) {
+            if (more.has(old)) return more.optBoolean(old)
+            (0 until options.length()).map { options.getJSONObject(it) }.firstOrNull { it.optString("id") == old }?.let { return it.optBoolean("on") }
+        }
+        return opt.optBoolean("on")
     }
 
     private fun fontsCard(box: LinearLayout) {

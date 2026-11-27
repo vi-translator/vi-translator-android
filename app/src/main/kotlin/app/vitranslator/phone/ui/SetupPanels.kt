@@ -456,6 +456,25 @@ class TranslatorPanel(h: Host) : Panel(h) {
 
     override fun refresh() {
         view.removeAllViews()
+        // VI Translator's ready translations first (on by default): turning them off asks first, as every line
+        // then waits for the translator (and with "Translation memory only", lines not in the player's own memory
+        // aren't translated at all)
+        lateinit var shared: SwitchRow
+        shared = k.switch(T("Use VI Translator's ready translations first"), cfg.bool("shared_translations", true)) { on ->
+            if (on) {
+                cfg.put("shared_translations", true)
+                return@switch
+            }
+            shared.set(true)
+            val none = cfg.str("engine", "local") == "local"
+            val text = T("Turn off VI Translator's ready translations? Every line will then wait for the translator chosen below, so translations will come much slower.") +
+                (if (none) " " + T("With no translation service chosen, lines not in your own memory won't be translated at all.") else "")
+            k.ask(text, T("Turn off")) {
+                shared.set(false)
+                cfg.put("shared_translations", false)
+            }
+        }
+        add(k.card(12, shared, k.muted(T("Most GTA VI lines are already translated and reviewed, and are shown instantly. Only lines not found there go to the translator chosen below. Keep this on: with it off, every line waits for the translator and translations come much slower."), small = true)))
         add(k.h3(T("Language")))
         val langs = App.core.languages()
         add(k.select(langs.map { it.code to if (it.english.isEmpty() || it.english == it.name) it.name else "${it.english} — ${it.name}" }, cfg.str("target_lang", "ar"), T("Language")) {

@@ -1,6 +1,7 @@
 package app.vitranslator.phone.ps
 
 import android.util.Log
+import app.vitranslator.phone.ps.chiaki.CantDisplayEvent
 import app.vitranslator.phone.ps.chiaki.Codec
 import app.vitranslator.phone.ps.chiaki.ConnectInfo
 import app.vitranslator.phone.ps.chiaki.ConnectVideoProfile
@@ -30,6 +31,9 @@ class PsStream(
 
         /** The PS5 asks for the user's login passcode (the PSN account has one). */
         fun onLoginPin(incorrect: Boolean)
+
+        /** The PS5 can't stream what it shows (true), or can again (false); the stream stays up. On chiaki's thread. */
+        fun onCantDisplay(cantDisplay: Boolean) {}
     }
 
     enum class State { CONNECTING, STREAMING, ENDED, FAILED }
@@ -73,6 +77,7 @@ class PsStream(
                 is LoginPinRequestEvent -> listener.onLoginPin(ev.pinIncorrect)
                 is QuitEvent -> listener.onState(if (ev.reason.isError) State.FAILED else State.ENDED, ev.reasonString ?: ev.reason.toString())
                 is RumbleEvent -> Unit
+                is CantDisplayEvent -> listener.onCantDisplay(ev.cantDisplay)
             }
         }
         s.setSurface(surface)

@@ -316,6 +316,8 @@ object ConnectedEvent: Event()
 data class LoginPinRequestEvent(val pinIncorrect: Boolean): Event()
 data class QuitEvent(val reason: QuitReason, val reasonString: String?): Event()
 data class RumbleEvent(val left: UByte, val right: UByte): Event()
+/** The PS5 can't stream what it shows (a screen or game that blocks Remote Play), or can again. */
+data class CantDisplayEvent(val cantDisplay: Boolean): Event()
 
 class CreateError(val errorCode: ErrorCode): Exception("Failed to create a native object: $errorCode")
 
@@ -374,6 +376,11 @@ class Session(connectInfo: ConnectInfo, logFile: String?, logVerbose: Boolean)
 	private fun eventRumble(left: Int, right: Int)
 	{
 		event(RumbleEvent(left.toUByte(), right.toUByte()))
+	}
+
+	private fun eventCantDisplay(cantDisplay: Boolean)
+	{
+		event(CantDisplayEvent(cantDisplay))
 	}
 
 	fun setSurface(surface: Surface?)

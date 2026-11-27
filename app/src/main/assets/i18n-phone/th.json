@@ -184,5 +184,8 @@
  "the capture card could not be opened": "เปิดการ์ดแคปเจอร์ไม่ได้",
  "the phone sees {name} over USB, but Android doesn't offer it to apps as a camera (see Setup › Source)": "โทรศัพท์เห็น {name} ผ่าน USB แต่ Android ไม่ได้ให้แอปใช้เป็นกล้อง (ดู ตั้งค่า › แหล่งภาพ)",
  "xbox.com's own player in the app: sign in and choose the console there. The phone's screen stays on.": "เครื่องเล่นของ xbox.com เองภายในแอป: ลงชื่อเข้าใช้และเลือกคอนโซลที่นั่น หน้าจอโทรศัพท์จะเปิดค้างไว้",
- "{n} read · {ms} ms": "อ่านแล้ว {n} · {ms} ms"
+ "{n} read · {ms} ms": "อ่านแล้ว {n} · {ms} ms",
+ "Overlays on this phone": "โอเวอร์เลย์บนโทรศัพท์เครื่องนี้",
+ "Show the overlays on this phone": "แสดงโอเวอร์เลย์บนโทรศัพท์เครื่องนี้",
+ "The PS5 is showing something Remote Play can't stream": "PS5 กำลังแสดงสิ่งที่ Remote Play สตรีมไม่ได้"
 }

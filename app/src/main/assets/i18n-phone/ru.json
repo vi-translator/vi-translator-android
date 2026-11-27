@@ -184,5 +184,8 @@
  "the capture card could not be opened": "не удалось открыть карту захвата",
  "the phone sees {name} over USB, but Android doesn't offer it to apps as a camera (see Setup › Source)": "телефон видит {name} через USB, но Android не предоставляет его приложениям как камеру (см. Настройка › Источник)",
  "xbox.com's own player in the app: sign in and choose the console there. The phone's screen stays on.": "Собственный проигрыватель xbox.com в приложении: войдите и выберите консоль там. Экран телефона остаётся включённым.",
- "{n} read · {ms} ms": "Прочитано: {n} · {ms} мс"
+ "{n} read · {ms} ms": "Прочитано: {n} · {ms} мс",
+ "Overlays on this phone": "Перевод поверх игры на этом телефоне",
+ "Show the overlays on this phone": "Показывать перевод поверх игры на этом телефоне",
+ "The PS5 is showing something Remote Play can't stream": "PS5 показывает то, что Remote Play не может транслировать"
 }

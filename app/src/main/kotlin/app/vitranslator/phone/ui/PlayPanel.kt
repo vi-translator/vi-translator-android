@@ -48,6 +48,11 @@ class PlayPanel(h: Host) : Panel(h) {
     }
     private var overlayUrl: String? = null
     private val glance = k.column()
+    /** where the translations are shown, each switched on or off at once (the desktop's Play "Show on" card) */
+    private val outputs = k.column()
+    private var tvs: List<app.vitranslator.phone.core.Tv> = emptyList()
+    private var ticks = 0
+    private var allOffShown = false
     private val log = k.column()
     private val paused: TextView
     private var langs = App.core.languages()
@@ -91,6 +96,7 @@ class PlayPanel(h: Host) : Panel(h) {
 
         // ---- at a glance
         add(glance.apply { layoutParams = LinearLayout.LayoutParams(-1, -2).apply { topMargin = k.dp(4) } })
+        add(outputs.apply { layoutParams = LinearLayout.LayoutParams(-1, -2).apply { topMargin = k.dp(10) } })
 
         // ---- live translations
         paused = k.badge(T("Paused"))
@@ -123,6 +129,8 @@ class PlayPanel(h: Host) : Panel(h) {
                 preview.drawText = false
             }
         }
+        // (without the core's TV page, the preview draws the translations itself: this phone's overlay switch too)
+        if (overlayUrl == null) preview.drawText = cfg.bool("device_overlays", true)
         val running = Live.state in listOf(Live.State.STARTING, Live.State.CONNECTING, Live.State.READING)
         start.text = if (running) T("Stop") else T("Start translating")
         start.background = if (running) k.round(k.panel2, 9, k.line) else k.sunset(9)
@@ -140,6 +148,7 @@ class PlayPanel(h: Host) : Panel(h) {
         preview.rtl = rtl
         stageMessage()
         glance()
+        listTvs()
         paused.visibility = if (cfg.bool("live_translations", true)) View.GONE else View.VISIBLE
         lines()
     }
@@ -178,6 +187,8 @@ class PlayPanel(h: Host) : Panel(h) {
     }
 
     override fun tick() {
+        // (the TVs' online dots: asked again every few seconds)
+        if (++ticks % 3 == 0) listTvs()
         val r = App.reader
         stats.text = if (r != null && Live.state == Live.State.READING) T("{n} read · {ms} ms", "n" to r.read, "ms" to r.lastMs) else ""
         stats.visibility = if (stats.text.isEmpty() || !cfg.bool("fps_badge", false)) View.GONE else View.VISIBLE
@@ -206,6 +217,50 @@ class PlayPanel(h: Host) : Panel(h) {
         val areas = cfg.areas()
         val names = (0 until areas.length()).map { areas.getJSONObject(it) }.filter { it.optBoolean("enabled", true) }.joinToString(", ") { it.optString("name") }
         glance.addView(glanceCard(R.drawable.ic_areas, T("Read areas"), names.ifEmpty { "—" }, cfg.activeProfile()?.optString("name") ?: "") { h.go("areas") })
+    }
+
+    // ---- Show on: this phone's overlay and each connected TV, each on or off at once while translating
+    private fun listTvs() {
+        h.io {
+            val list = try { App.core.pairedTvs() } catch (e: Exception) { emptyList() }
+            h.ui {
+                if (list != tvs || outputs.childCount == 0 || allOffShown != !cfg.bool("overlays_enabled", true)) {
+                    tvs = list
+                    outputsCard()
+                }
+            }
+        }
+    }
+
+    private fun outputsCard() {
+        outputs.removeAllViews()
+        val ic = k.icon(R.drawable.ic_show, k.accentUi, 20).apply {
+            background = k.round(k.accentSoft, 10)
+            setPadding(k.dp(8), k.dp(8), k.dp(8), k.dp(8))
+            layoutParams = LinearLayout.LayoutParams(k.dp(38), k.dp(38))
+            scaleType = android.widget.ImageView.ScaleType.CENTER
+        }
+        val body = k.column(k.label(T("Show on")))
+        body.addView(k.switch(T("Overlays on this phone"), cfg.bool("device_overlays", true), small = true) {
+            cfg.put("device_overlays", it, now = true)
+        })
+        for (tv in tvs) {
+            body.addView(k.switch("📺 " + tv.name + if (tv.online == true) "  ●" else "", tv.on, small = true) { on ->
+                tvs = tvs.map { t -> if (t.id == tv.id) t.copy(on = on) else t }
+                h.io { App.core.setTvOn(tv.id, on) }
+            })
+        }
+        val allOff = !cfg.bool("overlays_enabled", true)
+        allOffShown = allOff
+        body.addView(k.muted(
+            if (allOff) T("Overlays are off for everything: turn on Overlays at the top.") else T("Turn each one on or off at any time, even while translating."),
+            small = true,
+        ).apply { if (allOff) setTextColor(k.warn) })
+        outputs.addView(k.row(ic, k.grow(body), k.link(T("Change")) { h.go("show") }, gap = 12).apply {
+            background = k.round(k.panel, 14, k.line)
+            setPadding(k.dp(12), k.dp(12), k.dp(8), k.dp(12))
+            gravity = android.view.Gravity.TOP
+        })
     }
 
     private fun glanceCard(icon: Int, key: String, value: String, note: String, change: () -> Unit): View {

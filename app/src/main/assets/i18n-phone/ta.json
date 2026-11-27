@@ -184,5 +184,8 @@
  "the capture card could not be opened": "கேப்சர் கார்டைத் திறக்க முடியவில்லை",
  "the phone sees {name} over USB, but Android doesn't offer it to apps as a camera (see Setup › Source)": "போன் USB வழியாக {name}-ஐப் பார்க்கிறது, ஆனால் Android அதைச் செயலிகளுக்குக் கேமராவாக வழங்கவில்லை (அமைப்பு › மூலம் பார்க்கவும்)",
  "xbox.com's own player in the app: sign in and choose the console there. The phone's screen stays on.": "செயலிக்குள்ளேயே xbox.com-இன் சொந்த பிளேயர்: அங்கேயே உள்நுழைந்து கன்சோலைத் தேர்ந்தெடுக்கவும். போனின் திரை இயக்கத்திலேயே இருக்கும்.",
- "{n} read · {ms} ms": "{n} படிக்கப்பட்டது · {ms} ms"
+ "{n} read · {ms} ms": "{n} படிக்கப்பட்டது · {ms} ms",
+ "Overlays on this phone": "இந்த ஃபோனில் ஓவர்லே",
+ "Show the overlays on this phone": "இந்த ஃபோனில் ஓவர்லேயைக் காட்டு",
+ "The PS5 is showing something Remote Play can't stream": "Remote Play ஸ்ட்ரீம் செய்ய முடியாத ஒன்றை PS5 காட்டுகிறது"
 }

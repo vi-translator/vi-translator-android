@@ -184,5 +184,8 @@
  "the capture card could not be opened": "δεν ήταν δυνατό να ανοίξει η κάρτα καταγραφής",
  "the phone sees {name} over USB, but Android doesn't offer it to apps as a camera (see Setup › Source)": "το τηλέφωνο βλέπει τη συσκευή {name} μέσω USB, αλλά το Android δεν τη διαθέτει στις εφαρμογές ως κάμερα (δείτε Ρύθμιση › Πηγή)",
  "xbox.com's own player in the app: sign in and choose the console there. The phone's screen stays on.": "Το ίδιο το player του xbox.com μέσα στην εφαρμογή: συνδεθείτε και επιλέξτε την κονσόλα εκεί. Η οθόνη του τηλεφώνου μένει αναμμένη.",
- "{n} read · {ms} ms": "Διαβάστηκαν {n} · {ms} ms"
+ "{n} read · {ms} ms": "Διαβάστηκαν {n} · {ms} ms",
+ "Overlays on this phone": "Επικαλύψεις σε αυτό το τηλέφωνο",
+ "Show the overlays on this phone": "Εμφάνιση των επικαλύψεων σε αυτό το τηλέφωνο",
+ "The PS5 is showing something Remote Play can't stream": "Το PS5 δείχνει κάτι που το Remote Play δεν μπορεί να μεταδώσει"
 }

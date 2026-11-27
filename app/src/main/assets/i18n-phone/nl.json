@@ -184,5 +184,8 @@
  "the capture card could not be opened": "de capture card kon niet worden geopend",
  "the phone sees {name} over USB, but Android doesn't offer it to apps as a camera (see Setup › Source)": "de telefoon ziet {name} via USB, maar Android biedt het niet als camera aan apps aan (zie Instellen › Bron)",
  "xbox.com's own player in the app: sign in and choose the console there. The phone's screen stays on.": "De eigen speler van xbox.com in de app: meld je daar aan en kies daar de console. Het scherm van de telefoon blijft aan.",
- "{n} read · {ms} ms": "{n} gelezen · {ms} ms"
+ "{n} read · {ms} ms": "{n} gelezen · {ms} ms",
+ "Overlays on this phone": "Overlays op deze telefoon",
+ "Show the overlays on this phone": "Overlays op deze telefoon tonen",
+ "The PS5 is showing something Remote Play can't stream": "De PS5 toont iets dat Remote Play niet kan streamen"
 }

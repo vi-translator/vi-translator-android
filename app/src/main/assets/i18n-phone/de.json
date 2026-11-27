@@ -184,5 +184,8 @@
  "the capture card could not be opened": "die Capture-Karte konnte nicht geöffnet werden",
  "the phone sees {name} over USB, but Android doesn't offer it to apps as a camera (see Setup › Source)": "das Handy erkennt {name} über USB, aber Android bietet es Apps nicht als Kamera an (siehe Einrichten › Quelle)",
  "xbox.com's own player in the app: sign in and choose the console there. The phone's screen stays on.": "Der eigene Player von xbox.com in der App: Melden Sie sich dort an und wählen Sie die Konsole. Der Handybildschirm bleibt an.",
- "{n} read · {ms} ms": "{n} gelesen · {ms} ms"
+ "{n} read · {ms} ms": "{n} gelesen · {ms} ms",
+ "Overlays on this phone": "Overlays auf diesem Handy",
+ "Show the overlays on this phone": "Overlays auf diesem Handy anzeigen",
+ "The PS5 is showing something Remote Play can't stream": "Die PS5 zeigt etwas, das Remote Play nicht streamen kann"
 }

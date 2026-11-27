@@ -184,5 +184,8 @@
  "the capture card could not be opened": "capture card tidak dapat dibuka",
  "the phone sees {name} over USB, but Android doesn't offer it to apps as a camera (see Setup › Source)": "ponsel mendeteksi {name} lewat USB, tetapi Android tidak menyediakannya untuk aplikasi sebagai kamera (lihat Pengaturan › Sumber)",
  "xbox.com's own player in the app: sign in and choose the console there. The phone's screen stays on.": "Pemutar milik xbox.com sendiri di dalam aplikasi: masuk dan pilih konsol di sana. Layar ponsel tetap menyala.",
- "{n} read · {ms} ms": "{n} dibaca · {ms} ms"
+ "{n} read · {ms} ms": "{n} dibaca · {ms} ms",
+ "Overlays on this phone": "Overlay di ponsel ini",
+ "Show the overlays on this phone": "Tampilkan overlay di ponsel ini",
+ "The PS5 is showing something Remote Play can't stream": "PS5 menampilkan sesuatu yang tidak bisa di-stream oleh Remote Play"
 }

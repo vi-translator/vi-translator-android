@@ -184,5 +184,8 @@
  "the capture card could not be opened": "キャプチャーボードを開けませんでした",
  "the phone sees {name} over USB, but Android doesn't offer it to apps as a camera (see Setup › Source)": "スマホは USB 経由で {name} を認識していますが、Android がカメラとしてアプリに提供していません（設定 › ソース を参照）",
  "xbox.com's own player in the app: sign in and choose the console there. The phone's screen stays on.": "アプリ内で開く xbox.com のプレーヤー：そこでサインインしてゲーム機を選びます。スマホの画面はオンのままになります。",
- "{n} read · {ms} ms": "{n} 件読み取り · {ms} ms"
+ "{n} read · {ms} ms": "{n} 件読み取り · {ms} ms",
+ "Overlays on this phone": "このスマホのオーバーレイ",
+ "Show the overlays on this phone": "このスマホにオーバーレイを表示",
+ "The PS5 is showing something Remote Play can't stream": "PS5 にリモートプレイで配信できない画面が表示されています"
 }

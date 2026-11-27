@@ -103,6 +103,12 @@ interface Core {
 
     /** Forget a TV (its key stops working; the TV shows a new code). */
     fun forgetTv(id: String)
+
+    /**
+     * Switch a connected TV's translations on or off at once, while translating: it stays connected and
+     * shows nothing while off (kept with the TV). False when there's no such TV (or no core to do it).
+     */
+    fun setTvOn(id: String, on: Boolean): Boolean = false
 }
 
 /**
@@ -135,7 +141,8 @@ data class Word(val text: String, val left: Int, val top: Int, val right: Int, v
 data class Line(val id: Long, val areaId: String, val original: String, val translated: String, val timeMs: Long)
 
 /** [id]: the TV app's own id; [address]: "ip:port" (empty when not known); [online]: it asked for the page lately (null: unknown). */
-data class Tv(val id: String, val name: String, val address: String, val online: Boolean? = null)
+/** [on]: shows the translations (its switch on Play and in Show on); off, it stays connected and blank. */
+data class Tv(val id: String, val name: String, val address: String, val online: Boolean? = null, val on: Boolean = true)
 
 enum class PairResult {
     OK,

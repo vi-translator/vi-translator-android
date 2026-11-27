@@ -184,5 +184,8 @@
  "the capture card could not be opened": "无法打开采集卡",
  "the phone sees {name} over USB, but Android doesn't offer it to apps as a camera (see Setup › Source)": "手机通过 USB 识别到 {name}，但 Android 没有将它作为相机提供给应用（见 设置 › 来源）",
  "xbox.com's own player in the app: sign in and choose the console there. The phone's screen stays on.": "应用内的 xbox.com 自带播放器：在其中登录并选择主机。手机屏幕保持常亮。",
- "{n} read · {ms} ms": "已读取 {n} 条 · {ms} ms"
+ "{n} read · {ms} ms": "已读取 {n} 条 · {ms} ms",
+ "Overlays on this phone": "这部手机上的叠加层",
+ "Show the overlays on this phone": "在这部手机上显示叠加层",
+ "The PS5 is showing something Remote Play can't stream": "PS5 正在显示远程游玩无法串流的内容"
 }

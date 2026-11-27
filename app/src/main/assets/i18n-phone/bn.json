@@ -184,5 +184,8 @@
  "the capture card could not be opened": "ক্যাপচার কার্ড খোলা যায়নি",
  "the phone sees {name} over USB, but Android doesn't offer it to apps as a camera (see Setup › Source)": "ফোন USB-এর মাধ্যমে {name} দেখতে পাচ্ছে, কিন্তু Android এটিকে অ্যাপগুলোর কাছে ক্যামেরা হিসেবে দেয় না (সেটআপ › উৎস দেখুন)",
  "xbox.com's own player in the app: sign in and choose the console there. The phone's screen stays on.": "অ্যাপের ভেতরে xbox.com-এর নিজস্ব প্লেয়ার: সেখানেই সাইন ইন করে কনসোল বেছে নিন। ফোনের স্ক্রিন চালু থাকে।",
- "{n} read · {ms} ms": "{n}টি পড়া · {ms} ms"
+ "{n} read · {ms} ms": "{n}টি পড়া · {ms} ms",
+ "Overlays on this phone": "এই ফোনে ওভারলে",
+ "Show the overlays on this phone": "এই ফোনে ওভারলে দেখান",
+ "The PS5 is showing something Remote Play can't stream": "PS5 এমন কিছু দেখাচ্ছে যা রিমোট প্লে স্ট্রিম করতে পারে না"
 }

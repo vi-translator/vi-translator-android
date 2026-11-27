@@ -15,6 +15,10 @@ import java.util.concurrent.atomic.AtomicBoolean
  * too early, is skipped at once, so the stream never waits for the reading.
  */
 class Reader(private val core: Core) {
+    /** The system's power service, for its thermal status (set by the service that reads). */
+    @Volatile
+    var power: android.os.PowerManager? = null
+
     private val worker = Executors.newSingleThreadExecutor { r -> Thread(r, "reader").apply { isDaemon = true } }
     private val busy = AtomicBoolean(false)
 
@@ -72,7 +76,8 @@ class Reader(private val core: Core) {
                 preview?.let { show -> small(rgba, snap.width, snap.height)?.let(show) }
                 val wait = core.processFrame(rgba, snap.width, snap.height)
                 lastMs = SystemClock.elapsedRealtime() - start
-                nextAt = start + wait.coerceIn(0, 2000)
+                // (a hot phone reads less often: see heatFactor)
+                nextAt = start + (wait.coerceIn(0, 2000) * heatFactor()).coerceAtMost(4000)
                 read++
             } catch (e: Exception) {
                 Log.w(TAG, "reading failed", e)
@@ -82,6 +87,21 @@ class Reader(private val core: Core) {
             }
         }
         return true
+    }
+
+    /**
+     * How much longer to wait between readings while the phone is hot (Android 10+): the system's
+     * thermal status, 1 when cool, 2 when warm, 4 when it's throttling hard. Reading slower lets
+     * it cool down instead of the system slowing everything (the stream too).
+     */
+    private fun heatFactor(): Long {
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.Q) return 1
+        val status = power?.currentThermalStatus ?: return 1
+        return when {
+            status >= android.os.PowerManager.THERMAL_STATUS_SEVERE -> 4
+            status >= android.os.PowerManager.THERMAL_STATUS_MODERATE -> 2
+            else -> 1
+        }
     }
 
     /** The picture stopped (the stream ended). */
